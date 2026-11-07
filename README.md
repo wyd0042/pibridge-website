@@ -1,59 +1,68 @@
-# PiBridge 留学工作室官网视觉样稿
+# PiBridge 派桥留学官网视觉样稿
 
-原生 HTML / CSS / JavaScript 双页网站，无后台、数据库、上传或实际咨询表单。
+原生 HTML、CSS、JavaScript 静态站点。按参考站恢复完整页面结构、照片轮播、团队、案例、流程、资讯和基础演示交互，无后台或个人资料收集。
 
-- 首页：`index.html`
-- 案例：`cases.html`
-- Offer 墙：`cases.html#offers`
-- 地区筛选示例：`cases.html?region=us#admissions`
+- 在线预览：<https://wyd0042.github.io/pibridge-website/>
+- GitHub：<https://github.com/wyd0042/pibridge-website>
+- 视觉及公开演示素材参考：<https://xzcoffer.cn/index.html>
 
-## 本地预览与检查
+## 页面清单
+
+| 页面 | 路径 | 主要内容区块数 |
+| --- | --- | --- |
+| 首页 | `index.html` | 13 |
+| 高端 5v1 VIP | `service-vip.html` | 7 |
+| 关于我们 | `about.html` | 7 |
+| 服务流程 | `services.html` | 4 |
+| 品牌口碑与案例 | `cases.html` | 6 |
+| 联系我们 | `contact.html` | 4 |
+| 留学资讯 | `news.html` | 2 |
+| 排名主题资讯 | `article-ranking.html` | 3 |
+| 文书主题资讯 | `article-sop.html` | 3 |
+| 签证主题资讯 | `article-visa.html` | 3 |
+
+页面使用原站对应路径及锚点。案例页支持 `#admissions`、`#offers`、`#reviews`、`#rankings` 和 `#case-1` 至 `#case-20`。筛选示例：`cases.html?region=us&degree=phd#admissions`。
+
+## 内容性质
+
+所有页面顶部明确标识为视觉样稿。参考站的 20 个案例、22 份 Offer、人物照片、历程、数字和服务方案仅作为演示，不代表派桥的真实团队、服务承诺、录取或发展记录。评价使用演示改写；三篇资讯为同主题演示摘要，并链接原文。
+
+联系入口只使用已有 PiBridge 微信二维码。原站电话、邮箱、地址、二维码、备案号和咨询收件接口均未迁入。申请与订阅表单只演示浏览器校验：不发邮件，不发网络请求，不写浏览器存储，演示完成后清空输入。
+
+## 本地运行
 
 需要 Node.js 24+ 和 Python 3。
 
 ```sh
 npm ci
+npm run generate
 npm test
 npm run build
 npm run preview
 ```
 
-打开 `http://127.0.0.1:4173`。不要通过 `file://` 打开：网站使用 JavaScript ES modules。
+打开 `http://127.0.0.1:4173`。网站使用 ES modules，请通过 HTTP 预览。
 
-`npm test` 检查案例筛选、详情到大图的切换、二维码、关闭与焦点恢复、手机菜单，以及项目子路径下的链接和图片。DOM 测试不替代浏览器视觉验收。
+## 如何修改
 
-## 替换 Logo、文案及 Offer
+- **页面内容、共用导航、页脚及模板**：编辑 `scripts/render-pages.mjs` 后运行 `npm run generate`。根目录的 10 个 HTML 是可直接托管的生成结果；测试会检查它们和模板一致。
+- **案例与 Offer**：编辑 `cases-data.js`。字段包括院校、专业、背景、成绩、地区、学位、参考来源及图片数组。替换事实资料前确认授权和脱敏，并同步修改演示说明。地区为 `hk/uk/us/ca/au/eu`，其中 `hk` 为港新、`au` 为澳新；学位为 `master/phd`。
+- **Logo**：`assets/brand/wordmark.png` 只含 PiBridge 英文标志；中文“派桥留学”通过模板中的 `.brand` 文字显示。样式保持 `height:auto` 和原图比例，避免旧版固定高度造成拉伸。
+- **二维码**：替换 `assets/brand/wechat-qr.png`，保留完整图案及白边。
+- **配色和响应式**：编辑 `styles.css`；颜色变量位于文件顶部。当前使用参考站的深蓝与金色方案。
+- **交互**：`app.js` 包含轮播、菜单、案例抽屉、大图、筛选、排序、弹窗和表单演示逻辑。
+- **公开图片清单**：参考图片登记在 `assets/sources.json`，包括来源 URL 和 SHA-256。增加或替换后更新记录；构建清单在 `scripts/public-files.mjs`。不会自动复制整个项目或素材目录。
 
-1. **Logo**：替换 `assets/brand/logo.png`，保持宽高比例；必要时更新 `app.js` 内图片尺寸及 `styles.css` 的 `.brand` 宽度。二维码位于 `assets/brand/wechat-qr.png`，保留完整二维码和白边。
-2. **文案**：首页正文在 `index.html`，案例页正文在 `cases.html`；导航、咨询区和页脚在 `app.js`；颜色与间距在 `styles.css` 顶部。
-3. **案例**：编辑 `cases-data.js`。每条记录包括 `id`、`region`、`school`、`programme`、`title`、`background`、`tags`、`image`、`summary`、`demo` 和 `placeholder`。地区值为 `uk/us/au/ca/hk/sg`。批量占位由 `Array.from` 生成，可将对应展示位改写为独立对象，并相应减少生成数量。
-4. **Offer 图片**：放入 `assets/offers/`，更新案例的 `image` 相对路径，并在 `scripts/build.mjs` 的 `publicFiles` 中加入该文件。构建只复制该清单，不会自动发布整个文件夹。
-5. **真实材料发布**：先确认授权和脱敏，再以事实替换背景、成绩与说明；仅对已确认的案例设置 `demo: false`、`placeholder: false`。MIT 与中性样稿持续作为演示使用。顶部视觉样稿提示在正式上线前应一并审核。
+## 素材与发布范围
 
-案例卡、详情和 Offer 墙共用数据。初始提供 20 个案例位、22 个 Offer 位，与参考案例页保持展示密度；这些数量不是服务或录取业绩。额外两个 Offer 位仅为待替换排版展示位。
+PiBridge 英文标志从原有公开品牌 Logo 裁出，二维码沿用已有品牌素材。原始模板目录没有修改。参考照片和 Offer 从用户指定参考站公开页面获取，图片内容与水印保持不变，来源记录在 `assets/sources.json`。旧版 MIT 和中性演示图片不用于新版；原素材仍保存在只读模板目录。
 
-## 素材来源与公开范围
+构建只发布 10 页、共用 CSS/JavaScript、3 份品牌资源和 46 张登记的参考图片，共 62 个文件。模板生成器、测试、README、来源登记、原始参考 HTML、私人素材及凭据不进入站点构建。
 
-- 视觉布局参考：<https://xzcoffer.cn/>、<https://xzcoffer.cn/cases.html#offers>。重新实现布局与样式；未使用参考站的学生资料、Offer、评价、数字或联系方式。
-- Logo 来自已有 PiBridge `header.png`，裁切区域 `[75,55,720,210]`。
-- 官方微信二维码来自已有 `cta-footer.png`，裁切区域 `[375,225,705,555]`，保留白边与品牌蓝色边角。
-- `demo-offer.png` 是已有明确标记的示例材料。
-- `mit-demo.jpg` 复制自已获准公开的 `samples/mit/offer.jpg`，字节不变，保留既有脱敏和水印。清华大学、GPA 3.8、雅思 8.0 均为原模板演示设定。
-- `placeholder.svg` 为本站自行制作的明确标记展示位；品牌 Hero 使用 HTML/CSS 排版，无外部图库依赖。
+GitHub Actions 在推送 `main` 后运行测试并发布 `dist/`。所有内部页面及静态资源使用相对路径，兼容 GitHub Pages 的 `/pibridge-website/` 子路径。
 
-原始品牌长图、私人 Offer、学生资料、模板工作台、绝对本地路径、配置中的嵌入图片及凭据不进入构建。模板目录保持只读。
+## 验证记录
 
-## GitHub Pages
+8 项自动化测试覆盖：10 页内容完整性、品牌文字、链接与锚点、素材清单和哈希、地区与学位组合筛选、空结果、案例直达、嵌套大图、关闭与焦点恢复、轮播与暂停、手机菜单、滚动导航、排名排序、演示表单及无网络/存储行为。
 
-GitHub Actions 在 `main` 推送后运行测试，以白名单构建 `dist/`，再发布该目录。源码和 README 不会出现在网站构建中。所有页面、脚本及资源使用相对路径，支持 `/pibridge-website/` 项目路径。
-
-- 仓库：<https://github.com/wyd0042/pibridge-website>
-- 预览：<https://wyd0042.github.io/pibridge-website/>
-
-首次启用时，在仓库 Settings → Pages 中选择 GitHub Actions。后续编辑、提交并推送 `main` 即可自动更新。
-
-## 视觉验收
-
-验收尺寸为 1440px 和 390px；检查两页、六个地区筛选、案例详情、大图滚动、弹窗关闭、二维码、手机菜单及演示标签。390px 的 Offer 墙使用单列完整图片，桌面使用四列。
-
-本次运行的浏览器连接不可用，未生成桌面或手机截图，实际浏览器视觉和扫码验收仍待补齐。自动化 DOM 测试及线上 HTTP 资源检查的结果将在交付时单独说明。
+图片解码已检查。DOM 测试不替代浏览器布局验证。本次运行浏览器连接仍不可用，1440px 和 390px 的逐页截图、实际渲染、手势及扫码检查尚未完成，不能据此声称达到逐像素一致。
