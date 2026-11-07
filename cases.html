@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>案例与 Offer 墙｜PiBridge 留学工作室</title>
+  <meta name="description" content="PiBridge 案例与 Offer 墙视觉样稿。所有案例均为演示材料或待替换展示位，不代表真实服务业绩。">
+  <meta name="theme-color" content="#172a40"><link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css"><script type="module" src="app.js"></script>
+</head>
+<body data-page="cases">
+  <a class="skip-link" href="#main">跳至正文</a><div class="prototype-note">网站视觉样稿 <span>·</span> 部分内容为演示</div>
+  <div data-site-header></div>
+  <main id="main">
+    <section class="sub-hero dark-section"><div class="container hero-grid">
+      <div class="sub-hero-copy"><span class="eyebrow">ADMISSION CASES</span><h1>每一段积累，<br>都有下一程的可能。</h1><p>从学生背景到申请方向，从材料准备到 Offer 展示，<br class="desktop-only">让申请的每一步更具体、更清晰。</p><div class="breadcrumb"><a href="index.html">首页</a><span>/</span><span>案例与 Offer 墙</span></div></div>
+      <div class="hero-offers" aria-label="演示 Offer 展示"><div class="floating-offer"><img src="assets/offers/placeholder.svg" alt="案例展示位，待替换"><span>演示案例 · 待替换</span></div><div class="floating-offer"><img src="assets/offers/mit-demo.jpg" alt="MIT 已脱敏演示 Offer，非真实服务业绩"><span>演示案例 · MIT 样稿</span></div><div class="floating-offer"><img src="assets/offers/demo-offer.png" alt="明确标记为示例材料的演示图片"><span>演示案例 · 示例材料</span></div></div>
+    </div></section>
+    <nav class="anchor-bar" aria-label="页内导航"><div class="container"><a href="#admissions">申请案例</a><a href="#offers">Offer 墙</a><button data-consult>微信咨询 <span aria-hidden="true">↗</span></button></div></nav>
+    <section class="section" id="admissions"><div class="container">
+      <div class="section-head"><span class="eyebrow">STUDENT BACKGROUNDS</span><h2>不同的背景，共同的下一程</h2><p>点击案例，查看背景资料与 Offer 图片。当前为演示材料和案例展示位，后续将替换为获授权内容。</p></div>
+      <div class="case-filters" role="group" aria-label="按申请目的地筛选"><b>申请地区</b><div data-region-filters></div></div>
+      <div class="results-line"><span data-result-count role="status" aria-live="polite"></span><span>全部为演示内容</span></div>
+      <div class="case-grid" data-cases></div><p class="empty-state" data-empty hidden>该地区暂无展示内容。<button class="text-link" data-reset-filters>查看全部案例</button></p>
+    </div></section>
+    <section class="section soft" id="offers"><div class="container">
+      <div class="section-head split"><div><span class="eyebrow">OFFER WALL</span><h2>一份 Offer，一个新的起点</h2><p>点击图片查看完整大图。以下均为演示案例或待替换展示位，不代表真实录取或服务业绩。</p></div><span class="wall-note"><span class="status-dot"></span> 演示材料展示</span></div>
+      <div class="offer-wall" data-offer-wall></div>
+    </div></section>
+    <div data-consult-section></div>
+  </main>
+  <div data-site-footer></div>
+  <noscript><p class="noscript">请启用 JavaScript 以查看案例、筛选和大图预览。你也可以<a href="assets/brand/wechat-qr.png">直接查看微信二维码</a>。</p></noscript>
+</body></html>
