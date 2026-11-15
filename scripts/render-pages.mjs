@@ -38,16 +38,18 @@ const stages = [
 function processGrid() { return `<ol class="process-grid">${stages.map(([title,desc],i)=>`<li><span>${String(i+1).padStart(2,'0')}</span><h3><a href="services.html#stage-${i+1}">${title}</a></h3><p>${desc}</p></li>`).join('')}</ol>`; }
 function caseTile(c) { return `<article class="case-tile" id="${c.id}" data-region="${c.region}" data-degree="${c.degree}"><div class="case-rank"><b>${e(c.qs)}</b><span>${e(c.school)}</span><small>原站演示</small></div><div class="case-tile-body"><small>${e(c.background)}</small><h3>${e(c.title)}</h3><p>${e(c.programme)}</p><div class="tag-row"><span>${e(c.gpa)}</span><span>${e(c.language)}</span></div><a href="#${c.id}" data-case="${c.id}">查看背景与 Offer →</a></div></article>`; }
 function feature(c) { return `<article class="case-card"><a href="cases.html#${c.id}" class="case-photo">${img(c.offers[0].image.replace('assets/img/',''),`${c.school} Offer，参考站演示案例`)}${badge}</a><div class="case-body"><span class="qs-badge">${c.qs} · ${c.degree==='phd'?'博士':'硕士'}申请</span><h3>${e(c.school)} ${e(c.programme)}</h3><div class="tag-row"><span>${e(c.gpa)}</span><span>${e(c.language)}</span></div><p>${e(c.background)}，${e(c.title)}。</p><a href="cases.html#${c.id}">查看背景与 Offer →</a></div></article>`; }
-// The requested display priority applies to target universities, independent of publication date.
+// Keep the requested university groups, with the newest issue dates first within each group.
 const offerPriority = [
  ['布朗大学','哥伦比亚大学','康奈尔大学','达特茅斯学院','哈佛大学','普林斯顿大学','宾夕法尼亚大学','耶鲁大学'],
  ['牛津大学','剑桥大学','帝国理工学院','伦敦政治经济学院'],
  ['香港大学','香港中文大学','香港科技大学','新加坡国立大学','南洋理工大学'],
  ['伦敦大学学院'],
 ];
-const schoolPriority = new Map(offerPriority.flat().map((school, index) => [school, index]));
-const rankOffer = ({school}) => schoolPriority.get(school) ?? schoolPriority.size;
-const orderedOffers = publishedOffers.toSorted((a,b) => rankOffer(a) - rankOffer(b));
+const schoolPriority = new Map(offerPriority.flatMap((schools, tier) => schools.map(school => [school, tier])));
+const rankOffer = ({school}) => schoolPriority.get(school) ?? offerPriority.length;
+const orderedOffers = publishedOffers.toSorted((a,b) =>
+ rankOffer(a) - rankOffer(b) || (b.date ?? '').localeCompare(a.date ?? '')
+);
 const offerAnchor = image => `offer-${image.split('/').at(-1).replace(/\.png$/, '')}`;
 function publishedBackgroundCard(offer) {
  const { originalSchool, originalProgramme, school, programme, image } = offer;
@@ -127,7 +129,7 @@ function services() {
 function casesPage() {
  let html=subHero('REPUTATION','录取 Offer 与案例','查看各院校录取材料的脱敏首页，以及不同申请方向的参考案例。');
  html+=`<nav class="anchor-bar" aria-label="案例页导航"><div class="container"><a href="#admissions" data-spy-link>录取案例</a><a href="#offers" data-spy-link>Offer 墙</a><a href="#reviews" data-spy-link>用户评价</a><a href="#rankings" data-spy-link>院校排名</a></div></nav>`;
- html+=section(head('OFFER WALL','录取 Offer 展示墙','点击任一卡片查看已脱敏的文件首页。部分文件仅保留适合公开的文字。')+
+ html+=section(head('OFFER WALL','录取 Offer 展示墙','按院校分组，同组按发函日期由新到旧排列。点击卡片查看脱敏首页。')+
   `<div class="offer-wall">${orderedOffers.map(publishedOfferCard).join('')}</div>
   <details class="reference-offers"><summary>查看原站参考演示案例与 Offer</summary>
   ${note('以下为原站参考案例与图片，仅作演示。')}

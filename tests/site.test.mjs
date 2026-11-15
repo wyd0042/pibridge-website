@@ -88,8 +88,25 @@ test('published offers link to reviewed first-page PNGs and keep reference examp
   assert.ok(cards.length > 0);
   assert.equal(document.querySelectorAll('#offers .reference-offers [data-offer]').length,offers.length);
   const offersByImage = new Map(manifest.map(offer => [offer.image, offer]));
-  assert.deepEqual([...new Set(cards.map(card => offersByImage.get(card.getAttribute('href')).school))].slice(0,7),
-    ['哥伦比亚大学','牛津大学','伦敦政治经济学院','香港大学','香港中文大学','香港科技大学','南洋理工大学']);
+  const tiers = [
+    ['哥伦比亚大学'],
+    ['牛津大学','伦敦政治经济学院'],
+    ['香港大学','香港中文大学','香港科技大学','南洋理工大学'],
+    ['伦敦大学学院'],
+  ];
+  const tierOf = school => {
+    const index = tiers.findIndex(tier => tier.includes(school));
+    return index < 0 ? tiers.length : index;
+  };
+  const ordered = cards.map(card => offersByImage.get(card.getAttribute('href')));
+  assert.equal(new Set(ordered).size, manifest.length);
+  for (let index = 1; index < ordered.length; index++) {
+    const previous = ordered[index - 1], current = ordered[index];
+    assert.ok(tierOf(previous.school) <= tierOf(current.school));
+    if (tierOf(previous.school) === tierOf(current.school)) {
+      assert.ok((previous.date ?? '') >= (current.date ?? ''), current.programme);
+    }
+  }
   for (const card of cards) {
     const {image, school, programme, date} = offersByImage.get(card.getAttribute('href'));
     assert.equal(card.getAttribute('href'),image);
