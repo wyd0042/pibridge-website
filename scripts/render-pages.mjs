@@ -38,9 +38,28 @@ const stages = [
 function processGrid() { return `<ol class="process-grid">${stages.map(([title,desc],i)=>`<li><span>${String(i+1).padStart(2,'0')}</span><h3><a href="services.html#stage-${i+1}">${title}</a></h3><p>${desc}</p></li>`).join('')}</ol>`; }
 function caseTile(c) { return `<article class="case-tile" id="${c.id}" data-region="${c.region}" data-degree="${c.degree}"><div class="case-rank"><b>${e(c.qs)}</b><span>${e(c.school)}</span><small>原站演示</small></div><div class="case-tile-body"><small>${e(c.background)}</small><h3>${e(c.title)}</h3><p>${e(c.programme)}</p><div class="tag-row"><span>${e(c.gpa)}</span><span>${e(c.language)}</span></div><a href="#${c.id}" data-case="${c.id}">查看背景与 Offer →</a></div></article>`; }
 function feature(c) { return `<article class="case-card"><a href="cases.html#${c.id}" class="case-photo">${img(c.offers[0].image.replace('assets/img/',''),`${c.school} Offer，参考站演示案例`)}${badge}</a><div class="case-body"><span class="qs-badge">${c.qs} · ${c.degree==='phd'?'博士':'硕士'}申请</span><h3>${e(c.school)} ${e(c.programme)}</h3><div class="tag-row"><span>${e(c.gpa)}</span><span>${e(c.language)}</span></div><p>${e(c.background)}，${e(c.title)}。</p><a href="cases.html#${c.id}">查看背景与 Offer →</a></div></article>`; }
+// The requested display priority applies to target universities, independent of publication date.
+const offerPriority = [
+ ['布朗大学','哥伦比亚大学','康奈尔大学','达特茅斯学院','哈佛大学','普林斯顿大学','宾夕法尼亚大学','耶鲁大学'],
+ ['牛津大学','剑桥大学','帝国理工学院','伦敦政治经济学院'],
+ ['香港大学','香港中文大学','香港科技大学','新加坡国立大学','南洋理工大学'],
+ ['伦敦大学学院'],
+];
+const schoolPriority = new Map(offerPriority.flat().map((school, index) => [school, index]));
+const rankOffer = ({school}) => schoolPriority.get(school) ?? schoolPriority.size;
+const orderedOffers = publishedOffers.toSorted((a,b) => rankOffer(a) - rankOffer(b));
+const offerAnchor = image => `offer-${image.split('/').at(-1).replace(/\.png$/, '')}`;
+function publishedBackgroundCard(offer) {
+ const { originalSchool, originalProgramme, school, programme, image } = offer;
+ return `<article class="case-card"><div class="case-body">
+  <h3>${e(originalSchool)}</h3>${originalProgramme ? `<p>${e(originalProgramme)}</p>` : ''}
+  <div class="tag-row"><span>录取院校</span></div><p><strong>${e(school)}</strong><br>${e(programme)}</p>
+  <a href="#${e(offerAnchor(image))}">查看对应 Offer →</a>
+ </div></article>`;
+}
 function publishedOfferCard({ school, programme, date, intake, status, image }) {
  const dateLabel = date ? `<time datetime="${e(date)}">${e(date)}</time>` : '';
- return `<a class="offer-card published-offer" href="${e(image)}">
+ return `<a class="offer-card published-offer" id="${e(offerAnchor(image))}" href="${e(image)}">
   <span class="offer-image"><img src="${e(image)}" alt="${e(school)}脱敏录取文件首页" loading="lazy"></span>
   <span class="offer-caption"><strong>${e(school)}</strong><span>${e(programme)}</span>
   <small>${e(status)} · ${e(intake)}</small>${dateLabel}</span>
@@ -109,11 +128,14 @@ function casesPage() {
  let html=subHero('REPUTATION','录取 Offer 与案例','查看各院校录取材料的脱敏首页，以及不同申请方向的参考案例。');
  html+=`<nav class="anchor-bar" aria-label="案例页导航"><div class="container"><a href="#admissions" data-spy-link>录取案例</a><a href="#offers" data-spy-link>Offer 墙</a><a href="#reviews" data-spy-link>用户评价</a><a href="#rankings" data-spy-link>院校排名</a></div></nav>`;
  html+=section(head('OFFER WALL','录取 Offer 展示墙','点击任一卡片查看已脱敏的文件首页。部分文件仅保留适合公开的文字。')+
-  `<div class="offer-wall">${publishedOffers.map(publishedOfferCard).join('')}</div>
-  <details class="reference-offers"><summary>查看原站参考演示 Offer</summary>
-  ${note('以下为原站参考图片，仅作演示。')}
+  `<div class="offer-wall">${orderedOffers.map(publishedOfferCard).join('')}</div>
+  <details class="reference-offers"><summary>查看原站参考演示案例与 Offer</summary>
+  ${note('以下为原站参考案例与图片，仅作演示。')}
+  <div class="case-filters"><div><b>地区</b>${[{id:'all',name:'全部'},...regions].map(r=>`<button class="filter-chip" data-filter="region" data-value="${r.id}" aria-pressed="${r.id==='all'}">${r.name}</button>`).join('')}</div><div><b>学位</b>${[{id:'all',name:'全部'},...degrees].map(d=>`<button class="filter-chip" data-filter="degree" data-value="${d.id}" aria-pressed="${d.id==='all'}">${d.name}</button>`).join('')}</div></div><p class="result-count" data-result-count role="status" aria-live="polite">20 个参考演示案例</p><div class="case-tile-grid">${cases.map(caseTile).join('')}</div><p class="empty-state" data-empty hidden>暂无符合筛选的参考案例。<button data-reset-filters>重置筛选</button></p>
   <div class="offer-wall">${offers.map(o=>offerCard(o)).join('')}</div></details>`,'soft','offers');
- html+=section(head('ADMISSION CASES','20 组名校硕博学生背景','点击案例查看原站参考资料与 Offer；排名为原站对应案例所示年份数据，并非最新排名。')+note('演示案例来源：参考站公开展示。所有学生背景与录取不属于派桥留学业绩。')+`<div class="case-filters"><div><b>地区</b>${[{id:'all',name:'全部'},...regions].map(r=>`<button class="filter-chip" data-filter="region" data-value="${r.id}" aria-pressed="${r.id==='all'}">${r.name}</button>`).join('')}</div><div><b>学位</b>${[{id:'all',name:'全部'},...degrees].map(d=>`<button class="filter-chip" data-filter="degree" data-value="${d.id}" aria-pressed="${d.id==='all'}">${d.name}</button>`).join('')}</div></div><p class="result-count" data-result-count role="status" aria-live="polite">20 个参考演示案例</p><div class="case-tile-grid">${cases.map(caseTile).join('')}</div><p class="empty-state" data-empty hidden>暂无符合筛选的参考案例。<button data-reset-filters>重置筛选</button></p>`,'','admissions');
+ const verifiedBackgrounds = orderedOffers.filter(offer => offer.originalSchool);
+ html+=section(head('ADMISSION CASES','学生原院校与录取去向','展示录取材料中明确写明的原院校。')+
+  `<div class="case-card-grid">${verifiedBackgrounds.map(publishedBackgroundCard).join('')}</div>`,'','admissions');
  html+=section(head('USER REVIEWS','学生与家长反馈','参考站评价区演示改写，不代表派桥用户评价。','center')+reviews(),'','reviews');
  html+=section(head('RANKINGS','院校排名速查','排名仅为原站案例对应的历史信息；不作当前排名或院校推荐依据。')+`<div class="table-scroll"><table class="rank-table"><thead><tr><th>院校</th><th>地区</th><th><button data-sort-rank aria-label="按 QS 排名升序排序">QS 排名 ↕</button></th><th>参考案例</th></tr></thead><tbody>${cases.map(c=>`<tr data-rank="${parseInt(c.qs.replace('QS ',''),10)}"><td>${e(c.school)}</td><td>${regions.find(r=>r.id===c.region).name}</td><td>${c.qs.replace('QS ','')}</td><td><a href="#${c.id}" data-case="${c.id}">★ ${e(c.programme)}</a><small>原站演示</small></td></tr>`).join('')}</tbody></table></div>${note('原站排名与案例资料仅用于复刻展示，最新信息应向院校及排名发布机构核实。')}`,'soft','rankings');
  return html+callto('用参考案例，开启你的申请讨论');
