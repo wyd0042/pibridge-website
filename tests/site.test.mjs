@@ -87,14 +87,27 @@ test('published offers link to reviewed first-page PNGs and keep reference examp
   assert.equal(cards.length,manifest.length);
   assert.ok(cards.length > 0);
   assert.equal(document.querySelectorAll('#offers .reference-offers [data-offer]').length,offers.length);
-  for (const [index, card] of cards.entries()) {
-    const {image, school, programme, date} = manifest[index];
+  const offersByImage = new Map(manifest.map(offer => [offer.image, offer]));
+  assert.deepEqual([...new Set(cards.map(card => offersByImage.get(card.getAttribute('href')).school))].slice(0,7),
+    ['哥伦比亚大学','牛津大学','伦敦政治经济学院','香港大学','香港中文大学','香港科技大学','南洋理工大学']);
+  for (const card of cards) {
+    const {image, school, programme, date} = offersByImage.get(card.getAttribute('href'));
     assert.equal(card.getAttribute('href'),image);
     assert.equal(card.querySelector('img').getAttribute('src'),image);
     assert.ok(card.textContent.includes(school) && card.textContent.includes(programme));
     assert.equal(card.querySelector('time')?.dateTime,date ?? undefined);
     const bytes = await readFile(resolve(root,image));
     assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+  }
+  const backgrounds = [...document.querySelectorAll('#admissions article')];
+  const verified = manifest.filter(offer => offer.originalSchool);
+  assert.equal(backgrounds.length,verified.length);
+  assert.equal(document.querySelectorAll('#admissions .case-tile').length,0);
+  for (const card of backgrounds) {
+    const matchingOffer = document.querySelector(card.querySelector('a').hash);
+    const details = offersByImage.get(matchingOffer.getAttribute('href'));
+    assert.equal(card.querySelector('h3').textContent,details.originalSchool);
+    assert.ok(card.textContent.includes(details.programme));
   }
   assert.ok(!publicFiles.some(file=>file.endsWith('.pdf') || file.startsWith('offer-modify/')));
 });

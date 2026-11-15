@@ -29,7 +29,9 @@
     "date": "2026-02-24",
     "intake": "2026 年 9 月",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hku-cs.png"
+    "image": "assets/img/published-offers/hku-cs.png",
+    "originalSchool": "中山大学",
+    "originalProgramme": "软件工程"
   },
   {
     "school": "香港大学",
@@ -37,7 +39,9 @@
     "date": "2026-02-27",
     "intake": "2026 年 9 月",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hku-ds.png"
+    "image": "assets/img/published-offers/hku-ds.png",
+    "originalSchool": "北师香港浸会大学",
+    "originalProgramme": "数据科学"
   },
   {
     "school": "香港科技大学",
@@ -93,7 +97,8 @@
     "date": "2026-01-27",
     "intake": "2026 年 8 月",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ntu-aim.png"
+    "image": "assets/img/published-offers/ntu-aim.png",
+    "originalSchool": "北师香港浸会大学"
   },
   {
     "school": "南洋理工大学",
@@ -101,7 +106,8 @@
     "date": "2026-05-21",
     "intake": "2026 年 8 月",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ntu-bds.png"
+    "image": "assets/img/published-offers/ntu-bds.png",
+    "originalSchool": "北师香港浸会大学"
   },
   {
     "school": "南洋理工大学",
@@ -109,7 +115,8 @@
     "date": "2026-01-22",
     "intake": "2026 年 8 月",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ntu-spml.png"
+    "image": "assets/img/published-offers/ntu-spml.png",
+    "originalSchool": "北师香港浸会大学"
   },
   {
     "school": "纽约大学",
