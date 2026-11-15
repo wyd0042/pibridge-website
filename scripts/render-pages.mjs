@@ -83,7 +83,42 @@ function reviews() { return `<div class="testimonial-grid">${[
  ['L','学生反馈展示位','港新硕士申请','先梳理成绩、课程和实践，再讨论目标项目与准备次序。'],['Z','学生反馈展示位','英国硕士申请','围绕具体项目整理个人经历，让材料中的专业动机更加清楚。'],['W','家长反馈展示位','家校沟通','希望每个节点有清楚的安排，材料版本与准备进展能够及时同步。']
  ].map(([initial,name,type,text])=>`<article class="testimonial-card"><span class="quote-mark">“</span><p>${text}</p><div class="testimonial-author"><b>${initial}</b><div><h3>${name}</h3><small>${type} · 演示改写</small></div></div></article>`).join('')}</div>`; }
 function evaluationForm(prefix) { return `<form class="evaluation-form" data-demo-form="evaluation"><p class="form-demo-note">表单演示 · 不发送、不收集、不保存资料</p><div class="form-grid"><label>姓名 *<input name="name" required placeholder="你的称呼" autocomplete="off"></label><label>手机号码 *<input name="phone" type="tel" required placeholder="联系电话" autocomplete="off"></label><label>当前年级 / 学历<input name="education" placeholder="例如：本科三年级" autocomplete="off"></label><label>意向地区<select name="destination"><option value="">请选择申请方向</option>${regions.map(r=>`<option value="${r.id}">${r.name}</option>`).join('')}</select></label><label class="full">申请背景与问题<textarea name="message" maxlength="500" rows="4" placeholder="可简要描述申请方向和目前的准备情况"></textarea><small data-message-count>0 / 500</small></label></div><label class="consent"><input type="checkbox" required> 我了解这是演示表单，资料不会提交或保存。</label><button class="button" type="submit">演示申请评估 · 微信咨询</button><p class="form-status" role="status" aria-live="polite"></p></form>`; }
-function mentorCards(full = false) { const nums=full?Array.from({length:12},(_,i)=>i+5):[1,2,13,14]; return `<div class="${full?'faculty-grid':'mentor-grid'}">${nums.map((n,i)=>{const role=roles[full?Math.min(4,Math.floor(i/3)):i];return `<article class="mentor-card">${img(`teachers/teacher-${String(n).padStart(2,'0')}.jpg`,`${role[0]}参考站人物照片，非派桥实际师资`)}<div><small>原站参考人物 · 非派桥师资</small><h3>${role[0]}</h3><b>${role[1]}</b><p>${role[2]}</p></div></article>`;}).join('')}</div>`; }
+const brandSlogan = '<span lang="en">The world is your oyster.</span>';
+const brandFocus = '专注数学、统计学、数据科学、金融工程及计算机方向的硕博留学申请。';
+const mentorGroups = [
+ { title:'学术导师', description:'来自顶尖高校的在读或已毕业博士，提供学术指导与文书润色。', mentors:[
+  ['唐正 老师','牛津大学应用数学博士','数值分析 / 科学计算'],
+  ['龙洛 老师','香港中文大学博士 · 港府奖学金（HKPFS）','统计学'],
+  ['刘 XY 老师','牛津大学工程科学系博士','在 Journal of Fluid Mechanics 发表研究'],
+  ['张 ZY 老师','牛津大学工程科学系博士','在 Journal of Fluid Mechanics 发表研究'],
+ ]},
+ { title:'行业导师', description:'结合科技行业的实际业务场景，指导项目经历梳理与职业规划。', mentors:[
+  ['Jacob 老师','Web3 资深算法工程师','区块链 / 智能合约'],
+  ['RL 老师','腾讯风控算法工程师','金融风控 / 反欺诈'],
+  ['小燕 老师','华为通信算法工程师','信号处理 / 通信系统'],
+  ['王 Mark 老师','资深行业导师'],
+ ]},
+];
+
+function mentorCard([name, background, focus], category = '') {
+ const heading = category ? 'h3' : 'h4';
+ return `<article class="mentor-card"><div>${category ? `<small>${e(category)}</small>` : ''}
+  <${heading}>${e(name)}</${heading}><b>${e(background)}</b>${focus ? `<p>${e(focus)}</p>` : ''}
+ </div></article>`;
+}
+
+function mentorPreview() {
+ return `<div class="mentor-grid">${mentorGroups.map(group =>
+  group.mentors.slice(0,2).map(mentor => mentorCard(mentor,group.title)).join('')
+ ).join('')}</div>`;
+}
+
+function mentorDirectory() {
+ return mentorGroups.map(group => `<div class="mentor-group">
+  <h3>${e(group.title)}</h3><p>${e(group.description)}</p>
+  <div class="mentor-grid">${group.mentors.map(mentor => mentorCard(mentor)).join('')}</div>
+ </div>`).join('');
+}
 const milestones = ['成立工作室','建立标准流程','扩充协作角色','完善定位方法','组织模式升级','整合服务环节','案例资料积累','拓展教育资源'];
 const articles = [
  {file:'article-ranking.html',image:'blog-ranking.jpg',type:'院校选择',en:'University Rankings',title:'QS Top 100 不是唯一指标',desc:'用课程、方向和个人目标，补充对排名的理解。',sections:[['先确认自己需要什么','选校前先列出专业兴趣、预算、学习方式与毕业后的计划。排名可以辅助缩小范围，但不能替代这些条件。'],['用课程内容做进一步比较','逐一查看核心课程、选修空间、研究或实践安排，再判断项目是否能支持已有经历和下一阶段目标。'],['核对信息的时间与来源','关注排名适用年份及评价维度。项目要求和申请截止日期应以院校当前官方页面为准。']],related:[6,4]},
@@ -93,17 +128,17 @@ const articles = [
 
 function home() {
  const slides=[
-  ['High-end 5v1 VIP Service','世界名校触手可及','以五类协作角色串联规划、材料、递交与入学准备，让申请过程更清晰。','hero-pexels-campus.jpg',button('查看高端服务','service-vip.html')+button('获取免费申请评估','contact.html#eval-form',true),''],
+  ['PiBridge 派桥留学',brandSlogan,brandFocus,'hero-pexels-campus.jpg',button('查看高端服务','service-vip.html')+button('获取免费申请评估','contact.html#eval-form',true),''],
   ['Process Management','申请节点不靠临时记忆推进','用任务清单记录材料、责任和时间，把每一步的进展变成可核对的信息。','hero-pexels-campus-walk.jpg',button('查看服务流程','services.html'),`<div class="hero-flow">${stages.map(([title,desc],i)=>`<div><b>0${i+1}　${title}</b><small>${desc}</small></div>`).join('')}</div>`],
   ['Offer Wall','用录取案例看清申请方向','通过院校、专业、学生背景与材料展示，了解不同申请路径。本区为原站参考案例。','hero-pexels-library.jpg',button('查看品牌口碑','cases.html'),heroOffers()],
   ['Landing Support','拿到 Offer 之后，继续准备下一程','入学文件、签证、住宿与报到都有各自节点，提前安排，逐项确认。','hero-pexels-travel.jpg',button('预约申请评估'),'']
  ];
- let html=`<section class="hero" aria-label="首页服务轮播"><div class="hero-slider">${slides.map(([en,title,desc,image,actions,visual],i)=>`<article class="hero-slide${i===0?' active':''}" data-slide="${i}" aria-hidden="${i!==0}" ${i?'inert':''} style="--hero-image:url('assets/img/${image}')"><div class="container ${visual?'hero-grid':''}"><div class="hero-copy"><span class="eyebrow">${en}</span><${i?'h2':'h1'}>${title}</${i?'h2':'h1'}><p>${desc}</p><div class="actions">${actions}</div>${i===0?`<div class="hero-proof"><div><b>500+</b><small>参考站演示学生数量</small></div><div><b>TOP50</b><small>参考站演示院校范围</small></div><div><b>5v1</b><small>参考站演示协作模式</small></div></div>`:''}</div>${visual}</div></article>`).join('')}<div class="hero-controls container"><div class="hero-dots">${slides.map((_,i)=>`<button data-slide-to="${i}" aria-label="切换至第 ${i+1} 屏" aria-pressed="${i===0}"><span></span></button>`).join('')}</div><button class="slider-pause" data-slider-pause aria-pressed="false">暂停轮播</button></div></div></section>`;
+ let html=`<section class="hero" aria-label="首页服务轮播"><div class="hero-slider">${slides.map(([en,title,desc,image,actions,visual],i)=>`<article class="hero-slide${i===0?' active':''}" data-slide="${i}" aria-hidden="${i!==0}" ${i?'inert':''} style="--hero-image:url('assets/img/${image}')"><div class="container ${visual?'hero-grid':''}"><div class="hero-copy"><span class="eyebrow">${en}</span><${i?'h2':'h1'}>${title}</${i?'h2':'h1'}><p>${desc}</p><div class="actions">${actions}</div></div>${visual}</div></article>`).join('')}<div class="hero-controls container"><div class="hero-dots">${slides.map((_,i)=>`<button data-slide-to="${i}" aria-label="切换至第 ${i+1} 屏" aria-pressed="${i===0}"><span></span></button>`).join('')}</div><button class="slider-pause" data-slider-pause aria-pressed="false">暂停轮播</button></div></div></section>`;
  html+=`<section class="benefits"><div class="container benefit-grid">${['高端5v1定制','精细化管理','案例策略复盘','全流程陪伴落地'].map((title,i)=>`<button class="benefit-item${i===0?' is-active':''}" data-slide-to="${i}"><small>0${i+1} / 04</small><h2>${title}</h2><p>${['规划、材料、申请与后续事项，由不同角色协作推进。','材料清单、时间节点与准备状态，形成清楚的过程记录。','结合参考背景与录取资料，帮助理解不同的申请方向。','从前期沟通到行前准备，梳理各阶段需要确认的事项。'][i]}</p></button>`).join('')}</div></section>`;
  html+=`<section class="vip-strip dark"><div class="container vip-strip-grid"><div><h2>高端5v1 VIP团队</h2><p>五类角色 · 协作示意</p><a href="service-vip.html">了解5v1服务 →</a></div>${roles.map(role=>`<div><b>${role[0]}</b><p>${role[3]}</p></div>`).join('')}</div></section>`;
  html+=section(head('WHY CHOOSE PIBRIDGE','为什么选择派桥留学','以下为参考站服务模式演示，实际服务以沟通确认为准。')+`<div class="proof-grid">${['一人一案','多维度定位','文书深度访谈','后续申请支持'].map((title,i)=>`<article class="proof-card"><span class="proof-icon">${['◇','◎','✎','↗'][i]}</span><h3>${title}</h3><p>${['从具体背景与个人目标出发，讨论适合自己的准备路径。','同时考虑课程、经历、预算与专业要求，建立院校组合。','整理经历中的具体行动与收获，形成清楚的个人表达。','根据阶段进展梳理后续选择与准备事项。'][i]}</p></article>`).join('')}</div>`);
  html+=section(head('SERVICE PROCESS','把申请拆成看得见的节点','四个阶段，逐项准备；查看完整流程了解各阶段细节。')+processGrid(),'soft');
- html+=section(head('ADVISOR TEAM','师资与服务团队','保留参考站的团队展示方式；以下人物图片仅作演示。')+mentorCards()+`<p class="center section-action"><a class="text-link" href="about.html#faculty-team">查看完整团队与职责 →</a></p>`);
+ html+=section(head('ADVISOR TEAM','师资与服务团队','学术导师与行业导师，分别从研究与职业发展角度提供申请指导。')+mentorPreview()+`<p class="center section-action"><a class="text-link" href="about.html#faculty-team">查看完整导师团队 →</a></p>`);
  html+=`<section class="counter dark"><div class="container counter-grid">${[['500+','累计服务学生'],['2019','工作室起步'],['20','名校案例展示'],['5','专属服务角色']].map(([num,title])=>`<div><strong>${num}</strong><h3>${title}</h3><small>参考站演示数字</small></div>`).join('')}</div></section>`;
  html+=section(`<div class="about-grid"><div class="about-photo">${img('hero-campus.jpg','参考站校园配图')}<span>2019 · 原站品牌历程演示</span></div><div>${head('BRAND STORY','陪伴每一种可能走向世界','从信息梳理开始，让目标选择、准备重点与执行节奏逐步清楚。')}${note()}<ul class="check-list"><li>品牌起步、流程建立与协作模式发展。</li><li>从院校定位到材料和入学衔接的完整示意。</li><li>以公开参考案例展示不同背景与申请方向。</li></ul>${button('查看品牌故事','about.html#story')}<div class="mini-timeline">${milestones.map((title,i)=>`<a href="about.html#milestones"><b>${2019+i}</b><span>${title}</span></a>`).join('')}</div></div></div>`,'','about');
  html+=section(head('SUCCESSFUL CASES','近期录取与规划样本','原站公开案例仅作演示，不属于派桥留学服务业绩。')+`<div class="case-card-grid">${[1,7,12].map(n=>feature(cases[n-1])).join('')}</div><p class="center section-action">${button('查看完整案例','cases.html#admissions')}</p>`,'soft');
@@ -122,11 +157,13 @@ function vip() {
  return html+callto('你的背景，适合怎样的申请路径？','VIP ASSESSMENT');
 }
 function about() {
- let html=subHero('ABOUT PIBRIDGE','陪伴每一种可能走向世界','了解品牌故事、协作理念和服务角色。历史与人物内容均为参考站演示。',true);
- html+=section(`<div class="about-grid"><div class="story-visual dark"><span>CONNECT GLOBAL</span><strong>每一种可能<br>都值得被看见</strong><small>PiBridge 派桥留学</small></div><div>${head('OUR STORY','从理解个人目标开始，连接更大的世界','关注个人背景与未来方向，把复杂的准备过程拆成清晰的步骤。')}${note()}<p>以公开参考站的品牌发展与服务架构为样稿，展示从初步咨询到申请协作的完整内容。派桥的实际品牌介绍将在后续替换确认。</p><ul class="check-list"><li>围绕个人目标展开讨论</li><li>用明确分工推进准备</li><li>以清晰记录支持协作</li></ul></div></div>`,'','story');
+ let html=subHero('ABOUT PIBRIDGE','陪伴每一种可能走向世界','了解 PiBridge 的品牌理念和导师团队。',true);
+ html+=section(`<div class="about-grid"><div class="story-visual dark"><strong>${brandSlogan}</strong><small>PiBridge 派桥留学</small></div>
+  <div>${head('BRAND PHILOSOPHY','连接学生与世界顶尖学术殿堂',brandFocus)}
+  <p>PiBridge 提供覆盖英国、中国香港、新加坡和美国的申请服务，从选校策略、学术背景提升到文书打磨与面试辅导，陪伴学生完成申请。</p></div></div>`,'','story');
  html+=section(head('MILESTONES','派桥留学成长里程碑','原站历程演示 · 并非派桥实际成立时间或发展记录。')+`<ol class="milestones">${milestones.map((title,i)=>`<li><b>${2019+i}</b><div><h3>${title}</h3><p>${['从初期咨询开始建立服务流程。','形成材料清单和准备节点。','逐步细化不同角色的分工。','加入背景与项目要求的对照。','探索更清楚的协作安排。','把申请各阶段连接起来。','整理不同方向的参考材料。','讨论更多教育与发展资源。'][i]}</p><small>参考站历程演示</small></div></li>`).join('')}</ol>`,'soft','milestones');
  html+=section(head('OUR VALUES','服务理念','以清晰的信息、认真的准备和可追踪的协作，连接每一步。')+`<div class="proof-grid">${['尊重个体','过程透明','材料真实','持续沟通'].map((t,i)=>`<article class="proof-card"><span class="proof-icon">0${i+1}</span><h3>${t}</h3><p>${['从不同经历与目标出发。','明确节点、任务与进展。','所有事实与成果应可核对。','及时讨论变化与下一步。'][i]}</p></article>`).join('')}</div>`);
- html+=section(head('FACULTY & SERVICE TEAM','师资与服务团队','人物照片取自参考站，只用于展示卡片效果，不代表派桥实际师资。')+`<div class="team-role-strip">${roles.map(role=>`<span>${role[0]}</span>`).join('')}</div>`+mentorCards(true),'soft','faculty-team');
+ html+=section(head('FACULTY & SERVICE TEAM','师资与服务团队','PiBridge 导师团队由高校博士导师和一线行业从业者组成。')+mentorDirectory(),'soft','faculty-team');
  html+=section(head('OUR VISION','从申请准备，走向更长远的发展','从一次申请出发，持续关注学习目标与下一阶段的方向。')+`<div class="vision-grid">${['学习与研究','专业与实践','资源与协作'].map(t=>`<article><span>↗</span><h3>${t}</h3><p>连接信息与个人目标，探索适合的下一步。</p></article>`).join('')}</div>`,'soft');
  return html+callto('让下一程，从一次认真沟通开始');
 }
