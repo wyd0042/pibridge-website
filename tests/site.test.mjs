@@ -188,11 +188,27 @@ test('mobile navigation, Escape, dropdown targets and compact header work',async
   dom.window.close();
 });
 
-test('ranking sorts in both directions and demo forms never send or store data',async()=>{
-  const dom=await loadPage(),doc=dom.window.document;
-  const sort=doc.querySelector('[data-sort-rank]');sort.click();
-  let ranks=[...doc.querySelectorAll('tbody tr')].map(row=>Number(row.dataset.rank));assert.deepEqual(ranks,[...ranks].sort((a,b)=>a-b));
-  sort.click();ranks=[...doc.querySelectorAll('tbody tr')].map(row=>Number(row.dataset.rank));assert.deepEqual(ranks,[...ranks].sort((a,b)=>b-a));dom.window.close();
+test('university summary lists only published documents and links to matching Offer cards',async()=>{
+  const document = new JSDOM(rendered['cases.html']).window.document;
+  const manifest = JSON.parse(await readFile(resolve(root,'assets/published-offers.json'),'utf8'));
+  const offersByImage = new Map(manifest.map(offer => [offer.image, offer]));
+  const rows = [...document.querySelectorAll('#rankings tbody tr')];
+  assert.equal(rows.length,new Set(manifest.map(offer => offer.school)).size);
+  const seen = new Set();
+  for (const row of rows) {
+    for (const link of row.querySelectorAll('a')) {
+      const card = document.querySelector(link.hash);
+      const offer = offersByImage.get(card?.getAttribute('href'));
+      assert.equal(row.querySelector('th').textContent,offer.school);
+      assert.equal(link.textContent,offer.programme);
+      seen.add(offer.image);
+    }
+  }
+  assert.equal(seen.size,manifest.length);
+  assert.doesNotMatch(document.querySelector('#rankings').textContent,/QS|原站|参考案例/);
+});
+
+test('demo forms never send or store data',async()=>{
   const contact=await loadPage('contact.html'),d=contact.window.document;
   let network=0;contact.window.fetch=()=>{network++;};
   const form=d.querySelector('.evaluation-form');form.querySelector('[name="name"]').value='演示';form.querySelector('[name="phone"]').value='12345678';form.querySelector('[type="checkbox"]').checked=true;

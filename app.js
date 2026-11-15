@@ -176,16 +176,6 @@ $$('[data-demo-form]').forEach(form => {
   const message=$('textarea',form), counter=$('[data-message-count]',form);
   if(message&&counter) message.addEventListener('input',()=>{counter.textContent=`${message.value.length} / 500`;});
 });
-let sortAscending=true;
-$('[data-sort-rank]')?.addEventListener('click',event => {
-  const table=event.currentTarget.closest('table');
-  const rows=$$('tbody tr',table).sort((a,b)=>(Number(a.dataset.rank)-Number(b.dataset.rank))*(sortAscending?1:-1));
-  rows.forEach(row=>$('tbody',table).append(row));
-  $('th',event.currentTarget.closest('tr'))?.removeAttribute('aria-sort');
-  event.currentTarget.closest('th').setAttribute('aria-sort',sortAscending?'ascending':'descending');
-  event.currentTarget.setAttribute('aria-label',`当前${sortAscending?'升':'降'}序，点击按 QS 排名${sortAscending?'降':'升'}序排序`);
-  sortAscending=!sortAscending;
-});
 if('IntersectionObserver' in window) {
   const spyLinks=$$('[data-spy-link]');
   const observer=new IntersectionObserver(entries=>{
