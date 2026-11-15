@@ -6,3 +6,6 @@ qa/
 mockup.md
 *.log
 派桥官网专属内容清单.md
+offer-modify/.venv/
+offer-modify/__pycache__/
+offer-modify/output/

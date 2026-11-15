@@ -1,0 +1,194 @@
+[
+  {
+    "school": "香港中文大学",
+    "programme": "MSc in Artificial Intelligence for Science",
+    "date": "2026-03-03",
+    "intake": "2026/27 第一学期",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/cuhk-ai-science.png"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc in Artificial Intelligence",
+    "date": "2026-03-20",
+    "intake": "2026/27 第一学期",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/cuhk-ai.png"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc in Risk Management Science and Data Analytics",
+    "date": "2026-01-02",
+    "intake": "2026/27 第一学期",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/cuhk-rmda.png"
+  },
+  {
+    "school": "香港大学",
+    "programme": "MSc in Computer Science (General Stream)",
+    "date": "2026-02-24",
+    "intake": "2026 年 9 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hku-cs.png"
+  },
+  {
+    "school": "香港大学",
+    "programme": "Master of Data Science",
+    "date": "2026-02-27",
+    "intake": "2026 年 9 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hku-ds.png"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc in Artificial Intelligence",
+    "date": "2025-12-01",
+    "intake": "2026 年 9 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hkust-ai.png"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc in AI and Entrepreneurship",
+    "date": "2025-10-14",
+    "intake": "2026 年 9 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hkust-aie.png"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc in Financial Mathematics",
+    "date": "2026-01-29",
+    "intake": "2026 年 9 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hkust-fm.png"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc in Information and Cyber Security Management",
+    "date": "2025-10-28",
+    "intake": "2026 年 8 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hkust-icsm.png"
+  },
+  {
+    "school": "约翰斯·霍普金斯大学",
+    "programme": "MSE in Data Science",
+    "date": "2026-03-12",
+    "intake": "2026 年秋季",
+    "status": "录取",
+    "image": "assets/img/published-offers/jhu-ds.png"
+  },
+  {
+    "school": "伦敦政治经济学院",
+    "programme": "MSc in Data Science",
+    "date": "2026-01-06",
+    "intake": "2026 年 9 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/lse-ds.png"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc in Artificial Intelligence in Medicine",
+    "date": "2026-01-27",
+    "intake": "2026 年 8 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/ntu-aim.png"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc in Biomedical Data Science",
+    "date": "2026-05-21",
+    "intake": "2026 年 8 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/ntu-bds.png"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc in Signal Processing & Machine Learning",
+    "date": "2026-01-22",
+    "intake": "2026 年 8 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/ntu-spml.png"
+  },
+  {
+    "school": "纽约大学",
+    "programme": "MS in Computer Science (Courant)",
+    "date": null,
+    "intake": "2026 年秋季",
+    "status": "录取",
+    "image": "assets/img/published-offers/nyu-cs.png"
+  },
+  {
+    "school": "牛津大学",
+    "programme": "MSc in Mathematical Sciences",
+    "date": null,
+    "intake": "2026 年 10 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/oxford-omms.png"
+  },
+  {
+    "school": "香港理工大学",
+    "programme": "MSc in Mathematics for Artificial Intelligence Technology",
+    "date": "2026-03-06",
+    "intake": "2026/27 第一学期",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/polyu-math-ai.png"
+  },
+  {
+    "school": "香港理工大学",
+    "programme": "MSc in Quantitative Finance & FinTech",
+    "date": "2025-03-17",
+    "intake": "2025/26 第一学期",
+    "status": "录取",
+    "image": "assets/img/published-offers/polyu-qfft.png"
+  },
+  {
+    "school": "南加州大学",
+    "programme": "MS in Applied Data Science",
+    "date": "2026-03-11",
+    "intake": "2026 年秋季",
+    "status": "录取",
+    "image": "assets/img/published-offers/usc-ads.png"
+  },
+  {
+    "school": "密歇根大学安娜堡分校",
+    "programme": "Master’s in Applied Statistics",
+    "date": "2026-03-09",
+    "intake": "2026 年秋季",
+    "status": "院系推荐录取，待校方最终决定",
+    "image": "assets/img/published-offers/umich-stat.png"
+  },
+  {
+    "school": "哥伦比亚大学",
+    "programme": "MS in Operations Research",
+    "date": "2026-03-20",
+    "intake": "2026 年秋季",
+    "status": "录取",
+    "image": "assets/img/published-offers/columbia-or.png"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Artificial Intelligence",
+    "date": "2025-11-20",
+    "intake": "2026 年 9 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/edinburgh-ai.png"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Computer Science",
+    "date": "2026-05-18",
+    "intake": "2026 年 9 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/edinburgh-cs.png"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Data Science",
+    "date": "2026-05-19",
+    "intake": "2026 年 9 月",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/edinburgh-ds.png"
+  }
+]

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offer Modify | PiBridge</title>
+<style>
+  :root { font: 16px/1.5 system-ui, sans-serif; color: #162b46; background: #eef3fa; }
+  body { max-width: 1180px; margin: 2rem auto; padding: 0 1rem; }
+  main { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1rem; align-items: start; }
+  section, form { background: white; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+  h1, h2 { margin-top: 0; }
+  label { display: block; margin-bottom: .75rem; }
+  input { box-sizing: border-box; display: block; width: 100%; padding: .55rem; border: 1px solid #8fa4bf; border-radius: 5px; font: inherit; }
+  button, a[download] { display: inline-block; cursor: pointer; border: 0; border-radius: 5px; background: #194f8b; color: white; padding: .6rem .85rem; font: inherit; text-decoration: none; margin: .2rem; }
+  button:disabled { opacity: .5; cursor: default; }
+  canvas, img { display: block; max-width: 100%; height: auto; margin: 1rem auto; outline: 1px solid #aebed2; }
+  canvas { cursor: crosshair; touch-action: none; }
+  [hidden] { display: none !important; }
+  @media (max-width: 720px) { main { grid-template-columns: 1fr; } }
+</style>
+<script type="module" src="/workbench.js"></script>
+</head>
+<body>
+<h1>PiBridge Offer Modify</h1>
+<form id="upload">
+  <label>选择 Offer 图片或 PDF<input id="offer" name="offer" type="file" accept="image/png,image/jpeg,image/webp,application/pdf" required></label>
+  <p>PDF 只处理第一页。</p>
+  <button>自动打码</button>
+  <p id="status" role="status" aria-live="polite"></p>
+</form>
+<main id="editor" hidden>
+  <section>
+    <h2>核对自动打码结果</h2>
+    <p>自动遮盖姓名、编号、邮箱、链接和原院校等信息。发现遗漏时，在预览上拖框补盖。</p>
+    <button id="undo" type="button">撤销上一个补盖</button>
+    <button id="clear" type="button">清空手动补盖</button>
+    <canvas id="source" aria-label="自动打码预览及手动补盖"></canvas>
+  </section>
+  <section>
+    <h2>核对网页字段</h2>
+    <div id="fields"></div>
+    <button id="review" type="button">更新下载文件</button>
+    <div id="result" hidden>
+      <h2>导出</h2>
+      <img id="preview" alt="将要导出的带水印 Offer">
+      <a id="download-image" download="offer-redacted.png">下载 PNG</a>
+      <a id="download-json" download="offer.json">下载网页 JSON</a>
+    </div>
+  </section>
+</main>
+</body>
+</html>
