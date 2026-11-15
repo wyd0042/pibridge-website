@@ -80,6 +80,25 @@ test('reference content remains marked, with 20 cases and 22 intact original ima
   assert.ok(!publicFiles.some(file=>/sources\.json|mockup|reference\/|tests\/|README|scripts\/|node_modules/.test(file)));
 });
 
+test('published offers link to reviewed first-page PNGs and keep reference examples separate',async()=>{
+  const document = new JSDOM(rendered['cases.html']).window.document;
+  const manifest = JSON.parse(await readFile(resolve(root,'assets/published-offers.json'),'utf8'));
+  const cards = [...document.querySelectorAll('#offers .published-offer')];
+  assert.equal(cards.length,manifest.length);
+  assert.ok(cards.length > 0);
+  assert.equal(document.querySelectorAll('#offers .reference-offers [data-offer]').length,offers.length);
+  for (const [index, card] of cards.entries()) {
+    const {image, school, programme, date} = manifest[index];
+    assert.equal(card.getAttribute('href'),image);
+    assert.equal(card.querySelector('img').getAttribute('src'),image);
+    assert.ok(card.textContent.includes(school) && card.textContent.includes(programme));
+    assert.equal(card.querySelector('time')?.dateTime,date ?? undefined);
+    const bytes = await readFile(resolve(root,image));
+    assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+  }
+  assert.ok(!publicFiles.some(file=>file.endsWith('.pdf') || file.startsWith('offer-modify/')));
+});
+
 test('region and degree combine, invalid queries reset, and empty results can reset',async()=>{
   const dom=await loadPage('cases.html','?region=us&degree=phd#admissions'),doc=dom.window.document;
   assert.equal(visibleCards(doc).length,selectCases('us','phd').length);

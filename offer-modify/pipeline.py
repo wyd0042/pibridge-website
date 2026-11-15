@@ -200,7 +200,7 @@ def automatic_masks(lines, fields, links):
                 if re.search(r"university|college|degree|school|institute|大学|大學|学位|學位|\bYat[ -]sen\b", line, re.I):
                     masks.append(box)
     # Formal offer letters often put an unlabelled recipient block between the date and heading.
-    title = next((box for line, box in ordered if re.search(r"offer of admission", line, re.I)), None)
+    title = next((box for line, box in ordered if re.match(r"(?:(?:un)?conditional\s+)?offer of admission\b", line, re.I)), None)
     if title:
         header_date = next((box for line, box in reversed(ordered)
                             if box[3] < title[1] and re.fullmatch(r"[A-Za-z]+ \d{1,2}, \d{4}", line)), None)
