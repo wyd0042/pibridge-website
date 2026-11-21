@@ -5,9 +5,9 @@ const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const e = value => String(value).replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const route = location.pathname.split('/').pop() || 'index.html';
-const activeRoute = route.startsWith('article-') ? 'news.html' : route;
+const activeRoute = route === 'service-vip.html' ? 'services.html' : route;
 $$('.main-nav a, .offcanvas-menu nav a').forEach(link => {
-  const active = link.getAttribute('href') === activeRoute;
+  const active = link.getAttribute('href').split('#')[0] === activeRoute;
   link.classList.toggle('active', active);
   if (active) link.setAttribute('aria-current', 'page');
 });

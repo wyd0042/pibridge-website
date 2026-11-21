@@ -176,8 +176,19 @@ test('slider indicators, benefit cards, pause and slide accessibility stay align
   dom.window.close();
 });
 
-test('mobile navigation, Escape, dropdown targets and compact header work',async()=>{
+test('four navigation links, mobile menu, Escape and compact header work',async()=>{
   const dom=await loadPage('about.html'),{document:doc,KeyboardEvent,Event}=dom.window;
+  const expected = [
+    ['首页','index.html'],
+    ['申请服务','services.html'],
+    ['录取案例','cases.html'],
+    ['导师团队','about.html#faculty-team']
+  ];
+  for (const selector of ['.main-nav a','.offcanvas-menu nav a','.footer .two-col a']) {
+    const links = [...doc.querySelectorAll(selector)];
+    assert.deepEqual(links.map(link => [link.textContent,link.getAttribute('href')]),expected);
+  }
+  assert.equal(doc.querySelector('.main-nav [aria-current="page"]').textContent,'导师团队');
   doc.querySelector('.menu-toggle').click();assert.ok(doc.body.classList.contains('menu-open'));
   assert.equal(doc.querySelector('.offcanvas-menu').inert,false);
   doc.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));
