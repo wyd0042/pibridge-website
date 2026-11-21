@@ -7,8 +7,6 @@ import publishedOffers from '../assets/published-offers.json' with { type: 'json
 const e = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const img = (name, alt, cls = '') => `<img src="assets/img/${name}" alt="${e(alt)}" class="${cls}" loading="lazy">`;
 const button = (text = '获取免费申请评估', href = 'contact.html#eval-form', outline = false) => `<a class="button${outline?' outline':''}" href="${href}">${text}</a>`;
-const badge = '<span class="demo-badge">参考站演示 · 非派桥业绩</span>';
-const note = (text = '本区内容取自参考站，仅作样稿演示，不代表派桥留学真实经历、团队、服务承诺或业绩。') => `<p class="reference-note">${text}</p>`;
 const head = (en, title, desc = '', extra = '') => `<div class="section-head ${extra}"><span class="eyebrow">${en}</span><h2>${title}</h2>${desc?`<p>${desc}</p>`:''}</div>`;
 const section = (content, cls = '', id = '') => `<section class="section ${cls}"${id?` id="${id}"`:''}><div class="container">${content}</div></section>`;
 const subHero = (en, title, desc, light = false, visual = '') => `<section class="sub-hero ${light?'light':'dark'}"><div class="container ${visual?'hero-grid':''}"><div><span class="eyebrow">${en}</span><h1>${title}</h1><p>${desc}</p><div class="breadcrumb"><a href="index.html">首页</a><span>/</span><span>${title.replace(/<[^>]+>/g,'')}</span></div></div>${visual}</div></section>`;
@@ -45,7 +43,6 @@ const stages = [
 ];
 function processGrid() { return `<ol class="process-grid">${stages.map(([title,desc],i)=>`<li><span>${String(i+1).padStart(2,'0')}</span><h3><a href="services.html#stage-${i+1}">${title}</a></h3><p>${desc}</p></li>`).join('')}</ol>`; }
 function caseTile(c) { return `<article class="case-tile" id="${c.id}" data-region="${c.region}" data-degree="${c.degree}"><div class="case-rank"><b>${e(c.qs)}</b><span>${e(c.school)}</span><small>原站演示</small></div><div class="case-tile-body"><small>${e(c.background)}</small><h3>${e(c.title)}</h3><p>${e(c.programme)}</p><div class="tag-row"><span>${e(c.gpa)}</span><span>${e(c.language)}</span></div><a href="#${c.id}" data-case="${c.id}">查看背景与 Offer →</a></div></article>`; }
-function feature(c) { return `<article class="case-card"><a href="cases.html#${c.id}" class="case-photo">${img(c.offers[0].image.replace('assets/img/',''),`${c.school} Offer，参考站演示案例`)}${badge}</a><div class="case-body"><span class="qs-badge">${c.qs} · ${c.degree==='phd'?'博士':'硕士'}申请</span><h3>${e(c.school)} ${e(c.programme)}</h3><div class="tag-row"><span>${e(c.gpa)}</span><span>${e(c.language)}</span></div><p>${e(c.background)}，${e(c.title)}。</p><a href="cases.html#${c.id}">查看背景与 Offer →</a></div></article>`; }
 // Keep the requested university groups, with the newest issue dates first within each group.
 const offerPriority = [
  ['布朗大学','哥伦比亚大学','康奈尔大学','达特茅斯学院','哈佛大学','普林斯顿大学','宾夕法尼亚大学','耶鲁大学'],
@@ -133,11 +130,6 @@ function mentorDirectory() {
  </div>`).join('');
 }
 const milestones = ['成立工作室','建立标准流程','扩充协作角色','完善定位方法','组织模式升级','整合服务环节','案例资料积累','拓展教育资源'];
-const articles = [
- {file:'article-ranking.html',image:'blog-ranking.jpg',type:'院校选择',en:'University Rankings',title:'QS Top 100 不是唯一指标',desc:'用课程、方向和个人目标，补充对排名的理解。',sections:[['先确认自己需要什么','选校前先列出专业兴趣、预算、学习方式与毕业后的计划。排名可以辅助缩小范围，但不能替代这些条件。'],['用课程内容做进一步比较','逐一查看核心课程、选修空间、研究或实践安排，再判断项目是否能支持已有经历和下一阶段目标。'],['核对信息的时间与来源','关注排名适用年份及评价维度。项目要求和申请截止日期应以院校当前官方页面为准。']],related:[6,4]},
- {file:'article-sop.html',image:'blog-essay.jpg',type:'文书准备',en:'Essay Preparation',title:'SOP 怎样写出专业动机',desc:'让经历、问题和未来学习目标形成清晰的联系。',sections:[['从具体问题开始整理','选取一段重要学习或实践经历，说明当时遇到了什么问题、采取了哪些行动，以及它如何影响后续选择。'],['把经历与项目资源对应','找到希望继续提升的知识或方法，再查找课程和研究资源。用具体联系说明匹配理由。'],['用下一阶段计划收束','解释希望通过学习解决什么问题，并把这一目标与研究或职业方向连接。每一项经历和成果都应能够核实。']],related:[7,12]},
- {file:'article-visa.html',image:'blog-visa.jpg',type:'签证行前',en:'Before Departure',title:'I-20、CAS、COE 到手之后',desc:'从确认入学文件，到安排签证与出发准备。',sections:[['核对个人和项目信息','检查姓名、课程、开学日期及文件条件。发现不一致时，先向院校确认，避免带着错误资料进入后续流程。'],['按官方清单准备资料','不同目的地、项目与个人背景适用的要求可能不同。以官方最新清单为准，提前安排证明文件和必要预约。'],['为出行留出调整空间','将住宿、交通、报到和选课安排放入同一份清单，记录联系人及期限，为可能的材料调整预留时间。']],related:[14,16]}
-];
 
 function home() {
  const slides=[
@@ -196,8 +188,6 @@ function casesPage() {
 function contact() {
  return subHero('CONTACT US','获取免费申请评估','填写申请情况后，扫码通过微信继续沟通。',true)+section(`<div class="contact-grid"><div>${head('APPLICATION ASSESSMENT','预约申请评估','提交后显示微信二维码；此页面不会保存填写信息，请在微信中重新发送申请背景。')}${evaluationForm('contact')}</div><aside class="contact-card"><span class="eyebrow">WECHAT CONSULTATION</span><h2>微信咨询</h2><img src="assets/brand/wechat-qr.png" width="330" height="330" alt="PiBridge 派桥留学官方微信二维码"><p>使用微信扫一扫，或保存后在微信中识别。</p><button class="button" data-consult>打开微信二维码</button><div class="contact-detail"><h3>PiBridge 派桥留学</h3><p>请通过微信联系团队。</p></div></aside></div>`,'','eval-form')+section(head('LET’S MEET','线上沟通','说明你的申请阶段和问题，沟通合适的申请方向。')+`<div class="meeting-grid"><article class="proof-card"><span class="proof-icon">◎</span><h3>微信咨询</h3><p>扫码联系团队，沟通申请目标和准备事项。</p><button class="text-link" data-consult>打开微信二维码</button></article></div>`,'soft')+section(head('FREQUENTLY ASKED QUESTIONS','常见问题')+`<div class="accordion faq">${[['如何开始咨询？','点击微信咨询，扫码联系并说明希望讨论的申请方向。'],['录取案例有哪些资料？','录取案例页展示脱敏录取文件及文件中可以核对的背景信息。'],['填写表单后会发生什么？','页面会显示微信二维码。填写的信息不会保存在本网站，请在微信中重新发送申请背景。']].map(([q,a])=>`<details><summary>${q}</summary><div><p>${a}</p></div></details>`).join('')}</div>`);
 }
-function news() { return subHero('INSIGHTS & GUIDES','留学申请资讯与节点提醒','从选校、材料到行前准备，了解不同阶段需要考虑的问题。资讯内容为演示摘要。',true)+section(`<div class="news-grid">${articles.map((a,i)=>`<article class="news-card"><a href="${a.file}">${img(a.image,`${a.type}参考配图`)}</a><div><span class="eyebrow">${a.type} · 演示摘要</span><h2><a href="${a.file}">${a.title}</a></h2><p>${a.desc}</p><a class="text-link" href="${a.file}">阅读全文 →</a></div></article>`).join('')}</div>`); }
-function article(a) { return subHero(a.en,a.title,a.desc,true)+section(`<article class="article-body">${img(a.image,`${a.type}参考站配图`)}<ul class="meta-row"><li>${a.type}</li><li>PiBridge 派桥留学</li><li>演示摘要</li></ul>${note('以下为参考主题的演示改写，不属于原站文章全文，也不替代院校、签证或排名机构发布的信息。')}${a.sections.map(([title,text])=>`<h2>${title}</h2><p>${text}</p>`).join('')}<p class="article-source"><a href="https://xzcoffer.cn/${a.file}" target="_blank" rel="noopener">查看参考原文 ↗</a> <a href="news.html">返回留学资讯 →</a></p></article>`)+section(head('RELATED CASES','相关录取案例','原站公开案例仅作演示，不属于派桥服务业绩。')+`<div class="case-card-grid two">${a.related.map(n=>feature(cases[n-1])).join('')}</div>`,'soft'); }
 
 export function renderPages() {
  const pages = {
@@ -206,10 +196,8 @@ export function renderPages() {
   'about.html':layout('关于我们',about(),'about'),
   'services.html':layout('服务流程',services(),'services'),
   'cases.html':layout('品牌口碑与案例',casesPage(),'cases'),
-  'contact.html':layout('联系我们',contact(),'contact'),
-  'news.html':layout('留学资讯',news(),'news')
+  'contact.html':layout('联系我们',contact(),'contact')
  };
- for(const a of articles) pages[a.file]=layout(a.title,article(a),'article');
  return pages;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
