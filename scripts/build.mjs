@@ -9,4 +9,4 @@ for(const file of publicFiles) {
   await mkdir(dirname(target),{recursive:true});
   await copyFile(resolve(root,file),target);
 }
-console.log(`Built ${publicFiles.length} allowlisted public files, including 10 pages.`);
+console.log(`Built ${publicFiles.length} allowlisted public files.`);

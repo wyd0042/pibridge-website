@@ -1,6 +1,6 @@
 import publishedOffers from '../assets/published-offers.json' with { type: 'json' };
 import { readFile } from 'node:fs/promises';
-export const pageFiles = ['index.html','service-vip.html','about.html','services.html','cases.html','contact.html','news.html','article-ranking.html','article-sop.html','article-visa.html'];
+export const pageFiles = ['index.html','service-vip.html','about.html','services.html','cases.html','contact.html'];
 const sources = JSON.parse(await readFile(new URL('../assets/sources.json',import.meta.url),'utf8'));
 if (sources.some(item => !item.sha256 || !item.file.startsWith('assets/img/') || item.file.includes('..'))) throw new Error('Invalid asset allowlist');
 const publishedImages = publishedOffers.map(({ image }) => image);
