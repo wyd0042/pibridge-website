@@ -5,7 +5,7 @@ from pathlib import Path
 from flask import Flask, jsonify, request, send_file
 from PIL import Image
 
-from pipeline import inspect_offer, redact, website_data
+from offer_modify.pipeline import inspect_offer, redact, website_data
 
 HERE = Path(__file__).resolve().parent
 app = Flask(__name__, static_folder=None)
