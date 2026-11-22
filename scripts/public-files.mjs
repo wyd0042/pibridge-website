@@ -7,4 +7,4 @@ const publishedImages = publishedOffers.map(({ image }) => image);
 if (publishedImages.some(image => !/^assets\/img\/published-offers\/[a-z0-9-]+\.png$/.test(image))) {
   throw new Error('Invalid published offer asset');
 }
-export const publicFiles = [...pageFiles,'styles.css','app.js','cases-data.js','assets/brand/wordmark.png','assets/brand/wechat-qr.png','assets/brand/favicon.svg',...sources.map(item=>item.file),...publishedImages];
+export const publicFiles = [...pageFiles,'styles.css','app.js','cases-data.js','assets/brand/wordmark.png','assets/brand/wechat-qr.png','assets/brand/favicon.svg','mockup/index.html','mockup/workbench.js',...sources.map(item=>item.file),...publishedImages];
