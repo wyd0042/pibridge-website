@@ -97,10 +97,10 @@ const brandSlogan = '<span lang="en">The world is your oyster.</span>';
 const brandFocus = '专注数学、统计学、数据科学、金融工程及计算机方向的硕博留学申请。';
 const mentorGroups = [
  { title:'学术导师', description:'从研究与学术发展角度，提供申请指导。', mentors:[
-  ['Ryan','牛津大学数学系博士',''],
+  ['Ryan','牛津大学博士',''],
   ['Rocky','香港中文大学博士 · 港府奖学金（HKPFS）',''],
-  ['Yu','牛津大学工程科学系博士','在 Journal of Fluid Mechanics 发表研究'],
-  ['Yao','牛津大学工程科学系博士','在 Journal of Fluid Mechanics 发表研究'],
+  ['Yu','牛津大学博士','在 Journal of Fluid Mechanics 发表研究'],
+  ['Yao','牛津大学博士','在 Journal of Fluid Mechanics 发表研究'],
  ]},
  { title:'行业导师', description:'结合科技、金融、市场营销与人力资源领域的行业经验，提供职业发展视角。', mentors:[
   // 算法与技术
