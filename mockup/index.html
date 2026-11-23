@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Offer 脱敏工具 | PiBridge</title>
+<style>
+  :root { color-scheme: light; font: 16px/1.6 system-ui, -apple-system, sans-serif; color: #203b59; background: #f3f7fb; }
+  * { box-sizing: border-box; }
+  body { max-width: 760px; margin: 0 auto; padding: 32px 18px; }
+  header, main { background: #fff; border: 1px solid #dce6f0; border-radius: 14px; box-shadow: 0 8px 28px #1839580b; }
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; padding: 17px 22px; }
+  header img { width: 132px; height: auto; }
+  header span { border-left: 1px solid #dce6f0; padding-left: 14px; font-weight: 650; }
+  main { padding: 28px; }
+  h1 { margin: 0 0 8px; font-size: 26px; color: #173b61; }
+  p { margin: 10px 0 16px; }
+  .intro { color: #526b83; }
+  .notice { border-left: 3px solid #3787cb; background: #f1f7fc; padding: 12px 14px; color: #36536d; }
+  label { display: block; margin: 18px 0 8px; font-weight: 600; }
+  input[type=password], input[type=file] { display: block; width: 100%; margin: 7px 0 14px; border: 1px solid #bacbda; border-radius: 7px; padding: 11px 12px; font: inherit; background: white; }
+  input[type=file] { padding: 9px; }
+  button { border: 0; border-radius: 7px; padding: 11px 18px; background: #2678b9; color: white; font: inherit; font-weight: 650; cursor: pointer; }
+  button:hover { background: #1d649e; }
+  button:disabled { opacity: .55; cursor: wait; }
+  #status { min-height: 1.6em; color: #36536d; }
+  [hidden] { display: none !important; }
+  footer { margin: 16px 4px; color: #708397; font-size: 13px; }
+  @media (max-width: 560px) { body { padding: 16px 12px; } main { padding: 20px; } header { padding: 14px; } header img { width: 110px; } }
+</style>
+<script type="module" src="./workbench.js"></script>
+</head>
+<body>
+<header><img src="../assets/brand/wordmark.png" alt="PiBridge"><span>内部工具</span></header>
+<main>
+  <section id="login-panel">
+    <h1>Offer 脱敏工具</h1>
+    <p class="intro">输入访问密码后，一次处理一份 PDF，完成后自动下载带 PiBridge 水印的 PNG。</p>
+    <form id="login-form">
+      <label for="username">账号</label>
+      <input id="username" name="username" type="text" autocomplete="username" required>
+      <label for="password">密码</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+      <button id="login-button">进入工具</button>
+    </form>
+  </section>
+  <section id="tool-panel" hidden>
+    <h1>处理一份 Offer PDF</h1>
+    <p class="intro">选择单个 PDF；工具只处理第一页。处理成功后会立即下载 PNG。</p>
+    <p class="notice">自动打码可能遗漏姓名、编号、邮箱、链接或院校信息。请先确认你有权处理此文件，并在发布前检查下载结果。文件只用于本次处理，网站不会主动保存上传文件。</p>
+    <form id="upload-form">
+      <label for="offer">选择 PDF（最多 4 MB）</label>
+      <input id="offer" name="offer" type="file" accept="application/pdf,.pdf" required>
+      <button id="process-button">打码并下载 PNG</button>
+    </form>
+  </section>
+  <p id="status" role="status" aria-live="polite"></p>
+</main>
+<footer>仅支持含可提取文字的 PDF；扫描图片版可能无法自动识别。每次只处理一个文件，文件不会加入网站案例或公开页面。</footer>
+</body>
+</html>

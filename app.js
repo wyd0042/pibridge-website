@@ -116,8 +116,8 @@ function createDialog(kind,title) {
   });
   return dialog;
 }
-const drawer=createDialog('drawer','原站演示案例详情');
-const lightbox=createDialog('lightbox','原站演示 Offer');
+const drawer=createDialog('drawer','录取案例详情');
+const lightbox=createDialog('lightbox','录取文件');
 const consult=createDialog('consult-modal','微信咨询 · PiBridge 派桥留学');
 function openDialog(dialog) {
   if (!dialog.open) {
@@ -133,7 +133,7 @@ function closeDialog(dialog) {
   dialog.close();
 }
 function showConsult() {
-  $('.modal-content',consult).innerHTML='<img src="assets/brand/wechat-qr.png" width="330" height="330" alt="PiBridge 派桥留学官方微信客服二维码"><h3>PiBridge 派桥留学</h3><p>使用微信扫一扫，或保存二维码后在微信中识别。</p><p>表单演示不发送或保存个人资料。</p><a href="assets/brand/wechat-qr.png" target="_blank" rel="noopener">打开二维码原图 ↗</a>';
+  $('.modal-content',consult).innerHTML='<img src="assets/brand/wechat-qr.png" width="330" height="330" alt="PiBridge 派桥留学官方微信客服二维码"><h3>PiBridge 派桥留学</h3><p>使用微信扫一扫，或保存二维码后在微信中识别。</p><p>此页面不会保存刚才填写的信息，请在微信中重新发送申请背景。</p><a href="assets/brand/wechat-qr.png" target="_blank" rel="noopener">打开二维码原图</a>';
   openDialog(consult);
 }
 function showCase(id,updateURL=true) {
@@ -163,13 +163,11 @@ function stepOffer(delta) {
   if(focusedStep) $(`[data-gallery-step="${focusedStep}"]`,lightbox).focus();
 }
 
-$$('[data-demo-form]').forEach(form => {
+$$('[data-form="qr"]').forEach(form => {
   form.addEventListener('submit',event => {
     event.preventDefault();
     if(!form.reportValidity()) return;
-    const status=$('.form-status',form);
-    if(form.dataset.demoForm==='subscribe') status.textContent='订阅演示完成，邮箱未发送或保存。';
-    else { status.textContent='演示完成，资料未发送或保存。请通过微信咨询。'; showConsult(); }
+    showConsult();
     form.reset();
     const counter=$('[data-message-count]',form); if(counter) counter.textContent='0 / 500';
   });

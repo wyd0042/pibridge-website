@@ -116,6 +116,26 @@ test('published offers link to reviewed first-page PNGs and keep reference examp
     const bytes = await readFile(resolve(root,image));
     assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
   }
+  for (const file of pageFiles) {
+    const page = new JSDOM(rendered[file]).window.document;
+    const featured = [...page.querySelectorAll('.footer-news a')];
+    assert.deepEqual(featured.map(link => link.getAttribute('href')), [
+      'cases.html#offer-columbia-or', 'cases.html#offer-oxford-omms', 'cases.html#offer-ntu-bds'
+    ]);
+    for (const link of featured) {
+      const [,offerID] = link.getAttribute('href').split('#');
+      const matchingOffer = document.getElementById(offerID);
+      const details = offersByImage.get(matchingOffer?.getAttribute('href'));
+      assert.ok(details, link.getAttribute('href'));
+      assert.equal(link.textContent, `${details.school} · ${details.programme}`);
+      assert.ok(link.nextElementSibling.textContent.includes(details.originalSchool ?? details.status));
+    }
+    if (file === 'index.html') {
+      const previews = [...page.querySelectorAll('.hero-offers img,.case-photo img,.offer-preview img')];
+      assert.ok(previews.length > 0);
+      assert.ok(previews.every(image => offersByImage.has(image.getAttribute('src'))));
+    }
+  }
   const backgrounds = [...document.querySelectorAll('#admissions article')];
   const verified = manifest.filter(offer => offer.originalSchool);
   assert.equal(backgrounds.length,verified.length);
