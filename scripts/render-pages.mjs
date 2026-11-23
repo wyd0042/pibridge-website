@@ -99,8 +99,8 @@ const mentorGroups = [
  { title:'学术导师', description:'从研究与学术发展角度，提供申请指导。', mentors:[
   ['Ryan','牛津大学博士',''],
   ['Rocky','香港中文大学博士 · 港府奖学金（HKPFS）',''],
-  ['Yu','牛津大学博士','在 Journal of Fluid Mechanics 发表研究'],
-  ['Yao','牛津大学博士','在 Journal of Fluid Mechanics 发表研究'],
+  ['Yu','牛津大学博士','在 Journal of Fluid Mechanics 流体力学顶刊发表研究'],
+  ['Yao','牛津大学博士','在 Journal of Fluid Mechanics 流体力学顶刊发表研究'],
  ]},
  { title:'行业导师', description:'结合科技、金融、市场营销与人力资源领域的行业经验，提供职业发展视角。', mentors:[
   // 算法与技术
@@ -127,7 +127,7 @@ const mentorGroups = [
   ['Cici','香港三大监管机构 · 风控部门',''],
   // 人力资源
   ['Danny','头部一级卖方HR Head',''],
-  ['Robbin','头部大厂HR',''],
+  ['Robbin','头部互联网大厂HR',''],
  ]},
 ];
 
