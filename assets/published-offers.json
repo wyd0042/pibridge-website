@@ -220,8 +220,8 @@
     "programme": "MSc Mathematics",
     "intake": "2027/28 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/cuhk-mathematics-2027.jpg",
-    "sha256": "fd04f8579a1fd705cc29f584b69d2f396b024ed82cec67d92bb662dcf1e75cfd"
+    "image": "assets/img/published-offers/cuhk-mathematics-2027.png",
+    "sha256": "95de6f6eea59c73ad01073298dba1ba7afc151558c7470d580c596270888d21f"
   },
   {
     "school": "香港中文大学",
@@ -246,5 +246,13 @@
     "status": "录取通知",
     "image": "assets/img/published-offers/polyu-quantitative-finance-fintech-2025.png",
     "sha256": "dcff90af6360ced49c0f65544ece7d7302ad084bbc79fc6e405c05a25e2e0c8d"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc Risk Management Science and Data Analytics",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/cuhk-risk-management-data-analytics-2026.png",
+    "sha256": "a237ab7dc55c3c169dfe2df6fc1971f6f381de68a44a4746f753ae7f30368d1c"
   }
 ]

@@ -45,8 +45,8 @@ test('internal routes, section links and assets remain valid under a subpath',as
  for(const doc of docs.values())doc.defaultView.close();
 });
 test('all offers keep upload order without school sections or image links',async()=>{
- assert.equal(manifest.length,31);
- assert.equal(new Set(manifest.map(o=>o.image)).size,31);
+ assert.equal(manifest.length,32);
+ assert.equal(new Set(manifest.map(o=>o.image)).size,32);
  for(const page of ['index.html','cases.html']){
   const doc=new JSDOM(rendered[page]).window.document;
   const cards=[...doc.querySelectorAll('main .published-offer')];
@@ -60,7 +60,7 @@ test('all offers keep upload order without school sections or image links',async
   doc.defaultView.close();
  }
  for(const offer of manifest)assert.equal(createHash('sha256').update(await readFile(resolve(root,offer.image))).digest('hex'),offer.sha256);
- assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,31);
+ assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,32);
  assert.equal(manifest[0].image,'assets/img/published-offers/oxford-mmsc-2025-v2.jpg');
 });
 test('offer clicks and arrow keys cannot open an enlargement dialog',async()=>{
