@@ -51,6 +51,12 @@ test('all offers keep upload order without school sections or image links',async
  assert.equal(manifest[cuhkStart+2].programme,'MSc Risk Management Science and Data Analytics');
  assert.deepEqual(manifest.slice(-6).map(o=>o.school),['南洋理工大学','南洋理工大学','南洋理工大学','南洋理工大学','新加坡国立大学','新加坡国立大学']);
  assert.equal(new Set(manifest.map(o=>o.image)).size,38);
+ for(const offer of manifest){
+  assert.match(offer.image,/-pibridge\.png$/);
+  assert.equal(offer.watermark?.text,'PiBridge');
+  assert.equal(offer.watermark?.rows,3);
+  assert.match(offer.sourceSha256,/^[a-f0-9]{64}$/);
+ }
  for(const page of ['index.html','cases.html']){
   const doc=new JSDOM(rendered[page]).window.document;
   const cards=[...doc.querySelectorAll('main .published-offer')];
@@ -65,7 +71,7 @@ test('all offers keep upload order without school sections or image links',async
  }
  for(const offer of manifest)assert.equal(createHash('sha256').update(await readFile(resolve(root,offer.image))).digest('hex'),offer.sha256);
  assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,38);
- assert.equal(manifest[0].image,'assets/img/published-offers/oxford-mmsc-2025-v2.jpg');
+ assert.equal(manifest[0].image,'assets/img/published-offers/oxford-mmsc-2025-v2-pibridge.png');
 });
 test('offer clicks and arrow keys cannot open an enlargement dialog',async()=>{
  for(const page of ['index.html','cases.html']){

@@ -194,12 +194,18 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,s
 @media (max-width:767px) { .offer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; } }
 
 /* Keep every image frame and caption aligned in the offer grid. */
-.offer-grid { align-items:stretch; }
-.offer-grid .offer-image { flex:0 0 auto; box-sizing:border-box; aspect-ratio:4/5; }
-.offer-grid .offer-caption { display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:1.6em auto; align-content:start; gap:6px; min-height:120px; padding:14px; writing-mode:horizontal-tb; text-align:left; }
+.offer-grid { --offer-image-height:340px; align-items:stretch; }
+.offer-grid .offer-card { display:grid; grid-template-rows:var(--offer-image-height) 1fr; }
+.offer-grid .offer-image { box-sizing:border-box; width:100%; height:100%; min-width:0; min-height:0; aspect-ratio:auto; overflow:hidden; }
+.offer-grid .offer-image img { display:block; min-width:0; min-height:0; max-width:100%; max-height:100%; object-fit:contain; }
+.offer-grid .offer-caption { display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:24px auto; align-content:start; gap:6px; min-height:120px; padding:14px; writing-mode:horizontal-tb; text-align:left; }
 .offer-grid .offer-caption strong { display:block; min-width:0; font-size:14px; line-height:1.6; white-space:nowrap; }
 .offer-grid .offer-caption > span { display:block; min-width:0; font-size:13px; line-height:1.6; white-space:normal; word-break:normal; overflow-wrap:break-word; writing-mode:horizontal-tb; }
+@media (max-width:991px) { .offer-grid { --offer-image-height:280px; } }
 @media (max-width:767px) {
- .offer-grid .offer-caption { padding:10px; min-height:140px; }
+ .offer-grid { --offer-image-height:260px; }
+ .offer-grid .offer-caption { grid-template-rows:20px auto; padding:10px; min-height:140px; }
  .offer-grid .offer-caption strong,.offer-grid .offer-caption > span { font-size:12px; }
 }
+
+@media (max-width:479px) { .offer-grid { --offer-image-height:220px; } }

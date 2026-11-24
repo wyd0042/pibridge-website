@@ -4,303 +4,607 @@
     "programme": "MSc Mathematical Modelling and Scientific Computing",
     "intake": "2025/26 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/oxford-mmsc-2025-v2.jpg",
-    "sha256": "2f7058637d6b55738bc22a273e77c86957f4d319cc3f768acd6f1cfd6e67f5d6"
+    "image": "assets/img/published-offers/oxford-mmsc-2025-v2-pibridge.png",
+    "sha256": "4d21e896e23bfe2b4021b4fda437c276c2d8a12370035b5ce3efb6cf5d40d94f",
+    "sourceSha256": "2f7058637d6b55738bc22a273e77c86957f4d319cc3f768acd6f1cfd6e67f5d6",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "牛津大学",
     "programme": "MSc Mathematical Sciences",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/oxford-mathematical-sciences-2026.jpg",
-    "sha256": "79014738fa143b3c65a4244cf1e5bd9cf5e4a42763661ae63f91daa3a3587f6d"
+    "image": "assets/img/published-offers/oxford-mathematical-sciences-2026-pibridge.png",
+    "sha256": "1e1ede927158dea2857b439144a1b46e386698ef1ec476851e63e29da99d25e4",
+    "sourceSha256": "79014738fa143b3c65a4244cf1e5bd9cf5e4a42763661ae63f91daa3a3587f6d",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "帝国理工学院",
     "programme": "MSc Risk Management and Financial Engineering",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/imperial-rmfe-2026.jpg",
-    "sha256": "b081f9cf31973262577e0bdc79b7a0dccc1b007a35599a9e34bb91eba2ed0e68"
+    "image": "assets/img/published-offers/imperial-rmfe-2026-pibridge.png",
+    "sha256": "5cdad445e69f46f25128615915c9cf594746e05ef65ed88f9c895526b25ac900",
+    "sourceSha256": "b081f9cf31973262577e0bdc79b7a0dccc1b007a35599a9e34bb91eba2ed0e68",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "伦敦政治经济学院",
     "programme": "MSc Data Science",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/lse-data-science-2026.jpg",
-    "sha256": "0b2f1e2b8113f8e06037f368b3ba06f3efde78848562aa46d651bf6795ab775d"
+    "image": "assets/img/published-offers/lse-data-science-2026-pibridge.png",
+    "sha256": "886d9c220deea492247ffbb4dcdc6c782c01f8be1a78a6b7323e09d745c6c39c",
+    "sourceSha256": "0b2f1e2b8113f8e06037f368b3ba06f3efde78848562aa46d651bf6795ab775d",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "伦敦政治经济学院",
     "programme": "MSc Operations Research & Analytics",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/lse-operations-research-2026.jpg",
-    "sha256": "616e796ff85e319f27a4829af88768368eb045f1fb94a7985c0b43e3fe1b8556"
+    "image": "assets/img/published-offers/lse-operations-research-2026-pibridge.png",
+    "sha256": "311127bdc000f0d19e51be5e861f43ea67b6061cb5e2b3e9aef2a655f18febb9",
+    "sourceSha256": "616e796ff85e319f27a4829af88768368eb045f1fb94a7985c0b43e3fe1b8556",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "伦敦政治经济学院",
     "programme": "MSc Health Data Science",
     "intake": "2027/28 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/lse-health-data-science-2027.jpg",
-    "sha256": "69958482d258b29d9cb4b3d81b3c00fa93eb3c5752d5a1f942833337139f6c21"
+    "image": "assets/img/published-offers/lse-health-data-science-2027-pibridge.png",
+    "sha256": "540055c592bbfa94dd8763dd3db42e5f72b7b35b413293796e7bb84800854b1e",
+    "sourceSha256": "69958482d258b29d9cb4b3d81b3c00fa93eb3c5752d5a1f942833337139f6c21",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "伦敦政治经济学院",
     "programme": "MSc Mathematics and Computation",
     "intake": "2026/27 学年",
     "status": "录取通知",
-    "image": "assets/img/published-offers/lse-mathematics-computation-2026.jpg",
-    "sha256": "1bdf5f1dc07bd1d240dbb400ae2bfeae176199f2ac0c9572913480ff76bb7049"
+    "image": "assets/img/published-offers/lse-mathematics-computation-2026-pibridge.png",
+    "sha256": "f3cfd77a016fb77e86cf2d14dc9595bb580f33b2a907185425ce9168cf4fb12e",
+    "sourceSha256": "1bdf5f1dc07bd1d240dbb400ae2bfeae176199f2ac0c9572913480ff76bb7049",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "伦敦大学学院",
     "programme": "MSc Financial Technology",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ucl-financial-technology-2026.jpg",
-    "sha256": "3e8e0392f0a4c1e922cb01debe8aedc7c3069d57d02d03e3d8cfce2f49ca28de"
+    "image": "assets/img/published-offers/ucl-financial-technology-2026-pibridge.png",
+    "sha256": "6cc13a4ef48c72a2564162c2f232cf60acfa08972e22f0d045f70b075e95af29",
+    "sourceSha256": "3e8e0392f0a4c1e922cb01debe8aedc7c3069d57d02d03e3d8cfce2f49ca28de",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "伦敦大学学院",
     "programme": "MSc Venture Capital and Private Equity with Financial Technology",
     "intake": "2025/26 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ucl-venture-capital-private-equity-2025.jpg",
-    "sha256": "b457ff95ddfe1d62dc20b86da601104f546581f7d40433bd10bed3683b548403"
+    "image": "assets/img/published-offers/ucl-venture-capital-private-equity-2025-pibridge.png",
+    "sha256": "d6d184aa967f8508e16a18159704025182d53b16c3734b65033a360927786908",
+    "sourceSha256": "b457ff95ddfe1d62dc20b86da601104f546581f7d40433bd10bed3683b548403",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "伦敦大学学院",
     "programme": "MSc Finance with Data Science",
     "intake": "2025/26 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ucl-finance-data-science-2025.jpg",
-    "sha256": "2ce16b3b742c3c0de01e6bd34467517a0925c1c07fd410f4557263774ecd6761"
+    "image": "assets/img/published-offers/ucl-finance-data-science-2025-pibridge.png",
+    "sha256": "2e1963e0666e0c0aad4b6107d0d8f920b34155ebd53b24ddea1d4537571f3df1",
+    "sourceSha256": "2ce16b3b742c3c0de01e6bd34467517a0925c1c07fd410f4557263774ecd6761",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "伦敦大学学院",
     "programme": "MSc Financial Mathematics",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ucl-financial-mathematics-2026.jpg",
-    "sha256": "30236fdabf149863e131594dbb7e756fa9256992936f641d44187affbe6555cc"
+    "image": "assets/img/published-offers/ucl-financial-mathematics-2026-pibridge.png",
+    "sha256": "06e71737e85bf545e56d26f618750f985ccd943f8584bf6e5d17c989fc40bf17",
+    "sourceSha256": "30236fdabf149863e131594dbb7e756fa9256992936f641d44187affbe6555cc",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "伦敦大学学院",
     "programme": "MSc Financial Risk Management",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ucl-financial-risk-management-2026.jpg",
-    "sha256": "de9600161db2f6cbee02b7bfd40f3da50178cec45d4b225522e530b1e1f94044"
+    "image": "assets/img/published-offers/ucl-financial-risk-management-2026-pibridge.png",
+    "sha256": "bb282b0fb4f461c2edf8166f84679c6976c8bce1b96a12866430147a397612df",
+    "sourceSha256": "de9600161db2f6cbee02b7bfd40f3da50178cec45d4b225522e530b1e1f94044",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "爱丁堡大学",
     "programme": "MSc Computational Mathematical Finance",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-computational-mathematical-finance.jpg",
-    "sha256": "21952a73514ddde9802eb921cb7956431a38a41f09fba50ce3cd243dc29138ca"
+    "image": "assets/img/published-offers/edinburgh-computational-mathematical-finance-pibridge.png",
+    "sha256": "ff407b55b80064e057bd7cd07fb94defb5a0b87166b7e3c21929fb85c3c763fa",
+    "sourceSha256": "21952a73514ddde9802eb921cb7956431a38a41f09fba50ce3cd243dc29138ca",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "爱丁堡大学",
     "programme": "MSc Statistics with Data Science",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-statistics-data-science.png",
-    "sha256": "79e347f368c9e0335498c382faa5dbca297d55126e3eee2218adc2addb398555"
+    "image": "assets/img/published-offers/edinburgh-statistics-data-science-pibridge.png",
+    "sha256": "f1a2e3f265b594446fe009817e41141d4ea286c254a8094c55cdaf977a3a691a",
+    "sourceSha256": "79e347f368c9e0335498c382faa5dbca297d55126e3eee2218adc2addb398555",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "爱丁堡大学",
     "programme": "MSc Data Science",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-data-science-a.jpg",
-    "sha256": "d99c76a6b9356f63a8ad16e9cec79016cac5afef630d7c97b9c1ad556e88ab92"
+    "image": "assets/img/published-offers/edinburgh-data-science-a-pibridge.png",
+    "sha256": "f4ddd36d6c1b9d9695494208e614787713257dec72d9d1b3e4e360d6831143db",
+    "sourceSha256": "d99c76a6b9356f63a8ad16e9cec79016cac5afef630d7c97b9c1ad556e88ab92",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "爱丁堡大学",
     "programme": "MSc Artificial Intelligence",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-artificial-intelligence.png",
-    "sha256": "4d5d1cbe18d4f7515707015610bf06de26bd785992114fecee501e0398d289db"
+    "image": "assets/img/published-offers/edinburgh-artificial-intelligence-pibridge.png",
+    "sha256": "c024dc08a007a835213e41a2de46c59ca7c16e10e58a49bccf592c42f5be58c9",
+    "sourceSha256": "4d5d1cbe18d4f7515707015610bf06de26bd785992114fecee501e0398d289db",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "爱丁堡大学",
     "programme": "MSc Computer Science",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-computer-science.png",
-    "sha256": "916100b5a70edd083430c644b382e6de57c92c82fdde129b873b53e2b240b26e"
+    "image": "assets/img/published-offers/edinburgh-computer-science-pibridge.png",
+    "sha256": "b145397c3e88b74c10aebeab30356d2dc6adaf8c5eef0c6b13c3c4181f0cdc66",
+    "sourceSha256": "916100b5a70edd083430c644b382e6de57c92c82fdde129b873b53e2b240b26e",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "爱丁堡大学",
     "programme": "MSc Data Science",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-data-science-b.png",
-    "sha256": "3d9f18e49ccaa69c7c146450cb3d034a90d34e0e815be193448d57397d624e4f"
+    "image": "assets/img/published-offers/edinburgh-data-science-b-pibridge.png",
+    "sha256": "073dad88641501340ea7d59e4dd9552a3e08d619130855a9336ec2a297de89bf",
+    "sourceSha256": "3d9f18e49ccaa69c7c146450cb3d034a90d34e0e815be193448d57397d624e4f",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港大学",
     "programme": "Master of Finance in Financial Technology",
     "intake": "2027/28 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hku-finance-financial-technology-2027.jpg",
-    "sha256": "bce0b6eab4952e6a58b41538922b50931078d14ad485399ffa37f7ca2038c4d9"
+    "image": "assets/img/published-offers/hku-finance-financial-technology-2027-pibridge.png",
+    "sha256": "989a1c36e76f0c0bc60cb447fbe77091b726446cd1dea9f3a3d8cb8af92734ce",
+    "sourceSha256": "bce0b6eab4952e6a58b41538922b50931078d14ad485399ffa37f7ca2038c4d9",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港大学",
     "programme": "Master of Data Science",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hku-data-science-2026.jpg",
-    "sha256": "13792a77ceabd8ccfaf6cc95d9440dcec36afc84107f02fa8688601528b93a63"
+    "image": "assets/img/published-offers/hku-data-science-2026-pibridge.png",
+    "sha256": "59506c7929755ec40da649591e08d88ef7aba27fae79a27d1e47b46aaad9deed",
+    "sourceSha256": "13792a77ceabd8ccfaf6cc95d9440dcec36afc84107f02fa8688601528b93a63",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港大学",
     "programme": "MSc Computer Science (General Stream)",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hku-computer-science-2026.jpg",
-    "sha256": "cba2c8a0610ef428ea41a5f6a324e4da3dd6219dde1d55e2c9b781ff39c4ca6e"
+    "image": "assets/img/published-offers/hku-computer-science-2026-pibridge.png",
+    "sha256": "d7f572701c0177503ff3790a1d5542e193aaaf4c0c408f4fc13cb3ac8ad79ec9",
+    "sourceSha256": "cba2c8a0610ef428ea41a5f6a324e4da3dd6219dde1d55e2c9b781ff39c4ca6e",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港大学",
     "programme": "Master of Statistics",
     "intake": "2025/26 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hku-statistics-2025.png",
-    "sha256": "817c85d44a148ead1e40960baf5c4824bf70a31e9acc9539c684daa9b09d107d"
+    "image": "assets/img/published-offers/hku-statistics-2025-pibridge.png",
+    "sha256": "a6fdf55b9219d3ba9c42f2bf3269f3d4d634d78883d6434856263adb628d4b85",
+    "sourceSha256": "817c85d44a148ead1e40960baf5c4824bf70a31e9acc9539c684daa9b09d107d",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港科技大学",
     "programme": "MSc Information and Cyber Security Management",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hkust-information-cyber-security-management-2026.jpg",
-    "sha256": "737a983552a6a170e8a9c3b541d4bdc9ab50c6bd72efaa7bd1f363c06f75b36d"
+    "image": "assets/img/published-offers/hkust-information-cyber-security-management-2026-pibridge.png",
+    "sha256": "9e9b0bd6576262b521a33b0bc24eb8794130b21d584ba0f8f8526f5a00dd2684",
+    "sourceSha256": "737a983552a6a170e8a9c3b541d4bdc9ab50c6bd72efaa7bd1f363c06f75b36d",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港科技大学",
     "programme": "MSc Artificial Intelligence",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hkust-artificial-intelligence-2026.jpg",
-    "sha256": "879a55791dc76e0d83d000ce28a833dba56f14ecb0c7c3bcf4482aa76a35975f"
+    "image": "assets/img/published-offers/hkust-artificial-intelligence-2026-pibridge.png",
+    "sha256": "b49288993122f5cd8650eceaafc0a787efc7ed150354c3d75826997d46d8b261",
+    "sourceSha256": "879a55791dc76e0d83d000ce28a833dba56f14ecb0c7c3bcf4482aa76a35975f",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港科技大学",
     "programme": "MSc AI and Entrepreneurship",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hkust-ai-entrepreneurship-2026.jpg",
-    "sha256": "1da4ca739137bc20357d9eb5ba940b2d5577490c3853ebcee13261251c6363a8"
+    "image": "assets/img/published-offers/hkust-ai-entrepreneurship-2026-pibridge.png",
+    "sha256": "3f65e48ab023af6c0bd61d87abcf7596e80230c86fddbaef0380b3acb8d93807",
+    "sourceSha256": "1da4ca739137bc20357d9eb5ba940b2d5577490c3853ebcee13261251c6363a8",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港科技大学",
     "programme": "MSc Financial Mathematics",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hkust-financial-mathematics-2026.jpg",
-    "sha256": "b2e1d6bb89ee67528b68b18ee619ae98494c6ffcd1cd285e0e75c656ad61db22"
+    "image": "assets/img/published-offers/hkust-financial-mathematics-2026-pibridge.png",
+    "sha256": "7d53c7c80fb2a3b03717951983f810409083ff2e92eca30b2e62936b407c5395",
+    "sourceSha256": "b2e1d6bb89ee67528b68b18ee619ae98494c6ffcd1cd285e0e75c656ad61db22",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港科技大学",
     "programme": "MSc Financial Technology",
     "intake": "2027/28 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hkust-financial-technology-2027.png",
-    "sha256": "0fd982390218b981dd410111e26273fff01b6640914d7277ab82fd983d483696"
+    "image": "assets/img/published-offers/hkust-financial-technology-2027-pibridge.png",
+    "sha256": "df4e55a25674b32d97b4b0c0859e906c63328d2287d31892b7b4bee00d589a3f",
+    "sourceSha256": "0fd982390218b981dd410111e26273fff01b6640914d7277ab82fd983d483696",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港中文大学",
     "programme": "MSc Mathematics",
     "intake": "2027/28 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/cuhk-mathematics-2027.png",
-    "sha256": "95de6f6eea59c73ad01073298dba1ba7afc151558c7470d580c596270888d21f"
+    "image": "assets/img/published-offers/cuhk-mathematics-2027-pibridge.png",
+    "sha256": "f8ac24f40ef92706491391b30b8d007e529480ef91a308b791d53edec54b9ed2",
+    "sourceSha256": "a919c3b668504397c39f882dada8b2a51e8ed9e82be21bb6cffce89b8918c45b",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港中文大学",
     "programme": "MSc Artificial Intelligence for Science",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/cuhk-ai-for-science-2026.jpg",
-    "sha256": "c5a936cf675cb2ad5f0374eb138e6d2758cc679a37bc027cba1ffd941c44ec17"
+    "image": "assets/img/published-offers/cuhk-ai-for-science-2026-pibridge.png",
+    "sha256": "1909fb6641d723162c61153c0cda1ba969b2c5f9b230ef0e67fdf706be226285",
+    "sourceSha256": "c5a936cf675cb2ad5f0374eb138e6d2758cc679a37bc027cba1ffd941c44ec17",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港中文大学",
     "programme": "MSc Risk Management Science and Data Analytics",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/cuhk-risk-management-data-analytics-2026.png",
-    "sha256": "a237ab7dc55c3c169dfe2df6fc1971f6f381de68a44a4746f753ae7f30368d1c"
+    "image": "assets/img/published-offers/cuhk-risk-management-data-analytics-2026-pibridge.png",
+    "sha256": "f5c14341612c846c8e97895a4d9bf27337e4b5ee3ab50a9a0fc3420ab35989d9",
+    "sourceSha256": "a237ab7dc55c3c169dfe2df6fc1971f6f381de68a44a4746f753ae7f30368d1c",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港理工大学",
     "programme": "MSc Mathematics for Artificial Intelligence Technology",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/polyu-mathematics-ai-technology-2026.png",
-    "sha256": "c83226d39a4fefb210d41368bc43f25f7bf4715bd01a3508bf45134ed50e2539"
+    "image": "assets/img/published-offers/polyu-mathematics-ai-technology-2026-pibridge.png",
+    "sha256": "5af2fd11873016cad649139fc53f7430cbc6768275829a282c6923f3bdce789d",
+    "sourceSha256": "c83226d39a4fefb210d41368bc43f25f7bf4715bd01a3508bf45134ed50e2539",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "香港理工大学",
     "programme": "MSc Quantitative Finance & FinTech",
     "intake": "2025/26 学年",
     "status": "录取通知",
-    "image": "assets/img/published-offers/polyu-quantitative-finance-fintech-2025.png",
-    "sha256": "dcff90af6360ced49c0f65544ece7d7302ad084bbc79fc6e405c05a25e2e0c8d"
+    "image": "assets/img/published-offers/polyu-quantitative-finance-fintech-2025-pibridge.png",
+    "sha256": "33bdc5bb0ceebb7e601dc549d48e2f466a886ab145bfd42fee49229c970a52c6",
+    "sourceSha256": "dcff90af6360ced49c0f65544ece7d7302ad084bbc79fc6e405c05a25e2e0c8d",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "南洋理工大学",
     "programme": "MSc Financial Technology (Intelligent Process Automation)",
     "intake": "2024/25 学年",
     "status": "录取通知",
-    "image": "assets/img/published-offers/ntu-financial-technology-ipa-2024.jpg",
-    "sha256": "1c23c88115f2d761d427f4b8a2f29d55109346715c0d9fea704cb14d0e71a424"
+    "image": "assets/img/published-offers/ntu-financial-technology-ipa-2024-pibridge.png",
+    "sha256": "f9909e3f48d5be3c3e66c27f6a7acee648d3703da272d67685a906ee9a015c4e",
+    "sourceSha256": "1c23c88115f2d761d427f4b8a2f29d55109346715c0d9fea704cb14d0e71a424",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "南洋理工大学",
     "programme": "MSc Artificial Intelligence in Medicine",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ntu-ai-medicine-2026.jpg",
-    "sha256": "02fdead5f43d78618e04a8f157c213e5a3d897f12a83e6b32d67a9110744247a"
+    "image": "assets/img/published-offers/ntu-ai-medicine-2026-pibridge.png",
+    "sha256": "321fcd60df91394ea6a221356c91af51d0366adb7f67192bb645cc66ccbb731b",
+    "sourceSha256": "02fdead5f43d78618e04a8f157c213e5a3d897f12a83e6b32d67a9110744247a",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "南洋理工大学",
     "programme": "MSc Biomedical Data Science",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ntu-biomedical-data-science-2026.jpg",
-    "sha256": "fe8c02b13d7552270a928f393b8ec540b730ec6ba15cb64e334edff30bfbb70b"
+    "image": "assets/img/published-offers/ntu-biomedical-data-science-2026-pibridge.png",
+    "sha256": "a10f2750a5ab5f81cf99afc7726d8628c3100f6eeaa1c445615d798055a0923a",
+    "sourceSha256": "fe8c02b13d7552270a928f393b8ec540b730ec6ba15cb64e334edff30bfbb70b",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "南洋理工大学",
     "programme": "MSc Signal Processing & Machine Learning",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/ntu-signal-processing-machine-learning-2026.jpg",
-    "sha256": "3518b4c379225886dedf8c0f8cc356fa4b88e552b6f9ae4a2de0f1608dc9370f"
+    "image": "assets/img/published-offers/ntu-signal-processing-machine-learning-2026-pibridge.png",
+    "sha256": "67845bf58438fe430cc89420a0f18e055feabd03787b6297a15c13c428697d1b",
+    "sourceSha256": "3518b4c379225886dedf8c0f8cc356fa4b88e552b6f9ae4a2de0f1608dc9370f",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "新加坡国立大学",
     "programme": "MSc Venture Creation",
     "intake": "2025/26 学年",
     "status": "录取通知",
-    "image": "assets/img/published-offers/nus-venture-creation-2025.jpg",
-    "sha256": "9cded565837d61ad32e488d950b17006c29e0d55b65096f9410684cfaedad63b"
+    "image": "assets/img/published-offers/nus-venture-creation-2025-pibridge.png",
+    "sha256": "bb95697ca81beec63de8b25d5d96d48ee619a088bef501d0fc3cae61afddc392",
+    "sourceSha256": "9cded565837d61ad32e488d950b17006c29e0d55b65096f9410684cfaedad63b",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   },
   {
     "school": "新加坡国立大学",
     "programme": "MSc Smart Industries and Digital Transformation",
     "intake": "2025/26 学年",
     "status": "录取通知",
-    "image": "assets/img/published-offers/nus-smart-industries-digital-transformation-2025.jpg",
-    "sha256": "5137625328c7f146dba8df2c641e97cdc61a901a2f3d2be88f910f263f234d19"
+    "image": "assets/img/published-offers/nus-smart-industries-digital-transformation-2025-pibridge.png",
+    "sha256": "14b9c75f90a5543fc6e9e5a499a658e44b44a67fae9a43be45050697580ed352",
+    "sourceSha256": "5137625328c7f146dba8df2c641e97cdc61a901a2f3d2be88f910f263f234d19",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   }
 ]
