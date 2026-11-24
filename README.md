@@ -36,9 +36,17 @@ npm run preview
 ## 更新网站内容
 
 - 页面内容和模板：编辑 `scripts/render-pages.mjs`，然后运行 `npm run generate`。
-- Offer 和案例资料：编辑 `cases-data.js` 与 `assets/published-offers.json`。公开前确认授权和脱敏情况。
+- Offer 和案例资料：编辑 `assets/published-offers.json`。公开前确认授权和脱敏情况。
 - 可发布文件清单：编辑 `scripts/public-files.mjs`。
 - 共用样式和交互：编辑 `styles.css` 与 `app.js`。
 - 图片来源记录：编辑 `assets/sources.json`。
 
 将更改推送到 Vercel 项目配置的部署分支后，Vercel 会重新构建并部署。
+
+## 录取材料维护
+
+当前批次按牛津大学、帝国理工学院、伦敦政治经济学院、伦敦大学学院分组，共 12 份用户提供的图片。旧 Offer 及旧案例资料已移除。
+
+继续追加时，将经检查的图片放入 `assets/img/published-offers/`，在 `assets/published-offers.json` 中追加学校、项目、入学学年、录取状态、图片路径及 SHA-256。未提供的申请人背景和签发日期留空，不补造案例。学校顺序在 `scripts/render-pages.mjs` 的 `offerPriority` 中维护，同校材料自动集中展示。然后运行 `npm run generate`、`npm test` 和 `npm run build`。
+
+UCL 金融科技材料的公开副本已按用户确认用纯色遮盖姓名；原始上传文件不随站点发布。

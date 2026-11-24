@@ -180,3 +180,9 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,s
 }
 @media(max-width:359px) { .brand img { width:84px; }.brand>span { font-size:14px; }.mobile-contact { display:none; }.ring-layout>div:first-child { transform:scale(.85); transform-origin:center; margin-bottom:35px; }.hero-copy h1,.hero-copy h2 { font-size:32px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*:before,*:after { transition:none!important; animation:none!important; } }
+
+.offer-school-group { scroll-margin-top:110px; }
+.offer-school-group + .offer-school-group { margin-top:48px; }
+.offer-school-heading { display:flex; align-items:baseline; flex-wrap:wrap; gap:12px; margin-bottom:20px; }
+.offer-school-heading h3 { font-size:24px; }
+.offer-school-heading span { font-size:14px; color:var(--muted); }
