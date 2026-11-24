@@ -45,7 +45,7 @@ npm run preview
 
 ## 录取材料维护
 
-当前共 38 份材料，按 `assets/published-offers.json` 的记录顺序从左到右连续展示，不按学校分组。桌面每行四张，手机每行两张；Offer 卡片没有原图链接或放大弹窗。追加材料时添加图片和清单记录，然后运行 `npm run generate`、`npm test` 和 `npm run build`。卡片仅显示学校与项目，不显示录取状态和学年；图片正文保持原样。
+当前共 51 份材料，按 `assets/published-offers.json` 的记录顺序从左到右连续展示，不按学校分组。桌面每行四张，手机每行两张；Offer 卡片没有原图链接或放大弹窗。追加材料时添加图片和清单记录，然后运行 `npm run generate`、`npm test` 和 `npm run build`。卡片仅显示学校与项目，不显示录取状态和学年；图片正文保持原样。
 
 MMSC 使用用户最后提供的新截图。UCL 金融科技及爱丁堡人工智能图片的公开副本已通过程序纯色遮盖个人信息；原始上传文件不随站点发布。
 
@@ -54,3 +54,5 @@ CUHK 数学材料的两份相同上传已按文件哈希去重。两份 PolyU �
 全部公开 Offer 图片带三行横向 PiBridge 品牌水印，保留原图尺寸，并使用正片叠底保持深色正文清晰。未加水印副本保存在本地忽略目录 `qa/offer-originals/`，不随网站发布。批量处理脚本为 `python3 scripts/watermark-offers.py`，重复运行不会重复叠加；替换 CUHK Math 可加 `--replace-cuhk-math 图片路径`。清单包含原始文件哈希和公开水印副本哈希。
 
 Offer 卡片使用相同图片框高度，学校与项目文字起始线保持一致；长项目名称横向自动换行。2026-11-24 已将检查中发现底角小红书标识的四份材料（LSE Mathematics and Computation、UCL Financial Mathematics、CUHK Mathematics 与 NUS Smart Industries and Digital Transformation）全部替换为用户提供的无该标识新截图，并继续加三行 PiBridge 水印。其余材料和展示顺序保持一致。
+
+本次追加 13 份材料，依上传顺序接在已有 38 份之后。密歇根应用统计材料为院系推荐，杜克两份材料为奖学金通知，清单按原文记录；牛津数学与理论物理材料未显示学年，未推断填写。纽约大学两份材料及 USC 的残留姓名、学号与 NetID 已在公开副本中遮盖。

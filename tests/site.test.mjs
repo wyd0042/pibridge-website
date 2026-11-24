@@ -45,12 +45,14 @@ test('internal routes, section links and assets remain valid under a subpath',as
  for(const doc of docs.values())doc.defaultView.close();
 });
 test('all offers keep upload order without school sections or image links',async()=>{
- assert.equal(manifest.length,38);
+ assert.equal(manifest.length,51);
  const cuhkStart=manifest.findIndex(o=>o.school==='香港中文大学');
  assert.deepEqual(manifest.slice(cuhkStart,cuhkStart+5).map(o=>o.school),['香港中文大学','香港中文大学','香港中文大学','香港理工大学','香港理工大学']);
  assert.equal(manifest[cuhkStart+2].programme,'MSc Risk Management Science and Data Analytics');
- assert.deepEqual(manifest.slice(-6).map(o=>o.school),['南洋理工大学','南洋理工大学','南洋理工大学','南洋理工大学','新加坡国立大学','新加坡国立大学']);
- assert.equal(new Set(manifest.map(o=>o.image)).size,38);
+ assert.deepEqual(manifest.slice(32,38).map(o=>o.school),['南洋理工大学','南洋理工大学','南洋理工大学','南洋理工大学','新加坡国立大学','新加坡国立大学']);
+ assert.equal(new Set(manifest.map(o=>o.image)).size,51);
+ assert.equal(manifest.slice(38).length,13);
+ assert.deepEqual(manifest.slice(-2).map(o=>o.status),['奖学金通知','奖学金通知']);
  for(const offer of manifest){
   assert.match(offer.image,/-pibridge\.png$/);
   assert.equal(offer.watermark?.text,'PiBridge');
@@ -70,7 +72,7 @@ test('all offers keep upload order without school sections or image links',async
   doc.defaultView.close();
  }
  for(const offer of manifest)assert.equal(createHash('sha256').update(await readFile(resolve(root,offer.image))).digest('hex'),offer.sha256);
- assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,38);
+ assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,51);
  assert.equal(manifest[0].image,'assets/img/published-offers/oxford-mmsc-2025-v2-pibridge.png');
 });
 test('offer clicks and arrow keys cannot open an enlargement dialog',async()=>{

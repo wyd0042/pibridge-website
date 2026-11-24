@@ -606,5 +606,219 @@
       "opacity": 0.14,
       "version": 1
     }
+  },
+  {
+    "school": "约翰斯·霍普金斯大学",
+    "programme": "MSE Data Science",
+    "intake": "2026/27 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/jhu-data-science-2026-pibridge.png",
+    "sha256": "312687af3f88d3f8378141429e5d180893c1c25cc42a36b48616d9a6e714aa48",
+    "sourceSha256": "003b971a01963d49d24bd1f477dca7e528a0dd147c6f72090326a380cade68f0",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "纽约大学",
+    "programme": "MS Data Science",
+    "intake": "2024/25 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/nyu-data-science-2024-pibridge.png",
+    "sha256": "65b4bb05ae25826938b2f0271ae240a6c07686a9d4afc580a5d740710367eb73",
+    "sourceSha256": "c19265e460abf8b666a5bca36545570a65df973cbcdd47af251bea443026381c",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    },
+    "redacted": true,
+    "uploadSha256": "dab309317fa304d1b31accf300b8bd0f95befe0949f17e005b93f4a5e301bdf5"
+  },
+  {
+    "school": "纽约大学",
+    "programme": "Master's in Financial Engineering",
+    "intake": "2024/25 学年",
+    "status": "录取及奖学金通知",
+    "image": "assets/img/published-offers/nyu-financial-engineering-2024-pibridge.png",
+    "sha256": "658cd05821982a3918693a75d19c38498f9b5758577f50b9acec99003d8ebaf7",
+    "sourceSha256": "049ad00b8360f601f7d34949c1ca386f51ac4f23c4a0fddc9a3b22c74dcec49e",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    },
+    "redacted": true,
+    "uploadSha256": "188aad3d480aadae939f7a2ef0a6bc28518c98d05161be376e13b36877177349"
+  },
+  {
+    "school": "纽约大学",
+    "programme": "MS Computer Science (Courant)",
+    "intake": "2026/27 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/nyu-courant-computer-science-2026-pibridge.png",
+    "sha256": "efdf46284b8459537db5cafadc951af081e85239f5232d320641352aaefc4ec9",
+    "sourceSha256": "3f16452830bde5533d59511cae5ac903a4a70e1fca871eb4115160fed5155a2e",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "密歇根大学安娜堡分校",
+    "programme": "Master's in Applied Statistics",
+    "intake": "2026/27 学年",
+    "status": "院系推荐录取",
+    "image": "assets/img/published-offers/michigan-applied-statistics-2026-pibridge.png",
+    "sha256": "c714fb5a839e5b770a4d247daa986a03fadbdb38edf575cf3f8854588a343033",
+    "sourceSha256": "e3004e5d25a2925496b060785bf18171cc2451f814c162db920af039e518d715",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "南加州大学",
+    "programme": "MS Applied Data Science",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/usc-applied-data-science-2026-pibridge.png",
+    "sha256": "2c760a92870af5ca4b467efb2b5e8c96e340d151cb7ab150388df677bb296b5a",
+    "sourceSha256": "7eb5595a96554d41de96794569df2d4b46f91b2b4e7d265b37f1c8b0b334f8a3",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    },
+    "redacted": true,
+    "uploadSha256": "d8a0dc90fd60b7a38a11c9fc1ed934da75b01fff876fc7fd3437a462d685aab9"
+  },
+  {
+    "school": "剑桥大学",
+    "programme": "MPhil Scientific Computing",
+    "intake": "2023/24 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/cambridge-scientific-computing-2023-pibridge.png",
+    "sha256": "f9f97c283a416aaf83d3962b5a3c68f9796db2755361207b09da29c723922d8c",
+    "sourceSha256": "11515b50c54a78c2b16fe32f3f460e1b43c9310253b23ad1054876805e083927",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "加州大学伯克利分校",
+    "programme": "MA Statistics",
+    "intake": "2024/25 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/berkeley-statistics-2024-pibridge.png",
+    "sha256": "4ecc513895cf2abc6226408b4d35bb4915a69864f2007e903d6e76151f4a5752",
+    "sourceSha256": "b31078b5cc2bca2c92adc887484e0a4f90fa1e4af0dfec49f462a062ac20457f",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "哥伦比亚大学",
+    "programme": "MS Operations Research",
+    "intake": "2026/27 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/columbia-operations-research-2026-pibridge.png",
+    "sha256": "8bd084d91b040cd4b64898c1daa883448db27f985e4b1ae6f916875854454ac8",
+    "sourceSha256": "eed31dbec7c416671482850ddb837757c878e21ad14d9a31b6429348a9c6cd2f",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "牛津大学",
+    "programme": "MSc Mathematical and Theoretical Physics",
+    "intake": "",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/oxford-mathematical-theoretical-physics-pibridge.png",
+    "sha256": "bae9d6d3f752848a133364b452f0ce3fa566ffb3b46ef3033246e40aaf7ce619",
+    "sourceSha256": "081a99c47d098fc491f34841a7067784239126f38901f9e35ff05f699d2bd462",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "哥伦比亚大学",
+    "programme": "MA Statistics",
+    "intake": "2026/27 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/columbia-statistics-2026-pibridge.png",
+    "sha256": "da132653318d5aa8a5799b6c975b93063984407dca7f393e3aece32e0215fe19",
+    "sourceSha256": "aa28a41ba32221168600473f48b08a4f55165617608e682b105835b26fd866f6",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "杜克大学",
+    "programme": "MEng Financial Technology (On Campus - Traditional)",
+    "intake": "2026/27 学年",
+    "status": "奖学金通知",
+    "image": "assets/img/published-offers/duke-financial-technology-2026-pibridge.png",
+    "sha256": "8aa5b193ad2d0f201517635ddf2e9d31776ae1977ad67adf808483978ce4e73e",
+    "sourceSha256": "8e0c29a7bbec28698823dfa6f270a2a5da3f8271b808d17e9702d838a8b3007d",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "杜克大学",
+    "programme": "MEng Risk Engineering",
+    "intake": "2025/26 学年",
+    "status": "奖学金通知",
+    "image": "assets/img/published-offers/duke-risk-engineering-2025-pibridge.png",
+    "sha256": "816d58239caf9ed009aa8dac63ecb7d834d2556fa2bd6f372f5fb08e0dca3d19",
+    "sourceSha256": "68d8d301f2d33e36f248a9c88196f294057de5962befc33ef8caad66bc8a984b",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
   }
 ]
