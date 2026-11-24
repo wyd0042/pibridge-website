@@ -214,5 +214,37 @@
     "status": "有条件录取",
     "image": "assets/img/published-offers/hkust-financial-technology-2027.png",
     "sha256": "0fd982390218b981dd410111e26273fff01b6640914d7277ab82fd983d483696"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc Mathematics",
+    "intake": "2027/28 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/cuhk-mathematics-2027.jpg",
+    "sha256": "fd04f8579a1fd705cc29f584b69d2f396b024ed82cec67d92bb662dcf1e75cfd"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc Artificial Intelligence for Science",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/cuhk-ai-for-science-2026.jpg",
+    "sha256": "c5a936cf675cb2ad5f0374eb138e6d2758cc679a37bc027cba1ffd941c44ec17"
+  },
+  {
+    "school": "香港理工大学",
+    "programme": "MSc Mathematics for Artificial Intelligence Technology",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/polyu-mathematics-ai-technology-2026.png",
+    "sha256": "c83226d39a4fefb210d41368bc43f25f7bf4715bd01a3508bf45134ed50e2539"
+  },
+  {
+    "school": "香港理工大学",
+    "programme": "MSc Quantitative Finance & FinTech",
+    "intake": "2025/26 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/polyu-quantitative-finance-fintech-2025.png",
+    "sha256": "dcff90af6360ced49c0f65544ece7d7302ad084bbc79fc6e405c05a25e2e0c8d"
   }
 ]

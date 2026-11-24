@@ -192,3 +192,14 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,s
 .published-offer:hover { transform:none; }
 .published-offer img { pointer-events:none; user-select:none; }
 @media (max-width:767px) { .offer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; } }
+
+/* Keep every image frame and caption aligned in the offer grid. */
+.offer-grid { align-items:stretch; }
+.offer-grid .offer-image { flex:0 0 auto; box-sizing:border-box; aspect-ratio:4/5; }
+.offer-grid .offer-caption { display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:1.6em auto; align-content:start; gap:6px; min-height:120px; padding:14px; writing-mode:horizontal-tb; text-align:left; }
+.offer-grid .offer-caption strong { display:block; min-width:0; font-size:14px; line-height:1.6; white-space:nowrap; }
+.offer-grid .offer-caption > span { display:block; min-width:0; font-size:13px; line-height:1.6; white-space:normal; word-break:normal; overflow-wrap:break-word; writing-mode:horizontal-tb; }
+@media (max-width:767px) {
+ .offer-grid .offer-caption { padding:10px; min-height:140px; }
+ .offer-grid .offer-caption strong,.offer-grid .offer-caption > span { font-size:12px; }
+}
