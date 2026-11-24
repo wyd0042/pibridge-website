@@ -108,8 +108,8 @@
     "programme": "MSc Statistics with Data Science",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-statistics-data-science.jpg",
-    "sha256": "a3303c8c8a5cc6260f2f1487c875a3c8196ff9acf7debaf056ec6766acbc8016"
+    "image": "assets/img/published-offers/edinburgh-statistics-data-science.png",
+    "sha256": "79e347f368c9e0335498c382faa5dbca297d55126e3eee2218adc2addb398555"
   },
   {
     "school": "爱丁堡大学",
@@ -124,24 +124,24 @@
     "programme": "MSc Artificial Intelligence",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-artificial-intelligence.jpg",
-    "sha256": "edfcafb30c8a291407d1a5474cf74a205a734782dff783537f65f6b464b4a165"
+    "image": "assets/img/published-offers/edinburgh-artificial-intelligence.png",
+    "sha256": "4d5d1cbe18d4f7515707015610bf06de26bd785992114fecee501e0398d289db"
   },
   {
     "school": "爱丁堡大学",
     "programme": "MSc Computer Science",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-computer-science.jpg",
-    "sha256": "f606919ed0aa55deceb89fe159413fba8753b04fe1e736c18e579b198a01fb56"
+    "image": "assets/img/published-offers/edinburgh-computer-science.png",
+    "sha256": "916100b5a70edd083430c644b382e6de57c92c82fdde129b873b53e2b240b26e"
   },
   {
     "school": "爱丁堡大学",
     "programme": "MSc Data Science",
     "intake": "",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/edinburgh-data-science-b.jpg",
-    "sha256": "e00dd8236d678af19e7c830cc6371fc4abd73ec9100d83823bd22c4fb1cd1cb2"
+    "image": "assets/img/published-offers/edinburgh-data-science-b.png",
+    "sha256": "3d9f18e49ccaa69c7c146450cb3d034a90d34e0e815be193448d57397d624e4f"
   },
   {
     "school": "香港大学",
@@ -172,8 +172,8 @@
     "programme": "Master of Statistics",
     "intake": "2025/26 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hku-statistics-2025.jpg",
-    "sha256": "0905dccdbb856e44c30aa3b42b04698454a1f5036c73535797d1ab2b36935e99"
+    "image": "assets/img/published-offers/hku-statistics-2025.png",
+    "sha256": "817c85d44a148ead1e40960baf5c4824bf70a31e9acc9539c684daa9b09d107d"
   },
   {
     "school": "香港科技大学",
@@ -212,7 +212,7 @@
     "programme": "MSc Financial Technology",
     "intake": "2027/28 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/hkust-financial-technology-2027.jpg",
-    "sha256": "5524f6d1c1ef1970c4f4d2882d2284e237bcf474f60488f9fd9b90ee0e77c11a"
+    "image": "assets/img/published-offers/hkust-financial-technology-2027.png",
+    "sha256": "0fd982390218b981dd410111e26273fff01b6640914d7277ab82fd983d483696"
   }
 ]
