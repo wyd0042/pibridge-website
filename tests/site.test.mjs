@@ -46,12 +46,12 @@ test('internal routes, section links and assets remain valid under a subpath',as
  for(const doc of docs.values())doc.defaultView.close();
 });
 test('all offers follow the curated order without school sections or image links',async()=>{
- assert.equal(manifest.length,51);
+ assert.equal(manifest.length,52);
  const cuhkStart=manifest.findIndex(o=>o.school==='香港中文大学');
  assert.deepEqual(manifest.slice(cuhkStart,cuhkStart+5).map(o=>o.school),['香港中文大学','香港中文大学','香港中文大学','香港理工大学','香港理工大学']);
  assert.equal(manifest[cuhkStart+2].programme,'MSc Risk Management Science and Data Analytics');
- assert.deepEqual(manifest.slice(-6).map(o=>o.school),['南洋理工大学','南洋理工大学','南洋理工大学','南洋理工大学','新加坡国立大学','新加坡国立大学']);
- assert.equal(new Set(manifest.map(o=>o.image)).size,51);
+ assert.deepEqual(manifest.slice(-7).map(o=>o.school),['南洋理工大学','南洋理工大学','南洋理工大学','南洋理工大学','南洋理工大学','新加坡国立大学','新加坡国立大学']);
+ assert.equal(new Set(manifest.map(o=>o.image)).size,52);
  assert.deepEqual(manifest.slice(0,5).map(o=>o.school),['牛津大学','剑桥大学','牛津大学','牛津大学','帝国理工学院']);
  assert.ok(manifest.slice(5,9).every(o=>o.school==='伦敦政治经济学院'));
  assert.equal(manifest[9].school,'加州大学伯克利分校');
@@ -68,6 +68,7 @@ test('all offers follow the curated order without school sections or image links
   const doc=new JSDOM(rendered[page]).window.document;
   const cards=[...doc.querySelectorAll('main .published-offer')];
   assert.equal(doc.querySelectorAll('.offer-grid').length,1);
+  assert.doesNotMatch(doc.body.textContent,/当前共\s*\d+\s*份录取材料/);
   assert.equal(doc.querySelectorAll('.published-offer small').length,0);
   assert.doesNotMatch(cards.map(c=>c.textContent).join(' '),/有条件录取|20\d\d\/\d\d 学年/);
   assert.equal(doc.querySelectorAll('.offer-school-group,.university-table').length,0);
@@ -77,7 +78,7 @@ test('all offers follow the curated order without school sections or image links
   doc.defaultView.close();
  }
  for(const offer of manifest)assert.equal(createHash('sha256').update(await readFile(resolve(root,offer.image))).digest('hex'),offer.sha256);
- assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,51);
+ assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,52);
  assert.equal(manifest[0].image,'assets/img/published-offers/oxford-mmsc-2025-v2-pibridge.png');
 });
 test('offer clicks and arrow keys cannot open an enlargement dialog',async()=>{

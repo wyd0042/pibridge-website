@@ -155,7 +155,7 @@ function services() {
 function casesPage() {
  let html=subHero('ADMISSION OFFERS','录取 Offer 与案例','查看各院校与项目的录取材料及最新申请进展。');
  html+=fall2027Section();
- html+=section(`<span id="admissions"></span>${head('OFFER WALL','录取 Offer 展示墙',`当前共 ${orderedOffers.length} 份录取材料。`)}<div class="offer-grid">${orderedOffers.map(offer=>publishedOfferCard(offer)).join('')}</div>`,'soft','offers');
+ html+=section(`<span id="admissions"></span>${head('OFFER WALL','录取 Offer 展示墙')}<div class="offer-grid">${orderedOffers.map(offer=>publishedOfferCard(offer)).join('')}</div>`,'soft','offers');
  return html+callto('从录取项目出发，讨论你的申请方向');
 }
 function contact() {

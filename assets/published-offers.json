@@ -743,6 +743,22 @@
   },
   {
     "school": "南洋理工大学",
+    "programme": "MSc Financial Technology (Digital Financial Services)",
+    "intake": "2027/28 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/ntu-financial-technology-dfs-2027-pibridge.png",
+    "sha256": "9cd5f54cccff6e0141e3de9593b3135d84df76e699845b2c678151ccd8211a69",
+    "sourceSha256": "74a62613171b59ddb2ec06ebee29d19fce74fa6ec408f1cf88aebcfb80714e07",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    }
+  },
+  {
+    "school": "南洋理工大学",
     "programme": "MSc Artificial Intelligence in Medicine",
     "intake": "2026/27 学年",
     "status": "有条件录取",
