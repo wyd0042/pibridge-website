@@ -174,5 +174,45 @@
     "status": "有条件录取",
     "image": "assets/img/published-offers/hku-statistics-2025.jpg",
     "sha256": "0905dccdbb856e44c30aa3b42b04698454a1f5036c73535797d1ab2b36935e99"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc Information and Cyber Security Management",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hkust-information-cyber-security-management-2026.jpg",
+    "sha256": "737a983552a6a170e8a9c3b541d4bdc9ab50c6bd72efaa7bd1f363c06f75b36d"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc Artificial Intelligence",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hkust-artificial-intelligence-2026.jpg",
+    "sha256": "879a55791dc76e0d83d000ce28a833dba56f14ecb0c7c3bcf4482aa76a35975f"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc AI and Entrepreneurship",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hkust-ai-entrepreneurship-2026.jpg",
+    "sha256": "1da4ca739137bc20357d9eb5ba940b2d5577490c3853ebcee13261251c6363a8"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc Financial Mathematics",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hkust-financial-mathematics-2026.jpg",
+    "sha256": "b2e1d6bb89ee67528b68b18ee619ae98494c6ffcd1cd285e0e75c656ad61db22"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc Financial Technology",
+    "intake": "2027/28 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hkust-financial-technology-2027.jpg",
+    "sha256": "5524f6d1c1ef1970c4f4d2882d2284e237bcf474f60488f9fd9b90ee0e77c11a"
   }
 ]

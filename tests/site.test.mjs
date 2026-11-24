@@ -44,13 +44,15 @@ test('internal routes, section links and assets remain valid under a subpath',as
  for(const file of publicFiles)await access(resolve(root,file));
  for(const doc of docs.values())doc.defaultView.close();
 });
-test('all twenty-two offers keep upload order without school sections or image links',async()=>{
- assert.equal(manifest.length,22);
- assert.equal(new Set(manifest.map(o=>o.image)).size,22);
+test('all offers keep upload order without school sections or image links',async()=>{
+ assert.equal(manifest.length,27);
+ assert.equal(new Set(manifest.map(o=>o.image)).size,27);
  for(const page of ['index.html','cases.html']){
   const doc=new JSDOM(rendered[page]).window.document;
   const cards=[...doc.querySelectorAll('main .published-offer')];
   assert.equal(doc.querySelectorAll('.offer-grid').length,1);
+  assert.equal(doc.querySelectorAll('.published-offer small').length,0);
+  assert.doesNotMatch(doc.body.textContent,/有条件录取|20\d\d\/\d\d 学年/);
   assert.equal(doc.querySelectorAll('.offer-school-group,.university-table').length,0);
   assert.deepEqual(cards.map(c=>c.querySelector('img').getAttribute('src')),manifest.map(o=>o.image));
   assert.ok(cards.every(c=>c.tagName==='ARTICLE'&&!c.querySelector('a,button')));
@@ -58,7 +60,7 @@ test('all twenty-two offers keep upload order without school sections or image l
   doc.defaultView.close();
  }
  for(const offer of manifest)assert.equal(createHash('sha256').update(await readFile(resolve(root,offer.image))).digest('hex'),offer.sha256);
- assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,22);
+ assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,27);
  assert.equal(manifest[0].image,'assets/img/published-offers/oxford-mmsc-2025.png');
 });
 test('offer clicks and arrow keys cannot open an enlargement dialog',async()=>{
