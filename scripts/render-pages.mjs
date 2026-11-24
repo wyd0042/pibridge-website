@@ -97,8 +97,8 @@ const brandSlogan = '<span lang="en">The world is your oyster.</span>';
 const brandFocus = '专注数学、统计学、数据科学、金融工程及计算机方向的硕博留学申请。';
 const mentorGroups = [
  { title:'学术导师', description:'从研究与学术发展角度，提供申请指导。', mentors:[
-  ['Ryan','牛津大学博士',''],
-  ['Rocky','香港中文大学博士 · 港府奖学金（HKPFS）',''],
+  ['Ryan','牛津大学博士','在数值领域发表顶刊'],
+  ['Rocky','香港中文大学博士 · 港府奖学金（HKPFS）','在优化Opt领域发表顶刊'],
   ['Yu','牛津大学博士','在 Journal of Fluid Mechanics 流体力学顶刊发表研究'],
   ['Yao','牛津大学博士','在 Journal of Fluid Mechanics 流体力学顶刊发表研究'],
  ]},
@@ -117,7 +117,7 @@ const mentorGroups = [
   ['Wilson','头部手机品牌海外营销主管',''],
   // 投资、证券与量化
   ['Teddy','深创投投资经理',''],
-  ['Thomas','国资PE分析师',''],
+  ['Thomas','国资PE投资分析师',''],
   ['Alex','互联网大厂科技投资分析师',''],
   ['Erin','互联网大厂战投部门分析师',''],
   ['Eric','中资大型券商 · 债券 IBD',''],
