@@ -45,7 +45,7 @@ npm run preview
 
 ## 录取材料维护
 
-当前共 52 份材料，按 `assets/published-offers.json` 的记录顺序从左到右连续展示；当前为牛剑、IC、LSE、Berkeley、Columbia、UCL 优先，其余美国院校材料穿插后续项目，不按地区分组。桌面每行四张，手机每行两张；Offer 卡片没有原图链接或放大弹窗。追加材料时添加图片和清单记录，然后运行 `npm run generate`、`npm test` 和 `npm run build`。卡片仅显示学校与项目，不显示录取状态和学年；图片正文保持原样。
+当前共 53 份材料，按 `assets/published-offers.json` 的记录顺序从左到右连续展示；当前为牛剑、IC、LSE、Berkeley、Columbia、UCL 优先，其余美国院校材料穿插后续项目，不按地区分组。桌面每行四张，手机每行两张；Offer 卡片没有原图链接或放大弹窗。追加材料时添加图片和清单记录，然后运行 `npm run generate`、`npm test` 和 `npm run build`。卡片仅显示学校与项目，不显示录取状态和学年；图片正文保持原样。
 
 MMSC 使用用户最后提供的新截图。UCL 金融科技及爱丁堡人工智能图片的公开副本已通过程序纯色遮盖个人信息；原始上传文件不随站点发布。
 
@@ -60,3 +60,5 @@ Offer 卡片使用相同图片框高度，学校与项目文字起始线保持�
 27 Fall 文字名单保存在 `assets/fall-2027-offers.json`，首页及录取案例页展示学校与项目，重复记录保留，推研逐条标注，不展示学生姓名缩写或照片。
 
 NTU FinTech 的 Digital Financial Services 方向照片已加入现有 NTU 材料旁边；照片墙不再显示材料总数。27 Fall 文字名单中已有该方向，保留原有 20 条记录。
+
+LSE MSc Quantitative Methods for Risk Management 已加入现有 LSE 材料末尾，使用 2024/25 学年的原始录取截图；公开副本遮盖申请人联系地址，并加三行 PiBridge 水印。27 Fall 文字名单保持原有 20 条。

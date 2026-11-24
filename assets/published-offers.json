@@ -144,6 +144,24 @@
     }
   },
   {
+    "school": "伦敦政治经济学院",
+    "programme": "MSc Quantitative Methods for Risk Management",
+    "intake": "2024/25 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/lse-quantitative-methods-risk-management-2024-pibridge.png",
+    "sha256": "222abebaec90d6e2aca848f7a67b80c40c516818a7425c5182ca08c2988b23dc",
+    "sourceSha256": "2307e960216c44427ae8d3f8bbfec08da0cdd0adaff79275fc41d4ae34042cb1",
+    "uploadSha256": "629c28a7325714dbdae0d4d6b51b92eec7a2f1c7275ad31a910e1b00c1d792ee",
+    "watermark": {
+      "text": "PiBridge",
+      "rows": 3,
+      "style": "horizontal-brand-wordmark",
+      "opacity": 0.14,
+      "version": 1
+    },
+    "redacted": true
+  },
+  {
     "school": "加州大学伯克利分校",
     "programme": "MA Statistics",
     "intake": "2024/25 学年",
