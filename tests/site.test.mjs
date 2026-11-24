@@ -61,7 +61,7 @@ test('all offers keep upload order without school sections or image links',async
  }
  for(const offer of manifest)assert.equal(createHash('sha256').update(await readFile(resolve(root,offer.image))).digest('hex'),offer.sha256);
  assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,27);
- assert.equal(manifest[0].image,'assets/img/published-offers/oxford-mmsc-2025.png');
+ assert.equal(manifest[0].image,'assets/img/published-offers/oxford-mmsc-2025-v2.jpg');
 });
 test('offer clicks and arrow keys cannot open an enlargement dialog',async()=>{
  for(const page of ['index.html','cases.html']){
