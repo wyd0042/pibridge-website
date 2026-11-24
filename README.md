@@ -45,8 +45,6 @@ npm run preview
 
 ## 录取材料维护
 
-当前批次按牛津大学、帝国理工学院、伦敦政治经济学院、伦敦大学学院分组，共 12 份用户提供的图片。旧 Offer 及旧案例资料已移除。
+当前共 22 份材料，按 `assets/published-offers.json` 的记录顺序从左到右连续展示，不按学校分组。桌面每行四张，手机每行两张；Offer 卡片没有原图链接或放大弹窗。追加材料时添加图片和清单记录，然后运行 `npm run generate`、`npm test` 和 `npm run build`。未明确提供的年份留空。
 
-继续追加时，将经检查的图片放入 `assets/img/published-offers/`，在 `assets/published-offers.json` 中追加学校、项目、入学学年、录取状态、图片路径及 SHA-256。未提供的申请人背景和签发日期留空，不补造案例。学校顺序在 `scripts/render-pages.mjs` 的 `offerPriority` 中维护，同校材料自动集中展示。然后运行 `npm run generate`、`npm test` 和 `npm run build`。
-
-UCL 金融科技材料的公开副本已按用户确认用纯色遮盖姓名；原始上传文件不随站点发布。
+MMSC 使用用户最后提供的新截图。UCL 金融科技及爱丁堡人工智能图片的公开副本已通过程序纯色遮盖个人信息；原始上传文件不随站点发布。

@@ -4,8 +4,8 @@
     "programme": "MSc Mathematical Modelling and Scientific Computing",
     "intake": "2025/26 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/oxford-mmsc-2025.jpg",
-    "sha256": "15dd492a560d203dd6adc4c64e14a40d27d3a1e992414f7d0ff01dfc212e44c4"
+    "image": "assets/img/published-offers/oxford-mmsc-2025.png",
+    "sha256": "b9455ce0f2416a121ad9a3edcd663a2f43af4fd0c549219a6e03b3c2f5359504"
   },
   {
     "school": "牛津大学",
@@ -94,5 +94,85 @@
     "status": "有条件录取",
     "image": "assets/img/published-offers/ucl-financial-risk-management-2026.jpg",
     "sha256": "de9600161db2f6cbee02b7bfd40f3da50178cec45d4b225522e530b1e1f94044"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Computational Mathematical Finance",
+    "intake": "",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/edinburgh-computational-mathematical-finance.jpg",
+    "sha256": "21952a73514ddde9802eb921cb7956431a38a41f09fba50ce3cd243dc29138ca"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Statistics with Data Science",
+    "intake": "",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/edinburgh-statistics-data-science.jpg",
+    "sha256": "a3303c8c8a5cc6260f2f1487c875a3c8196ff9acf7debaf056ec6766acbc8016"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Data Science",
+    "intake": "",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/edinburgh-data-science-a.jpg",
+    "sha256": "d99c76a6b9356f63a8ad16e9cec79016cac5afef630d7c97b9c1ad556e88ab92"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Artificial Intelligence",
+    "intake": "",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/edinburgh-artificial-intelligence.jpg",
+    "sha256": "edfcafb30c8a291407d1a5474cf74a205a734782dff783537f65f6b464b4a165"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Computer Science",
+    "intake": "",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/edinburgh-computer-science.jpg",
+    "sha256": "f606919ed0aa55deceb89fe159413fba8753b04fe1e736c18e579b198a01fb56"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Data Science",
+    "intake": "",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/edinburgh-data-science-b.jpg",
+    "sha256": "e00dd8236d678af19e7c830cc6371fc4abd73ec9100d83823bd22c4fb1cd1cb2"
+  },
+  {
+    "school": "香港大学",
+    "programme": "Master of Finance in Financial Technology",
+    "intake": "2027/28 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hku-finance-financial-technology-2027.jpg",
+    "sha256": "bce0b6eab4952e6a58b41538922b50931078d14ad485399ffa37f7ca2038c4d9"
+  },
+  {
+    "school": "香港大学",
+    "programme": "Master of Data Science",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hku-data-science-2026.jpg",
+    "sha256": "13792a77ceabd8ccfaf6cc95d9440dcec36afc84107f02fa8688601528b93a63"
+  },
+  {
+    "school": "香港大学",
+    "programme": "MSc Computer Science (General Stream)",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hku-computer-science-2026.jpg",
+    "sha256": "cba2c8a0610ef428ea41a5f6a324e4da3dd6219dde1d55e2c9b781ff39c4ca6e"
+  },
+  {
+    "school": "香港大学",
+    "programme": "Master of Statistics",
+    "intake": "2025/26 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/hku-statistics-2025.jpg",
+    "sha256": "0905dccdbb856e44c30aa3b42b04698454a1f5036c73535797d1ab2b36935e99"
   }
 ]

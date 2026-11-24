@@ -42,37 +42,13 @@ const stages = [
   ['录取结果与选择','对比项目课程、费用、条件及回复时限，梳理需要进一步确认的问题。'],['签证材料准备','按目的地和个人情况检查官方要求，整理文件与关键日期。'],['行前与海外衔接','准备住宿、选课、报到和入境清单，提前确认遇到问题时的联系渠道。']]]
 ];
 function processGrid() { return `<ol class="process-grid">${stages.map(([title,desc],i)=>`<li><span>${String(i+1).padStart(2,'0')}</span><h3><a href="services.html#stage-${i+1}">${title}</a></h3><p>${desc}</p></li>`).join('')}</ol>`; }
-// Group documents by school; new records can be appended to the manifest.
-const offerPriority = ['牛津大学','帝国理工学院','伦敦政治经济学院','伦敦大学学院'];
-const schoolPriority = new Map(offerPriority.map((school,index)=>[school,index]));
-const rankOffer = ({school}) => schoolPriority.get(school) ?? offerPriority.length;
-const orderedOffers = publishedOffers.toSorted((a,b)=>rankOffer(a)-rankOffer(b) || a.school.localeCompare(b.school,'zh-CN'));
+// Preserve upload order in a single row-major wall.
+const orderedOffers = publishedOffers;
 const offerAnchor = image => `offer-${image.split('/').at(-1).replace(/\.(png|jpe?g)$/, '')}`;
 const offerPageLink = image => `cases.html#${e(offerAnchor(image))}`;
-const schoolGroups = [...Map.groupBy(orderedOffers,offer=>offer.school)];
-const schoolIds = new Map(schoolGroups.map(([school],index)=>[school,`school-${index+1}`]));
-const featuredOffers = schoolGroups.map(([,records])=>records[0]);
-function publishedSchoolCard(offer) {
- const count=orderedOffers.filter(record=>record.school===offer.school).length;
- return `<article class="case-card published-school-card"><a href="cases.html#${schoolIds.get(offer.school)}" class="case-photo"><img src="${e(offer.image)}" alt="${e(offer.school)}录取材料" loading="lazy"></a><div class="case-body"><h3>${e(offer.school)}</h3><p>${count} 份录取材料</p><a href="cases.html#${schoolIds.get(offer.school)}">查看该校 Offer</a></div></article>`;
-}
-function universitySummary() {
- const bySchool = Map.groupBy(orderedOffers, offer => offer.school);
- const rows = [...bySchool].map(([school, records]) => `<tr><th scope="row">${e(school)}</th>
-  <td><ul>${records.map(({programme, image, status}) =>
-   `<li><a href="#${e(offerAnchor(image))}">${e(programme)}</a>
-    ${status.startsWith('院系推荐') ? `<small>${e(status)}</small>` : ''}</li>`).join('')}</ul></td></tr>`);
- return section(head('UNIVERSITIES','院校与录取项目',`汇总已公开的 ${orderedOffers.length} 份录取材料，涵盖 ${bySchool.size} 所院校。点击项目查看对应 Offer。`)+
-  `<div class="table-scroll"><table class="university-table"><thead><tr><th scope="col">院校</th><th scope="col">项目</th></tr></thead>
-   <tbody>${rows.join('')}</tbody></table></div>`,'soft','rankings');
-}
-function publishedOfferCard({ school, programme, date, intake, status, image }, preview = false) {
- const dateLabel = date ? `<time datetime="${e(date)}">${e(date)}</time>` : '';
- return `<a class="offer-card published-offer${preview ? ' offer-mini' : ''}" ${preview ? `href="${offerPageLink(image)}"` : `id="${e(offerAnchor(image))}" href="${e(image)}" data-published-offer="${e(image)}" data-school="${e(school)}" data-programme="${e(programme)}"`}>
-  <span class="offer-image"><img src="${e(image)}" alt="${e(school)} · ${e(programme)}录取文件" loading="lazy"></span>
-  <span class="offer-caption"><strong>${e(school)}</strong><span>${e(programme)}</span>
-  <small>${e(status)} · ${e(intake)}</small>${dateLabel}</span>
- </a>`;
+const featuredOffers = orderedOffers.slice(0,4);
+function publishedOfferCard({school,programme,intake,status,image}, preview=false) {
+ return `<article class="offer-card published-offer" id="${e(offerAnchor(image))}"><span class="offer-image"><img src="${e(image)}" alt="${e(school)} · ${e(programme)}录取文件" loading="lazy" draggable="false"></span><div class="offer-caption"><strong>${e(school)}</strong><span>${e(programme)}</span><small>${e(status)}${intake?` · ${e(intake)}`:''}</small></div></article>`;
 }
 function heroOffers() { return `<div class="hero-offers" aria-label="精选脱敏 Offer">${featuredOffers.slice(0,3).map(({school,image}) => `<div><img src="${e(image)}" alt="${e(school)}脱敏 Offer"><span>${e(school)}</span></div>`).join('')}</div>`; }
 function evaluationForm(prefix) { return `<form class="evaluation-form" data-form="qr"><p class="form-demo-note">填写后显示微信二维码；此页面不会保存填写信息，请在微信中重新发送申请背景。</p><div class="form-grid"><label>姓名 *<input name="name" required placeholder="你的称呼" autocomplete="name"></label><label>手机号码 *<input name="phone" type="tel" required placeholder="联系电话" autocomplete="tel"></label><label>当前年级 / 学历<input name="education" placeholder="例如：本科三年级" autocomplete="off"></label><label>意向地区<select name="destination"><option value="">请选择申请方向</option>${regions.map(r=>`<option value="${r.id}">${r.name}</option>`).join('')}</select></label><label class="full">申请背景与问题<textarea name="message" maxlength="500" rows="4" placeholder="可简要描述申请方向和目前的准备情况"></textarea><small data-message-count>0 / 500</small></label></div><button class="button" type="submit">提交并查看微信二维码</button></form>`; }
@@ -133,7 +109,7 @@ function home() {
  const slides=[
   ['PiBridge 派桥留学',brandSlogan,brandFocus,'hero-pexels-campus.jpg',button('查看高端服务','service-vip.html')+button('获取免费申请评估','contact.html#eval-form',true),''],
   ['Process Management','申请节点不靠临时记忆推进','用任务清单记录材料、责任和时间，把每一步的进展变成可核对的信息。','hero-pexels-campus-walk.jpg',button('查看服务流程','services.html'),`<div class="hero-flow">${stages.map(([title,desc],i)=>`<div><b>0${i+1}　${title}</b><small>${desc}</small></div>`).join('')}</div>`],
-  ['Offer Wall','用录取案例看清申请方向','查看已上传的录取材料，按院校集中了解录取项目。','hero-pexels-library.jpg',button('查看录取案例','cases.html'),heroOffers()],
+  ['Offer Wall','用录取案例看清申请方向','查看已上传的录取材料，了解各个录取项目。','hero-pexels-library.jpg',button('查看录取案例','cases.html'),heroOffers()],
   ['Landing Support','拿到 Offer 之后，继续准备下一程','入学文件、签证、住宿与报到都有各自节点，提前安排，逐项确认。','hero-pexels-travel.jpg',button('预约申请评估'),'']
  ];
  let html=`<section class="hero" aria-label="首页服务轮播"><div class="hero-slider">${slides.map(([en,title,desc,image,actions,visual],i)=>`<article class="hero-slide${i===0?' active':''}" data-slide="${i}" aria-hidden="${i!==0}" ${i?'inert':''} style="--hero-image:url('assets/img/${image}')"><div class="container ${visual?'hero-grid':''}"><div class="hero-copy"><span class="eyebrow">${en}</span><${i?'h2':'h1'}>${title}</${i?'h2':'h1'}><p>${desc}</p><div class="actions">${actions}</div></div>${visual}</div></article>`).join('')}<div class="hero-controls container"><div class="hero-dots">${slides.map((_,i)=>`<button data-slide-to="${i}" aria-label="切换至第 ${i+1} 屏" aria-pressed="${i===0}"><span></span></button>`).join('')}</div><button class="slider-pause" data-slider-pause aria-pressed="false">暂停轮播</button></div></div></section>`;
@@ -143,8 +119,7 @@ function home() {
  html+=section(head('SERVICE PROCESS','把申请拆成看得见的节点','四个阶段，逐项准备；查看完整流程了解各阶段细节。')+processGrid(),'soft');
  html+=section(head('ACADEMIC ADVISORY TEAM','学术顾问团队','学术导师与行业导师，分别从研究与职业发展角度提供申请指导。')+mentorDirectory());
  html+=section(`<div class="about-grid"><div class="about-photo">${img('hero-campus.jpg','PiBridge 留学申请服务')}</div><div>${head('BRAND STORY','陪伴每一种可能走向世界','从信息梳理开始，让目标选择、准备重点与执行节奏逐步清楚。')}<ul class="check-list"><li>围绕学生背景和申请目标，讨论院校与专业方向。</li><li>梳理材料、申请节点与入学准备事项。</li><li>结合已公开录取材料，了解不同申请路径。</li></ul>${button('了解 PiBridge','about.html#story')}</div></div>`,'','about');
- html+=section(head('SUCCESSFUL CASES','精选录取案例','牛津、帝国理工、LSE 与 UCL 的录取材料，按院校集中展示。')+`<div class="case-card-grid two">${featuredOffers.map(offer=>publishedSchoolCard(offer)).join('')}</div><p class="center section-action">${button('查看完整案例','cases.html#offers')}</p>`,'soft');
- html+=section(head('OFFER WALL','Offer 展示与申请方向','展示已公开的脱敏 Offer，点击可查看对应录取文件。','center')+`<div class="offer-preview">${orderedOffers.slice(0,12).map(offer=>publishedOfferCard(offer,true)).join('')}</div><p class="center section-action">${button('查看全部 Offer 墙','cases.html#offers')}</p>`);
+ html+=section(head('OFFER WALL','Offer 展示与申请方向','按上传顺序连续展示录取材料。','center')+`<div class="offer-grid">${orderedOffers.map(offer=>publishedOfferCard(offer,true)).join('')}</div><p class="center section-action">${button('查看全部 Offer 墙','cases.html#offers')}</p>`);
  html+=`<section class="quote dark" id="quote"><div class="container quote-grid"><div>${head('APPLICATION ASSESSMENT','获取免费申请评估','填写基本情况后，扫码通过微信继续沟通。')}${evaluationForm('home')}</div><div class="quote-photo">${img('service-consult.jpg','留学申请咨询')}<p>先了解背景，再沟通申请方向</p></div></div></section>`;
  return html+callto('把目标院校，拆成今天的准备计划','START YOUR APPLICATION',true);
 }
@@ -173,14 +148,12 @@ function services() {
  return html+callto('不确定自己处在哪一步？','YOUR NEXT STEP');
 }
 function casesPage() {
- let html=subHero('ADMISSION OFFERS','录取 Offer 与案例','按院校查看已上传的录取材料。后续材料将持续补充。');
- html+=`<nav class="anchor-bar" aria-label="院校导航"><div class="container">${schoolGroups.map(([school])=>`<a href="#${schoolIds.get(school)}" data-spy-link>${e(school)}</a>`).join('')}<a href="#rankings" data-spy-link>院校与项目</a></div></nav>`;
- html+=section(`<span id="admissions"></span>${head('OFFER WALL','录取 Offer 展示墙',`当前共 ${orderedOffers.length} 份材料，涵盖 ${schoolGroups.length} 所院校。点击图片可查看完整录取文件。`)}${schoolGroups.map(([school,records])=>`<div class="offer-school-group" id="${schoolIds.get(school)}"><div class="offer-school-heading"><h3>${e(school)}</h3><span>${records.length} 份 Offer</span></div><div class="offer-wall">${records.map(offer=>publishedOfferCard(offer)).join('')}</div></div>`).join('')}`,'soft','offers');
- html+=universitySummary();
+ let html=subHero('ADMISSION OFFERS','录取 Offer 与案例','按上传顺序连续展示录取材料，后续材料将持续补充。');
+ html+=section(`<span id="admissions"></span>${head('OFFER WALL','录取 Offer 展示墙',`当前共 ${orderedOffers.length} 份录取材料。`)}<div class="offer-grid">${orderedOffers.map(offer=>publishedOfferCard(offer)).join('')}</div>`,'soft','offers');
  return html+callto('从录取项目出发，讨论你的申请方向');
 }
 function contact() {
- return subHero('CONTACT US','获取免费申请评估','填写申请情况后，扫码通过微信继续沟通。',true)+section(`<div class="contact-grid"><div>${head('APPLICATION ASSESSMENT','预约申请评估','提交后显示微信二维码；此页面不会保存填写信息，请在微信中重新发送申请背景。')}${evaluationForm('contact')}</div><aside class="contact-card"><span class="eyebrow">WECHAT CONSULTATION</span><h2>微信咨询</h2><img src="assets/brand/wechat-qr.png" width="330" height="330" alt="PiBridge 派桥留学官方微信二维码"><p>使用微信扫一扫，或保存后在微信中识别。</p><button class="button" data-consult>打开微信二维码</button><div class="contact-detail"><h3>PiBridge 派桥留学</h3><p>请通过微信联系团队。</p></div></aside></div>`,'','eval-form')+section(head('LET’S MEET','线上沟通','说明你的申请阶段和问题，沟通合适的申请方向。')+`<div class="meeting-grid"><article class="proof-card"><span class="proof-icon">◎</span><h3>微信咨询</h3><p>扫码联系团队，沟通申请目标和准备事项。</p><button class="text-link" data-consult>打开微信二维码</button></article></div>`,'soft')+section(head('FREQUENTLY ASKED QUESTIONS','常见问题')+`<div class="accordion faq">${[['如何开始咨询？','点击微信咨询，扫码联系并说明希望讨论的申请方向。'],['录取案例有哪些资料？','录取案例页按院校展示已上传的录取文件及对应项目，材料会持续补充。'],['填写表单后会发生什么？','页面会显示微信二维码。填写的信息不会保存在本网站，请在微信中重新发送申请背景。']].map(([q,a])=>`<details><summary>${q}</summary><div><p>${a}</p></div></details>`).join('')}</div>`);
+ return subHero('CONTACT US','获取免费申请评估','填写申请情况后，扫码通过微信继续沟通。',true)+section(`<div class="contact-grid"><div>${head('APPLICATION ASSESSMENT','预约申请评估','提交后显示微信二维码；此页面不会保存填写信息，请在微信中重新发送申请背景。')}${evaluationForm('contact')}</div><aside class="contact-card"><span class="eyebrow">WECHAT CONSULTATION</span><h2>微信咨询</h2><img src="assets/brand/wechat-qr.png" width="330" height="330" alt="PiBridge 派桥留学官方微信二维码"><p>使用微信扫一扫，或保存后在微信中识别。</p><button class="button" data-consult>打开微信二维码</button><div class="contact-detail"><h3>PiBridge 派桥留学</h3><p>请通过微信联系团队。</p></div></aside></div>`,'','eval-form')+section(head('LET’S MEET','线上沟通','说明你的申请阶段和问题，沟通合适的申请方向。')+`<div class="meeting-grid"><article class="proof-card"><span class="proof-icon">◎</span><h3>微信咨询</h3><p>扫码联系团队，沟通申请目标和准备事项。</p><button class="text-link" data-consult>打开微信二维码</button></article></div>`,'soft')+section(head('FREQUENTLY ASKED QUESTIONS','常见问题')+`<div class="accordion faq">${[['如何开始咨询？','点击微信咨询，扫码联系并说明希望讨论的申请方向。'],['录取案例有哪些资料？','录取案例页按上传顺序展示录取材料及对应项目，材料会持续补充。'],['填写表单后会发生什么？','页面会显示微信二维码。填写的信息不会保存在本网站，请在微信中重新发送申请背景。']].map(([q,a])=>`<details><summary>${q}</summary><div><p>${a}</p></div></details>`).join('')}</div>`);
 }
 
 export function renderPages() {

@@ -32,7 +32,7 @@ test('all six published pages match templates and keep navigation and brand',asy
 test('internal routes, section links and assets remain valid under a subpath',async()=>{
  const docs=new Map(pageFiles.map(file=>[file,new JSDOM(rendered[file]).window.document]));
  assert.equal(new Set(publicFiles).size,publicFiles.length);
- assert.ok(!publicFiles.some(p=>p.startsWith('assets/img/offers/')||p.endsWith('.png')&&p.includes('published-offers/')));
+ assert.ok(!publicFiles.some(p=>p.startsWith('assets/img/offers/')||p.includes('oxford-mmsc-2025.jpg')));
  for(const [file,doc] of docs) for(const node of doc.querySelectorAll('[src],[href]')){
   const raw=node.getAttribute('href')??node.getAttribute('src'); assert.ok(!raw.startsWith('/'));
   const url=new URL(raw,`https://example.test/pibridge-website/${file}`);
@@ -44,38 +44,33 @@ test('internal routes, section links and assets remain valid under a subpath',as
  for(const file of publicFiles)await access(resolve(root,file));
  for(const doc of docs.values())doc.defaultView.close();
 });
-test('new batch has exactly twelve documents grouped by four requested schools',async()=>{
- const expected=[['牛津大学',2],['帝国理工学院',1],['伦敦政治经济学院',4],['伦敦大学学院',5]];
- assert.equal(manifest.length,12);
- const doc=new JSDOM(rendered['cases.html']).window.document;
- const groups=[...doc.querySelectorAll('.offer-school-group')];
- assert.deepEqual(groups.map(g=>[g.querySelector('h3').textContent,g.querySelectorAll('.published-offer').length]),expected);
- assert.deepEqual([...doc.querySelectorAll('.published-offer')].map(c=>c.dataset.publishedOffer),manifest.map(o=>o.image));
- assert.equal(doc.querySelectorAll('.university-table tbody tr').length,4);
- assert.equal(doc.querySelectorAll('.university-table tbody a').length,12);
- assert.equal(new Set(manifest.map(o=>o.image)).size,12);
- for(const offer of manifest){
-  assert.ok(!offer.originalSchool&&!offer.originalProgramme&&!offer.date);
-  assert.equal(createHash('sha256').update(await readFile(resolve(root,offer.image))).digest('hex'),offer.sha256);
+test('all twenty-two offers keep upload order without school sections or image links',async()=>{
+ assert.equal(manifest.length,22);
+ assert.equal(new Set(manifest.map(o=>o.image)).size,22);
+ for(const page of ['index.html','cases.html']){
+  const doc=new JSDOM(rendered[page]).window.document;
+  const cards=[...doc.querySelectorAll('main .published-offer')];
+  assert.equal(doc.querySelectorAll('.offer-grid').length,1);
+  assert.equal(doc.querySelectorAll('.offer-school-group,.university-table').length,0);
+  assert.deepEqual(cards.map(c=>c.querySelector('img').getAttribute('src')),manifest.map(o=>o.image));
+  assert.ok(cards.every(c=>c.tagName==='ARTICLE'&&!c.querySelector('a,button')));
+  assert.ok(![...doc.querySelectorAll('a')].some(a=>/\.(png|jpg)$/.test(a.getAttribute('href'))&&a.getAttribute('href').includes('published-offers')));
+  doc.defaultView.close();
  }
- assert.equal((await readdir(resolve(root,'assets/img/offers')).catch(error=>error.code==='ENOENT'?[]:Promise.reject(error))).length,0);
- const directory=await readdir(resolve(root,'assets/img/published-offers'));
- assert.equal(directory.length,12);
- doc.defaultView.close();
+ for(const offer of manifest)assert.equal(createHash('sha256').update(await readFile(resolve(root,offer.image))).digest('hex'),offer.sha256);
+ assert.equal((await readdir(resolve(root,'assets/img/published-offers'))).length,22);
+ assert.equal(manifest[0].image,'assets/img/published-offers/oxford-mmsc-2025.png');
 });
-test('offer gallery opens original image, navigates, wraps and restores focus',async()=>{
- const dom=await loadPage(),w=dom.window,doc=w.document;
- const links=[...doc.querySelectorAll('[data-published-offer]')],dialog=doc.querySelector('.lightbox');
- links[0].focus(); links[0].click();
- assert.ok(dialog.open); assert.equal(dialog.querySelector('img').getAttribute('src'),manifest[0].image);
- doc.dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowLeft',bubbles:true}));
- assert.equal(dialog.querySelector('img').getAttribute('src'),manifest.at(-1).image);
- dialog.querySelector('[data-gallery-step="1"]').click();
- assert.equal(dialog.querySelector('img').getAttribute('src'),manifest[0].image);
- dialog.dispatchEvent(new w.Event('cancel',{cancelable:true}));
- assert.ok(!dialog.open); assert.equal(doc.activeElement,links[0]);
- for(const link of links){link.click();assert.equal(dialog.querySelector('img').getAttribute('src'),link.getAttribute('href'));dialog.querySelector('[data-close-dialog]').click();}
- dom.window.close();
+test('offer clicks and arrow keys cannot open an enlargement dialog',async()=>{
+ for(const page of ['index.html','cases.html']){
+  const dom=await loadPage(page),w=dom.window,doc=w.document;
+  for(const card of doc.querySelectorAll('.published-offer')){
+   card.click();card.querySelector('img').click();
+   doc.dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));
+   assert.equal(doc.querySelectorAll('dialog[open],.lightbox').length,0);
+  }
+  dom.window.close();
+ }
 });
 test('forms show WeChat without network or persistence and clear fields',async()=>{
  for(const file of ['index.html','contact.html']){

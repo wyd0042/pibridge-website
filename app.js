@@ -97,7 +97,6 @@ function createDialog(kind,title) {
   });
   return dialog;
 }
-const lightbox=createDialog('lightbox','录取文件');
 const consult=createDialog('consult-modal','微信咨询 · PiBridge 派桥留学');
 function openDialog(dialog) {
   if (!dialog.open) {
@@ -115,27 +114,6 @@ function showConsult() {
   $('.modal-content',consult).innerHTML='<img src="assets/brand/wechat-qr.png" width="330" height="330" alt="PiBridge 派桥留学官方微信客服二维码"><h3>PiBridge 派桥留学</h3><p>使用微信扫一扫，或保存二维码后在微信中识别。</p><p>此页面不会保存刚才填写的信息，请在微信中重新发送申请背景。</p><a href="assets/brand/wechat-qr.png" target="_blank" rel="noopener">打开二维码原图</a>';
   openDialog(consult);
 }
-const offerLinks=$$('a[data-published-offer]');
-let galleryIndex=0;
-function renderOffer() {
- const link=offerLinks[galleryIndex];
- const title=`${link.dataset.school} · ${link.dataset.programme}`;
- $('.modal-header h2',lightbox).textContent=title;
- $('.modal-content',lightbox).innerHTML=`<div class="lightbox-bar"><button data-gallery-step="-1" aria-label="上一张 Offer">上一张</button><span>${galleryIndex+1} / ${offerLinks.length}</span><button data-gallery-step="1" aria-label="下一张 Offer">下一张</button></div><img class="modal-image" src="${e(link.dataset.publishedOffer)}" alt="${e(title)}完整录取文件">`;
- $('.modal-content',lightbox).scrollTop=0;
-}
-function showOffer(image) {
- galleryIndex=offerLinks.findIndex(link=>link.dataset.publishedOffer===image);
- if(galleryIndex<0) return;
- renderOffer(); openDialog(lightbox);
-}
-function stepOffer(delta) {
- const focusedStep=document.activeElement?.dataset?.galleryStep;
- galleryIndex=(galleryIndex+delta+offerLinks.length)%offerLinks.length;
- renderOffer();
- if(focusedStep) $(`[data-gallery-step="${focusedStep}"]`,lightbox).focus();
-}
-
 $$('[data-form="qr"]').forEach(form => {
   form.addEventListener('submit',event => {
     event.preventDefault();
@@ -165,14 +143,11 @@ document.addEventListener('keydown',event => {
   if(event.key==='Escape' && document.body.classList.contains('menu-open')) { setMenu(false); menuButton.focus(); }
   if(event.key==='Tab' && document.body.classList.contains('menu-open')) trapFocus(event,mobileMenu);
   if(event.key==='Tab') { const top=$$('dialog[open]').at(-1); if(top) trapFocus(event,top); }
-  if(lightbox.open && ['ArrowLeft','ArrowRight'].includes(event.key)) { event.preventDefault(); stepOffer(event.key==='ArrowRight'?1:-1); }
 });
 document.addEventListener('click',event => {
   const target=event.target.closest('button,a');
   if(!target) return;
   if(target.matches('[data-consult]')) {event.preventDefault();showConsult();}
   else if(target.matches('[data-close-dialog]')) closeDialog(target.closest('dialog'));
-  else if(target.matches('[data-published-offer]')) {event.preventDefault();showOffer(target.dataset.publishedOffer);}
-  else if(target.matches('[data-gallery-step]')) stepOffer(Number(target.dataset.galleryStep));
   else if(target.matches('[data-back-top]')) window.scrollTo({top:0,behavior:reduceMotion?'instant':'smooth'});
 });
