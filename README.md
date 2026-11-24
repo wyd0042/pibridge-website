@@ -53,4 +53,4 @@ CUHK 数学材料的两份相同上传已按文件哈希去重。两份 PolyU �
 
 全部公开 Offer 图片带三行横向 PiBridge 品牌水印，保留原图尺寸，并使用正片叠底保持深色正文清晰。未加水印副本保存在本地忽略目录 `qa/offer-originals/`，不随网站发布。批量处理脚本为 `python3 scripts/watermark-offers.py`，重复运行不会重复叠加；替换 CUHK Math 可加 `--replace-cuhk-math 图片路径`。清单包含原始文件哈希和公开水印副本哈希。
 
-Offer 卡片使用相同图片框高度，学校与项目文字起始线保持一致；长项目名称横向自动换行。2026-11-24 检查全部 38 张图片的左右下角，LSE Mathematics and Computation、UCL Financial Mathematics、CUHK Mathematics 与 NUS Smart Industries and Digital Transformation 的右下角存在小红书标识，未作移除。
+Offer 卡片使用相同图片框高度，学校与项目文字起始线保持一致；长项目名称横向自动换行。2026-11-24 已将检查中发现底角小红书标识的四份材料（LSE Mathematics and Computation、UCL Financial Mathematics、CUHK Mathematics 与 NUS Smart Industries and Digital Transformation）全部替换为用户提供的无该标识新截图，并继续加三行 PiBridge 水印。其余材料和展示顺序保持一致。
