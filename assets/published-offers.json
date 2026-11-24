@@ -232,6 +232,14 @@
     "sha256": "c5a936cf675cb2ad5f0374eb138e6d2758cc679a37bc027cba1ffd941c44ec17"
   },
   {
+    "school": "香港中文大学",
+    "programme": "MSc Risk Management Science and Data Analytics",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/cuhk-risk-management-data-analytics-2026.png",
+    "sha256": "a237ab7dc55c3c169dfe2df6fc1971f6f381de68a44a4746f753ae7f30368d1c"
+  },
+  {
     "school": "香港理工大学",
     "programme": "MSc Mathematics for Artificial Intelligence Technology",
     "intake": "2026/27 学年",
@@ -248,11 +256,51 @@
     "sha256": "dcff90af6360ced49c0f65544ece7d7302ad084bbc79fc6e405c05a25e2e0c8d"
   },
   {
-    "school": "香港中文大学",
-    "programme": "MSc Risk Management Science and Data Analytics",
+    "school": "南洋理工大学",
+    "programme": "MSc Financial Technology (Intelligent Process Automation)",
+    "intake": "2024/25 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/ntu-financial-technology-ipa-2024.jpg",
+    "sha256": "1c23c88115f2d761d427f4b8a2f29d55109346715c0d9fea704cb14d0e71a424"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc Artificial Intelligence in Medicine",
     "intake": "2026/27 学年",
     "status": "有条件录取",
-    "image": "assets/img/published-offers/cuhk-risk-management-data-analytics-2026.png",
-    "sha256": "a237ab7dc55c3c169dfe2df6fc1971f6f381de68a44a4746f753ae7f30368d1c"
+    "image": "assets/img/published-offers/ntu-ai-medicine-2026.jpg",
+    "sha256": "02fdead5f43d78618e04a8f157c213e5a3d897f12a83e6b32d67a9110744247a"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc Biomedical Data Science",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/ntu-biomedical-data-science-2026.jpg",
+    "sha256": "fe8c02b13d7552270a928f393b8ec540b730ec6ba15cb64e334edff30bfbb70b"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc Signal Processing & Machine Learning",
+    "intake": "2026/27 学年",
+    "status": "有条件录取",
+    "image": "assets/img/published-offers/ntu-signal-processing-machine-learning-2026.jpg",
+    "sha256": "3518b4c379225886dedf8c0f8cc356fa4b88e552b6f9ae4a2de0f1608dc9370f"
+  },
+  {
+    "school": "新加坡国立大学",
+    "programme": "MSc Venture Creation",
+    "intake": "2025/26 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/nus-venture-creation-2025.jpg",
+    "sha256": "9cded565837d61ad32e488d950b17006c29e0d55b65096f9410684cfaedad63b"
+  },
+  {
+    "school": "新加坡国立大学",
+    "programme": "MSc Smart Industries and Digital Transformation",
+    "intake": "2025/26 学年",
+    "status": "录取通知",
+    "image": "assets/img/published-offers/nus-smart-industries-digital-transformation-2025.jpg",
+    "sha256": "5137625328c7f146dba8df2c641e97cdc61a901a2f3d2be88f910f263f234d19"
   }
 ]

@@ -45,7 +45,7 @@ npm run preview
 
 ## 录取材料维护
 
-当前共 32 份材料，按 `assets/published-offers.json` 的记录顺序从左到右连续展示，不按学校分组。桌面每行四张，手机每行两张；Offer 卡片没有原图链接或放大弹窗。追加材料时添加图片和清单记录，然后运行 `npm run generate`、`npm test` 和 `npm run build`。卡片仅显示学校与项目，不显示录取状态和学年；图片正文保持原样。
+当前共 38 份材料，按 `assets/published-offers.json` 的记录顺序从左到右连续展示，不按学校分组。桌面每行四张，手机每行两张；Offer 卡片没有原图链接或放大弹窗。追加材料时添加图片和清单记录，然后运行 `npm run generate`、`npm test` 和 `npm run build`。卡片仅显示学校与项目，不显示录取状态和学年；图片正文保持原样。
 
 MMSC 使用用户最后提供的新截图。UCL 金融科技及爱丁堡人工智能图片的公开副本已通过程序纯色遮盖个人信息；原始上传文件不随站点发布。
 
