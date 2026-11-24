@@ -209,3 +209,11 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,s
 }
 
 @media (max-width:479px) { .offer-grid { --offer-image-height:220px; } }
+
+/* Current cycle results are text-only, with aligned school and programme columns. */
+.fall-offer-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 32px; }
+.fall-offer-list li { display:grid; grid-template-columns:155px minmax(0,1fr); align-items:baseline; gap:12px; padding:18px 0; border-bottom:1px solid var(--line); min-width:0; }
+.fall-offer-list strong { color:var(--navy-deep); font-size:14px; }
+.fall-offer-list span { font-size:14px; line-height:1.65; overflow-wrap:break-word; }
+@media(max-width:991px) { .fall-offer-list { grid-template-columns:1fr; } }
+@media(max-width:479px) { .fall-offer-list li { grid-template-columns:120px minmax(0,1fr); gap:10px; padding:14px 0; } .fall-offer-list strong,.fall-offer-list span { font-size:12px; } }

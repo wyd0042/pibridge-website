@@ -7,6 +7,7 @@ import {JSDOM} from 'jsdom';
 import {renderPages} from '../scripts/render-pages.mjs';
 import {pageFiles,publicFiles} from '../scripts/public-files.mjs';
 import manifest from '../assets/published-offers.json' with {type:'json'};
+import fall2027 from '../assets/fall-2027-offers.json' with {type:'json'};
 const root=resolve(import.meta.dirname,'..');
 const app=await readFile(resolve(root,'app.js'),'utf8');
 const rendered=renderPages();
@@ -44,15 +45,19 @@ test('internal routes, section links and assets remain valid under a subpath',as
  for(const file of publicFiles)await access(resolve(root,file));
  for(const doc of docs.values())doc.defaultView.close();
 });
-test('all offers keep upload order without school sections or image links',async()=>{
+test('all offers follow the curated order without school sections or image links',async()=>{
  assert.equal(manifest.length,51);
  const cuhkStart=manifest.findIndex(o=>o.school==='香港中文大学');
  assert.deepEqual(manifest.slice(cuhkStart,cuhkStart+5).map(o=>o.school),['香港中文大学','香港中文大学','香港中文大学','香港理工大学','香港理工大学']);
  assert.equal(manifest[cuhkStart+2].programme,'MSc Risk Management Science and Data Analytics');
- assert.deepEqual(manifest.slice(32,38).map(o=>o.school),['南洋理工大学','南洋理工大学','南洋理工大学','南洋理工大学','新加坡国立大学','新加坡国立大学']);
+ assert.deepEqual(manifest.slice(-6).map(o=>o.school),['南洋理工大学','南洋理工大学','南洋理工大学','南洋理工大学','新加坡国立大学','新加坡国立大学']);
  assert.equal(new Set(manifest.map(o=>o.image)).size,51);
- assert.equal(manifest.slice(38).length,13);
- assert.deepEqual(manifest.slice(-2).map(o=>o.status),['奖学金通知','奖学金通知']);
+ assert.deepEqual(manifest.slice(0,5).map(o=>o.school),['牛津大学','剑桥大学','牛津大学','牛津大学','帝国理工学院']);
+ assert.ok(manifest.slice(5,9).every(o=>o.school==='伦敦政治经济学院'));
+ assert.equal(manifest[9].school,'加州大学伯克利分校');
+ assert.ok(manifest.slice(10,12).every(o=>o.school==='哥伦比亚大学'));
+ assert.ok(manifest.slice(12,17).every(o=>o.school==='伦敦大学学院'));
+ assert.deepEqual(manifest.filter(o=>o.school==='杜克大学').map(o=>o.status),['奖学金通知','奖学金通知']);
  for(const offer of manifest){
   assert.match(offer.image,/-pibridge\.png$/);
   assert.equal(offer.watermark?.text,'PiBridge');
@@ -64,7 +69,7 @@ test('all offers keep upload order without school sections or image links',async
   const cards=[...doc.querySelectorAll('main .published-offer')];
   assert.equal(doc.querySelectorAll('.offer-grid').length,1);
   assert.equal(doc.querySelectorAll('.published-offer small').length,0);
-  assert.doesNotMatch(doc.body.textContent,/有条件录取|20\d\d\/\d\d 学年/);
+  assert.doesNotMatch(cards.map(c=>c.textContent).join(' '),/有条件录取|20\d\d\/\d\d 学年/);
   assert.equal(doc.querySelectorAll('.offer-school-group,.university-table').length,0);
   assert.deepEqual(cards.map(c=>c.querySelector('img').getAttribute('src')),manifest.map(o=>o.image));
   assert.ok(cards.every(c=>c.tagName==='ARTICLE'&&!c.querySelector('a,button')));
@@ -140,4 +145,20 @@ test('four navigation links, mobile menu, Escape and compact header work',async(
   Object.defineProperty(dom.window,'scrollY',{value:650,configurable:true});dom.window.dispatchEvent(new Event('scroll'));
   assert.ok(doc.querySelector('.header').classList.contains('is-compact'));assert.ok(doc.querySelector('[data-header-spacer]').style.height);
   dom.window.close();
+});
+
+test('27 Fall lists all twenty text-only results with recommendations identified',()=>{
+ assert.equal(fall2027.length,20);
+ assert.equal(fall2027.filter(o=>o.status==='推研').length,3);
+ for(const page of ['index.html','cases.html']){
+  const doc=new JSDOM(rendered[page]).window.document;
+  const section=doc.getElementById('fall-2027-offers');
+  assert.ok(section);
+  assert.equal(section.querySelectorAll('li').length,20);
+  assert.equal(section.querySelectorAll('img,a,button').length,0);
+  assert.equal((section.textContent.match(/（推研）/g)||[]).length,3);
+  assert.doesNotMatch(section.textContent,/CJH|MZY|LYD|DXK|CSQ|ZX/);
+  assert.deepEqual([...section.querySelectorAll('li strong')].map(n=>n.textContent),fall2027.map(o=>o.school));
+  doc.defaultView.close();
+ }
 });

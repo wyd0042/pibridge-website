@@ -1,0 +1,102 @@
+[
+  {
+    "school": "伦敦政治经济学院",
+    "programme": "MSc Data Science",
+    "status": "录取"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc Enterprise Artificial Intelligence",
+    "status": "录取"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc Risk Management Science and Data Analytics",
+    "status": "推研"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc Risk Management Science and Data Analytics",
+    "status": "推研"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc Risk Management Science and Data Analytics",
+    "status": "推研"
+  },
+  {
+    "school": "伦敦政治经济学院",
+    "programme": "MSc Health Data Science",
+    "status": "录取"
+  },
+  {
+    "school": "香港科技大学",
+    "programme": "MSc Economics",
+    "status": "录取"
+  },
+  {
+    "school": "香港大学",
+    "programme": "Master of Finance in Financial Technology",
+    "status": "录取"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc Financial Technology (Digital Financial Services)",
+    "status": "录取"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc Financial Technology (Intelligent Process Automation)",
+    "status": "录取"
+  },
+  {
+    "school": "南洋理工大学",
+    "programme": "MSc Financial Technology (Intelligent Process Automation)",
+    "status": "录取"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc Risk Management Science and Data Analytics",
+    "status": "录取"
+  },
+  {
+    "school": "香港中文大学",
+    "programme": "MSc Risk Management Science and Data Analytics",
+    "status": "录取"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Financial Modelling and Optimization",
+    "status": "录取"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Computational Mathematical Finance",
+    "status": "录取"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Computational Mathematical Finance",
+    "status": "录取"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Financial Modelling and Optimization",
+    "status": "录取"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Computational Mathematical Finance",
+    "status": "录取"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Computational Mathematical Finance",
+    "status": "录取"
+  },
+  {
+    "school": "爱丁堡大学",
+    "programme": "MSc Statistics with Data Science",
+    "status": "录取"
+  }
+]
