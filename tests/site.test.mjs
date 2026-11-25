@@ -92,24 +92,30 @@ test('offer clicks and arrow keys cannot open an enlargement dialog',async()=>{
   dom.window.close();
  }
 });
-test('forms show WeChat without network or persistence and clear fields',async()=>{
- for(const file of ['index.html','contact.html']){
+test('consultation shows QR directly without forms and buttons still open WeChat',async()=>{
+ for(const file of pageFiles){
+  const staticDoc=new JSDOM(rendered[file]).window.document;
+  assert.equal(staticDoc.querySelectorAll('form,input,textarea,select').length,0);
+  assert.doesNotMatch(staticDoc.body.textContent,/填写邮箱|提交后显示|填写基本情况|提交并查看|填写的信息不会/);
+  if(['index.html','contact.html'].includes(file)){
+   const card=staticDoc.querySelector('main .consult-qr-card');
+   assert.ok(card);
+   assert.equal(card.querySelector('img').getAttribute('src'),'assets/brand/wechat-qr.png');
+   assert.equal(card.querySelector('a').getAttribute('href'),'assets/brand/wechat-qr.png');
+  }
+  staticDoc.defaultView.close();
   const dom=await loadPage(file),w=dom.window,doc=w.document;
   w.fetch=()=>{throw new Error('unexpected request');};
   w.XMLHttpRequest=function(){throw new Error('unexpected request');};
-  for(const form of doc.querySelectorAll('[data-form="qr"]')){
-   form.querySelectorAll('input:not([type="checkbox"])').forEach(input=>input.value=input.type==='email'?'test@example.com':'test');
-   form.reportValidity=()=>true;
-   form.dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));
-   const dialog=doc.querySelector('.consult-modal'); assert.ok(dialog.open);
-   assert.equal(w.localStorage.length,0); assert.equal(w.sessionStorage.length,0);
-   assert.ok([...form.querySelectorAll('input')].every(input=>!input.value));
-   dialog.querySelector('[data-close-dialog]').click();
-  }
+  doc.querySelector('[data-consult]').click();
+  const dialog=doc.querySelector('.consult-modal');assert.ok(dialog.open);
+  assert.ok(dialog.querySelector('img[src="assets/brand/wechat-qr.png"]'));
+  assert.doesNotMatch(dialog.textContent,/刚才填写|重新发送/);
+  assert.equal(w.localStorage.length,0);assert.equal(w.sessionStorage.length,0);
+  dialog.querySelector('[data-close-dialog]').click();assert.ok(!dialog.open);
   dom.window.close();
  }
 });
-
 
 test('slider indicators, benefit cards, pause and slide accessibility stay aligned',async()=>{
   const dom=await loadPage('index.html'),doc=dom.window.document;

@@ -217,3 +217,16 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,s
 .fall-offer-list span { font-size:14px; line-height:1.65; overflow-wrap:break-word; }
 @media(max-width:991px) { .fall-offer-list { grid-template-columns:1fr; } }
 @media(max-width:479px) { .fall-offer-list li { grid-template-columns:120px minmax(0,1fr); gap:10px; padding:14px 0; } .fall-offer-list strong,.fall-offer-list span { font-size:12px; } }
+
+/* The consultation QR is visible without submitting a form or running JavaScript. */
+.consult-qr-card { padding:30px; background:#fff; border:1px solid var(--line); border-radius:8px; text-align:center; color:var(--ink); min-width:0; }
+.consult-qr-card img { width:240px; max-width:100%; height:auto; margin:0 auto 18px; }
+.consult-qr-card h3 { font-size:22px; color:var(--navy-deep); margin-bottom:10px; }
+.consult-qr-card p { color:var(--muted); font-size:14px; line-height:1.8; }
+.consult-qr-card a { display:inline-block; margin-top:16px; color:var(--brand-dark); text-decoration:underline; font-size:14px; }
+.consult-qr-card small { display:block; margin-top:10px; color:var(--muted); font-size:12px; }
+.consult-background { border-top:1px solid var(--line); padding-top:24px; }
+.consult-background h3 { font-size:20px; margin-bottom:12px; }
+.consult-background p { color:var(--muted); line-height:1.9; }
+.footer .text-link { margin-top:16px; }
+@media(max-width:767px) { .consult-qr-card { padding:24px 20px; } .consult-qr-card h3 { font-size:20px; } }

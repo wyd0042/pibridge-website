@@ -62,3 +62,5 @@ Offer 卡片使用相同图片框高度，学校与项目文字起始线保持�
 NTU FinTech 的 Digital Financial Services 方向照片已加入现有 NTU 材料旁边；照片墙不再显示材料总数。27 Fall 文字名单中已有该方向，保留原有 20 条记录。
 
 LSE MSc Quantitative Methods for Risk Management 已加入现有 LSE 材料末尾，使用 2024/25 学年的原始录取截图；公开副本遮盖申请人联系地址，并加三行 PiBridge 水印。27 Fall 文字名单保持原有 20 条。
+
+申请评估入口改为直接展示微信二维码，首页与联系页无需填写或提交表单；页脚邮箱输入已删除。微信咨询按钮仍可打开二维码弹窗，原有 `contact.html#eval-form` 链接继续有效。

@@ -111,20 +111,9 @@ function closeDialog(dialog) {
   dialog.close();
 }
 function showConsult() {
-  $('.modal-content',consult).innerHTML='<img src="assets/brand/wechat-qr.png" width="330" height="330" alt="PiBridge 派桥留学官方微信客服二维码"><h3>PiBridge 派桥留学</h3><p>使用微信扫一扫，或保存二维码后在微信中识别。</p><p>此页面不会保存刚才填写的信息，请在微信中重新发送申请背景。</p><a href="assets/brand/wechat-qr.png" target="_blank" rel="noopener">打开二维码原图</a>';
+  $('.modal-content',consult).innerHTML='<img src="assets/brand/wechat-qr.png" width="330" height="330" alt="PiBridge 派桥留学官方微信客服二维码"><h3>PiBridge 派桥留学</h3><p>使用微信扫一扫，或保存二维码后在微信中识别。</p><p>添加微信后，直接发送申请背景和想咨询的问题。</p><a href="assets/brand/wechat-qr.png" target="_blank" rel="noopener">打开二维码原图</a>';
   openDialog(consult);
 }
-$$('[data-form="qr"]').forEach(form => {
-  form.addEventListener('submit',event => {
-    event.preventDefault();
-    if(!form.reportValidity()) return;
-    showConsult();
-    form.reset();
-    const counter=$('[data-message-count]',form); if(counter) counter.textContent='0 / 500';
-  });
-  const message=$('textarea',form), counter=$('[data-message-count]',form);
-  if(message&&counter) message.addEventListener('input',()=>{counter.textContent=`${message.value.length} / 500`;});
-});
 if('IntersectionObserver' in window) {
   const spyLinks=$$('[data-spy-link]');
   const observer=new IntersectionObserver(entries=>{
