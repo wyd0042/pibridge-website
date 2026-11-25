@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "node scripts/render-pages.mjs && node scripts/build.mjs",
     "test": "node --test",
     "preview": "python3 -m http.server 4173 --bind 127.0.0.1 --directory dist",
     "generate": "node scripts/render-pages.mjs"
@@ -14,5 +14,8 @@
   },
   "devDependencies": {
     "jsdom": "^27.0.0"
+  },
+  "dependencies": {
+    "sharp": "^0.35.5"
   }
 }

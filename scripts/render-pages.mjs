@@ -46,14 +46,15 @@ function processGrid() { return `<ol class="process-grid">${stages.map(([title,d
 const orderedOffers = publishedOffers;
 const offerAnchor = image => `offer-${image.split('/').at(-1).replace(/\.(png|jpe?g)$/, '')}`;
 const offerPageLink = image => `cases.html#${e(offerAnchor(image))}`;
+const offerThumbnail = image => image.replace(/([^/]+)\.(?:png|jpe?g)$/i, 'thumbs/$1.webp');
 const featuredOffers = orderedOffers.slice(0,4);
 function publishedOfferCard({school,programme,image}, preview=false) {
- return `<article class="offer-card published-offer" id="${e(offerAnchor(image))}"><span class="offer-image"><img src="${e(image)}" alt="${e(school)} · ${e(programme)}录取文件" loading="lazy" draggable="false"></span><div class="offer-caption"><strong>${e(school)}</strong><span>${e(programme)}</span></div></article>`;
+ return `<a class="offer-card published-offer" id="${e(offerAnchor(image))}" href="${e(image)}" target="_blank" rel="noopener" aria-label="打开${e(school)} · ${e(programme)}脱敏 Offer 原图"><span class="offer-image"><img src="${e(offerThumbnail(image))}" alt="${e(school)} · ${e(programme)}录取文件" loading="lazy" decoding="async" draggable="false"></span><span class="offer-caption"><strong>${e(school)}</strong><span>${e(programme)}</span></span></a>`;
 }
 function fall2027Section() {
  return section(head('2027 FALL','27 Fall 已获 Offer','录取与推研进展持续更新。')+`<ul class="fall-offer-list">${fall2027Offers.map(({school,programme,status})=>`<li><strong>${e(school)}</strong><span>${e(programme)}${status==='推研'?'（推研）':''}</span></li>`).join('')}</ul>`,'soft','fall-2027-offers');
 }
-function heroOffers() { return `<div class="hero-offers" aria-label="精选脱敏 Offer">${featuredOffers.slice(0,3).map(({school,image}) => `<div><img src="${e(image)}" alt="${e(school)}脱敏 Offer"><span>${e(school)}</span></div>`).join('')}</div>`; }
+function heroOffers() { return `<div class="hero-offers" aria-label="精选脱敏 Offer">${featuredOffers.slice(0,3).map(({school,image}) => `<div><img src="${e(offerThumbnail(image))}" alt="${e(school)}脱敏 Offer" loading="lazy" decoding="async"><span>${e(school)}</span></div>`).join('')}</div>`; }
 function consultationQR() {
  return `<div class="consult-qr-card"><img src="assets/brand/wechat-qr.png" width="330" height="330" alt="PiBridge 派桥留学官方微信二维码"><h3>微信扫码咨询</h3><p>添加微信后，直接发送申请背景和想咨询的问题。</p><a href="assets/brand/wechat-qr.png" target="_blank" rel="noopener">打开二维码原图</a><small>使用微信扫一扫，或保存二维码后在微信中识别。</small></div>`;
 }
