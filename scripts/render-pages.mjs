@@ -61,7 +61,7 @@ const brandFocus = '专注数学、统计学、数据科学、金融工程及计
 const mentorGroups = [
  { title:'学术导师', description:'从研究与学术发展角度，提供申请指导。', mentors:[
   ['Ryan','牛津大学博士','Numerical Analysis Group'],
-  ['Rocky','香港中文大学博士 · 港府奖学金（HKPFS）','Computational Optimization and Applications（COAP）论文已发表；Mathematical Programming（MP）论文投稿／审稿中。'],
+  ['Rocky','香港中文大学博士 · 港府奖学金（HKPFS）','Mathematical Programming 审稿中\n在 Computational Optimization and Applications 发表研究；'],
   ['Yu','牛津大学博士','在 Journal of Fluid Mechanics 流体力学顶刊发表研究'],
   ['Yao','牛津大学博士 · Clarendon 博士奖学金','在 Journal of Fluid Mechanics 流体力学顶刊发表研究'],
  ]},
@@ -97,7 +97,7 @@ const mentorGroups = [
 function mentorCard([name, background, focus], category = '') {
  const heading = category ? 'h3' : 'h4';
  return `<article class="mentor-card"><div>${category ? `<small>${e(category)}</small>` : ''}
-  <${heading}>${e(name)}</${heading}><b>${e(background)}</b>${focus ? `<p>${e(focus)}</p>` : ''}
+  <${heading}>${e(name)}</${heading}><b>${e(background)}</b>${focus ? `<p>${focus.split('\n').map(e).join('<br>')}</p>` : ''}
  </div></article>`;
 }
 
