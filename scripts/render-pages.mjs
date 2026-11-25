@@ -60,15 +60,15 @@ const brandSlogan = '<span lang="en">The world is your oyster.</span>';
 const brandFocus = '专注数学、统计学、数据科学、金融工程及计算机方向的硕博留学申请。';
 const mentorGroups = [
  { title:'学术导师', description:'从研究与学术发展角度，提供申请指导。', mentors:[
-  ['Ryan','牛津大学博士','在数值领域发表顶刊'],
-  ['Rocky','香港中文大学博士 · 港府奖学金（HKPFS）','在优化Opt领域发表顶刊'],
+  ['Ryan','牛津大学博士','Numerical Analysis Group'],
+  ['Rocky','香港中文大学博士 · 港府奖学金（HKPFS）','Computational Optimization and Applications（COAP）论文已发表；Mathematical Programming（MP）论文投稿／审稿中。'],
   ['Yu','牛津大学博士','在 Journal of Fluid Mechanics 流体力学顶刊发表研究'],
-  ['Yao','牛津大学博士','在 Journal of Fluid Mechanics 流体力学顶刊发表研究'],
+  ['Yao','牛津大学博士 · Clarendon 博士奖学金','在 Journal of Fluid Mechanics 流体力学顶刊发表研究'],
  ]},
  { title:'行业导师', description:'结合科技、金融、市场营销与人力资源领域的行业经验，提供职业发展视角。', mentors:[
   // 算法与技术
   ['Mark','新交所上市公司 · 大模型算法',''],
-  ['Matin','头部大模型公司 · 视频生成算法工程师',''],
+  ['Matin','头部上市大模型公司 · 视频生成算法工程师',''],
   ['Leo','头部互联网大厂 · 风控算法工程师',''],
   ['Yan','头部科技公司 · 算法工程师',''],
   ['Jacob','Web3 资深算法工程师',''],
@@ -77,7 +77,7 @@ const mentorGroups = [
   // 产品与市场
   ['Sandy','互联网大厂AI产品经理',''],
   ['Jason','知名金融科技公司 · 产品经理',''],
-  ['Wilson','头部手机品牌海外营销主管',''],
+  ['Wilson','头部手机品牌 · 海外数字营销主管（Digital Marketing）',''],
   // 投资、证券与量化
   ['Teddy','深创投投资经理',''],
   ['Thomas','国资PE投资分析师',''],
