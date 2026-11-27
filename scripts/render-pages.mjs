@@ -49,7 +49,7 @@ const offerPageLink = image => `cases.html#${e(offerAnchor(image))}`;
 const offerThumbnail = image => image.replace(/([^/]+)\.(?:png|jpe?g)$/i, 'thumbs/$1.webp');
 const featuredOffers = orderedOffers.slice(0,4);
 function publishedOfferCard({school,programme,image}, preview=false) {
- return `<a class="offer-card published-offer" id="${e(offerAnchor(image))}" href="${e(image)}" target="_blank" rel="noopener" aria-label="打开${e(school)} · ${e(programme)}脱敏 Offer 原图"><span class="offer-image"><img src="${e(offerThumbnail(image))}" alt="${e(school)} · ${e(programme)}录取文件" loading="lazy" decoding="async" draggable="false"></span><span class="offer-caption"><strong>${e(school)}</strong><span>${e(programme)}</span></span></a>`;
+ return `<article class="offer-card published-offer" id="${e(offerAnchor(image))}"><span class="offer-image"><img src="${e(offerThumbnail(image))}" alt="${e(school)} · ${e(programme)}录取文件" loading="lazy" decoding="async" draggable="false"></span><div class="offer-caption"><strong>${e(school)}</strong><span>${e(programme)}</span></div></article>`;
 }
 function fall2027Section() {
  return section(head('2027 FALL','27 Fall 已获 Offer','录取与推研进展持续更新。')+`<ul class="fall-offer-list">${fall2027Offers.map(({school,programme,status})=>`<li><strong>${e(school)}</strong><span>${e(programme)}${status==='推研'?'（推研）':''}</span></li>`).join('')}</ul>`,'soft','fall-2027-offers');

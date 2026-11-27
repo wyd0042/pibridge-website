@@ -9,6 +9,7 @@ import {pageFiles,publicFiles} from '../scripts/public-files.mjs';
 import manifest from '../assets/published-offers.json' with {type:'json'};
 import fall2027 from '../assets/fall-2027-offers.json' with {type:'json'};
 const root=resolve(import.meta.dirname,'..');
+const thumbnailImages=new Map(manifest.map(o=>[o.image.replace(/([^/]+)\.(?:png|jpe?g)$/i,'thumbs/$1.webp'),o.image]));
 const app=await readFile(resolve(root,'app.js'),'utf8');
 const rendered=renderPages();
 async function loadPage(file='cases.html',search=''){
@@ -39,7 +40,8 @@ test('internal routes, section links and assets remain valid under a subpath',as
   const url=new URL(raw,`https://example.test/pibridge-website/${file}`);
   assert.equal(url.origin,'https://example.test');
   const path=decodeURIComponent(url.pathname.slice('/pibridge-website/'.length));
-  assert.ok(publicFiles.includes(path),`${file}: ${path}`); await access(resolve(root,path));
+  const sourcePath=thumbnailImages.get(path)??path;
+  assert.ok(publicFiles.includes(sourcePath),`${file}: ${path}`); await access(resolve(root,sourcePath));
   if(url.hash&&docs.has(path))assert.ok(docs.get(path).getElementById(url.hash.slice(1)),`${file}: ${raw}`);
  }
  for(const file of publicFiles)await access(resolve(root,file));
@@ -72,9 +74,9 @@ test('all offers follow the curated order without school sections or image links
   assert.equal(doc.querySelectorAll('.published-offer small').length,0);
   assert.doesNotMatch(cards.map(c=>c.textContent).join(' '),/有条件录取|20\d\d\/\d\d 学年/);
   assert.equal(doc.querySelectorAll('.offer-school-group,.university-table').length,0);
-  assert.deepEqual(cards.map(c=>c.querySelector('img').getAttribute('src')),manifest.map(o=>o.image));
+  assert.deepEqual(cards.map(c=>c.querySelector('img').getAttribute('src')),[...thumbnailImages.keys()]);
   assert.ok(cards.every(c=>c.tagName==='ARTICLE'&&!c.querySelector('a,button')));
-  assert.ok(![...doc.querySelectorAll('a')].some(a=>/\.(png|jpg)$/.test(a.getAttribute('href'))&&a.getAttribute('href').includes('published-offers')));
+  assert.ok(![...doc.querySelectorAll('a')].some(a=>/\.(png|jpe?g|webp)$/.test(a.getAttribute('href'))&&a.getAttribute('href').includes('published-offers')));
   doc.defaultView.close();
  }
  for(const offer of manifest)assert.equal(createHash('sha256').update(await readFile(resolve(root,offer.image))).digest('hex'),offer.sha256);
